@@ -1,13 +1,13 @@
-# Cloud Foundry Product List Sample
+# Cloud Foundry 제품 목록 샘플
 
-Sample application running on SAP Cloud Platform Cloud Foundry Environment and using some of the services.
+SAP Cloud Platform Cloud Foundry Environment에서 실행되고 일부 서비스를 사용하는 샘플 애플리케이션.
 
-This tutorial shows how to...
-* get access to SAP Cloud Platform Cloud Foundry Environment trial account
-* develop from scratch an application and enhance it with additional functionality using basic concepts of Cloud Foundry like backing services
-* work with your Cloud Foundry trial account and application using the SAP Cloud Platform cockpit and Cloud Foundry Command Line Interface (CF CLI)
-* use application frameworks like Spring and Spring Boot to efficiently develop applications
-* monitor, scale and update your application.
+이 튜토리얼은 다음을 수행하는 방법을 보여줍니다 ...
+* SAP Cloud Platform Cloud Foundry Environment 평가판 계정에 액세스하십시오.
+* 백업 서비스와 같은 Cloud Foundry의 기본 개념을 사용하여 응용 프로그램을 처음부터 개발하고 추가 기능으로 향상시킵니다.
+* SAP Cloud Platform 조종석 및 CF Foundstone CLI (Cloud Foundry Command Line Interface)를 사용하여 Cloud Foundry 평가판 계정 및 응용 프로그램과 연동하십시오.
+Spring과 Spring Boot와 같은 응용 프로그램 프레임 워크를 사용하여 응용 프로그램을 효율적으로 개발하십시오.
+* 응용 프로그램을 모니터링, 확장 및 업데이트하십시오.
 
 # Scenario
 
