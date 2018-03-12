@@ -1,5 +1,5 @@
-# Cloud Foundry 제품 목록 샘플
-샘플 어플리케이션은 SAP Cloud Platform Cloud Foundry Environment에서 실행되고 일부 서비스를 사용합니다.
+# Cloud Foundry 애플리케이션 샘플
+샘플 애플리케이션은 SAP Cloud Platform Cloud Foundry Environment에서 실행되고 일부 서비스를 사용합니다.
 
 이 튜토리얼에서는 다음 작업을 수행하는 방법을 보여줍니다.
 * SAP Cloud Platform Cloud Foundry Environment 평가판 계정에 접근하는 방법
