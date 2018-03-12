@@ -1,5 +1,4 @@
 # Cloud Foundry 제품 목록 샘플
-
 샘플 어플리케이션은 SAP Cloud Platform Cloud Foundry Environment에서 실행되고 일부 서비스를 사용합니다.
 
 이 튜토리얼은 아래와 같은 사용방법을 다룹니다.
@@ -9,106 +8,107 @@
 * Spring과 Spring Boot와 같은 응용 프로그램 프레임 워크를 사용하여 응용 프로그램을 효율적으로 개발하는 방법
 * 응용 프로그램을 모니터링, 확장 및 업데이트하는 방법
 
+
 # 시나리오
+당신의 상사가 언젠가 아침에 와서 당신의 회사가 현대적인 방식으로 제품을 판매 할 수 있도록 새로운 전자 상거래 사이트를 개발해야한다고 말한다. 귀사는 이미 SAP Cloud Platform을 선택하여 사용하고 있지만 아직 경험이 많이 없으며 최근에 도입 된 Cloud Foundry Environment를 처음 접했을 것입니다. 클라우드 기반 응용 프로그램 개발을위한 적절한 선택이라고 들었으므로 매우 빨리 시작하고 탐색해야합니다. 상사는 가능한 한 빨리 SAP Cloud Platform에서 실행되는 전자 상거래 사이트의 프로토 타입을 가져와 영업 부서에 보여주고 다음 단계를 논의 할 수 있기를 원합니다. 초기 요구 사항은 다음과 같습니다.
+* 제품 카탈로그에서 사용 가능한 제품 목록을 표시하는 기본 UI가 있어야합니다.
+* 제품을 선택하면 그에 대한 전용보기가 제공됩니다.
 
-Put yourself in the shoes of a developer... Your boss comes one morning and tells you that you need to develop a new eCommerce site so your company can sell products in a modern way. Your company has already selected and uses SAP Cloud Platform but you don't yet have much experience with it and for sure you're pretty new to the recently introduced Cloud Foundry Environment. You've heard that this is the proper choice for cloud-native applications development, so you should get started pretty fast and explore it. Your boss wants to get as soon as possible a prototype of the eCommerce site running on SAP Cloud Platform so that he can show it to the sales department and discuss the next steps. The initial requirements are:
-* Have a basic UI that displays the list of products available in a product catalogue.
-* When you select a product you get a dedicated view about it.
+따라서 SpringBoot로 프로토 타입 응용 프로그램을 개발할 것입니다.
 
-So you decide you will develop a prototype application with SpringBoot.
+PoC처럼 시작하여 생산적인 애플리케이션으로 쉽게 진화하는 프로젝트에 대한 경험이 있으므로 애플리케이션 모니터링 및 운영 옵션을 살펴보고 싶습니다. 영업 팀이 프로토 타입을보고 나면 가능한 한 빨리 출시하고 당연히 프로덕션을위한 준비가되었다고 생각하지만, 이전에 효율적인 개발 작업을 위해 응용 프로그램을 준비하는 것이 무엇을 의미하는지 알고 싶습니다. 시작되었습니다. 따라서 응용 프로그램을 관찰하고 확장하고 업데이트하는 옵션이 무엇인지보고 싶습니다.
 
-You already have experience with such projects that start like PoC and easily evolve into productive application, so you want to explore the options for monitoring and operating the application. You know that once the sales team sees the prototype they will want it released as soon as possible and will of course think it's almost ready for production, but you want to know what will it mean for you to prepare the application for efficient DevOps before it's launched. So you want to see what are the options to observe the application, scale it and update it.
+다음 단계로 유연한 인증 프레임 워크 인 OAuth 2.0을 사용하여 Product List 애플리케이션을 보호해야합니다. OAuth 2.0의 인증 코드 부여는 승인 된 사용자에게만 애플리케이션 및 데이터에 대한 액세스 권한을 부여하는 탁월한 보안 메커니즘을 제공합니다. SAP XS Advanced Application Router, SAP XS UAA OAuth 인증 서비스 및 Spring Boot를 사용하면 손쉽게 역할을 구성하고 사용자에게 할당 한 다음 응용 프로그램에서 역할 검사를 구현할 수있는 탁월한 도구가 제공됩니다.
 
-As a next step, you will have to secure the Product List application by using a flexible authorization framework - OAuth 2.0. The authorization code grant of OAuth 2.0 provides an excellent security mechanism to grant only authorized users access to your application and its data. With the SAP XS Advanced Application Router, the SAP XS UAA OAuth authorization service and Spring Boot you have outstanding tools at your fingertips to configure roles, assign them to users and, finally, implement role checks in your application.
+마지막으로 Cloud Connector에서 공개되는 사내 구축 형 시스템에 액세스하려고합니다. 연결 서비스로 응용 프로그램을 확장하여 해당 시스템에서 서비스를 사용할 수 있습니다.
 
-Finally, you want to access on-premise systems exposed by the Cloud Connector. You can consume services on those systems by extending the application with the connectivity service.
 
-# Components Overview
+# 구성 요소 개요
 <br><br>
 ![Components Overview](/img/overview_components.png?raw=true)
 <br><br>
 
-The involved software components shown in the figure above are development  tools and set of components for each session - basic and advanced. You can read more details below.
+위의 그림에 표시된 관련 소프트웨어 구성 요소는 개발 도구 및 각 세션의 구성 요소 세트 (기본 및 고급)입니다. 아래에서 자세한 내용을 읽을 수 있습니다.
 
-## Development  & Tools
+연습 문제를 해결하려면 로컬 개발자에게이 구성 요소가 필요합니다. TechEd가 제공 한 랩탑을 사용한다면 이미 설치 및 구성되어 있어야합니다.
 
-To go through the exercises you will need these components in your local dev . If you use a TechEd provided laptop then they should be already installed and configured there.
-
-Mini CodeJam and Basic Hands-on:
-- Eclipse
+미니 코드 잼 및 기본 핸즈 온 :
+- 이클립스
 - CF CLI
 - Maven, Git, Java
 
-Advanced Hands-on:
-- MTA Archive Builder
-- SAP Cloud Connector
-
-## Basic Hands-on session
-
-**Product List application**
-
-This is the sample application that will be developed and enhanced during the exercises. It will run on SAP Cloud Platform Cloud Foundry  using different services like e.g. PostgreSQL for persistence layer in the cloud, Application Logging, etc. It's a SpringBoot application with a simple UI.
-
-**PostgreSQL**
-
-PostgreSQL, the open source object-relational database management system. It is an enterprise-class, ACID compliant database. It is available for consumption as a backing service in the Cloud Foundry Environment.
-
-**Application Logging service**
-
-You can create, access, and analyze application logs using the Application Logging service. It is based on the open source logging platform Elasticsearch, Logstash, Kibana (the Elastic Stack). You can have both application logs that originate from the Cloud Foundry components and logs explicitly issued by the application. Your application requires some preparation before application logs can be streamed to the Application Logging service.
-
-**Application Autoscaler service**
-
-Application Autoscaler service is used to automatically scale up or scale down bound application instances based on user-defined policies. A dynamic scale up of an application instance ensures that the application does not crash or encounter performance problems as the load increases. As the load reduces, a dynamic scale down ensures that your application utilizes optimal resources.
-
-## Advanced Hands-on session
-
-In addition to the components described above, in the advanced exercises we will explore more services and will see how to consume and configure these to add more sophisticated functionality to the Product List sample application.
-
-**XS UAA service**
-
-The XS User Account and Authentication (UAA) service is a multi-tenant identity management service, used in Cloud Foundry. Its primary role is as an OAuth 2.0 provider, issuing tokens for client applications to use when they act on behalf of Cloud Foundry users. It can also authenticate users with their Cloud Foundry credentials, and can act as an SSO service using those credentials (or others). It has endpoints for managing user accounts and for registering OAuth 2.0 clients, as well as various other management functions.
+고급 실습 :
+- MTA 아카이브 빌더
+- SAP 클라우드 커넥터
 
 
-**Application Router**
+## 기본 실습 세션
 
-Business applications embracing microservice architecture, are decomposed into multiple services that can be managed independently. This approach brings some challenges for application developers, like handling security in a consistent way and dealing with same origin policy. The Application Router is a separate component that exposes the endpoint accessed by a browser to access the application and addresses some of these challenges. It provides three major functions:
-- Reverse proxy - provides a single entry point to a business application and forwards user requests to respective backend services
-- Serves static content from the file system
-- Security – provides security related functionality like login, logout, user authentication, authorization and CSRF protection in a central place.
+** 제품 목록 신청 **
+
+연습 도중 개발되고 향상 될 샘플 응용 프로그램입니다. SAP Cloud Platform Cloud Foundry에서 실행됩니다. 클라우드의 지속성 계층 용 PostgreSQL, 응용 프로그램 로깅 등 간단한 UI로 SpringBoot 응용 프로그램입니다.
+
+** PostgreSQL **
+
+PostgreSQL은 오픈 소스 객체 관계형 데이터베이스 관리 시스템입니다. 엔터프라이즈 급 ACID 호환 데이터베이스입니다. Cloud Foundry Environment에서 백업 서비스로 사용할 수 있습니다.
+
+** 응용 프로그램 로깅 서비스 **
+
+응용 프로그램 로깅 서비스를 사용하여 응용 프로그램 로그를 작성, 액세스 및 분석 할 수 있습니다. 오픈 소스 로깅 플랫폼 Elasticsearch, Logstash, Kibana (Elastic Stack)를 기반으로합니다. Cloud Foundry 구성 요소에서 비롯된 응용 프로그램 로그와 응용 프로그램에서 명시 적으로 발급 한 로그를 모두 가질 수 있습니다. 응용 프로그램 로그를 응용 프로그램 로깅 서비스로 스트리밍하려면 응용 프로그램을 준비해야합니다.
+
+** 응용 프로그램 자동 스케일러 서비스 **
+
+응용 프로그램 자동 스케일러 서비스는 사용자 정의 정책을 기반으로 바운드 응용 프로그램 인스턴스를 자동으로 확장 또는 축소하는 데 사용됩니다. 응용 프로그램 인스턴스를 동적으로 확장하면 응용 프로그램이 충돌하지 않거나로드가 증가 할 때 성능 문제가 발생하지 않습니다. 로드가 줄어들면 동적으로 축소되므로 응용 프로그램이 최적의 리소스를 사용합니다.
+
+## 고급 실습 세션
+
+위에서 설명한 구성 요소 외에도 고급 연습에서 더 많은 서비스를 탐색하고이를 사용 및 구성하여 제품 목록 샘플 응용 프로그램에보다 정교한 기능을 추가하는 방법을 살펴 봅니다.
+
+** XS UAA 서비스 **
+
+XS UAA (User Account and Authentication) 서비스는 멀티 파운드 (multi-tenant) ID 관리 서비스로 Cloud Foundry에서 사용됩니다. 주요 역할은 OAuth 2.0 공급자로서 클라우드 Foundry 사용자를 대신하여 클라이언트 응용 프로그램이 작동 할 때 사용할 토큰을 발급하는 것입니다. 또한 Cloud Foundry 자격 증명으로 사용자를 인증 할 수 있으며 해당 자격 증명 (또는 다른 자격 증명)을 사용하여 SSO 서비스로 작동 할 수 있습니다. 또한 사용자 계정을 관리하고 OAuth 2.0 클라이언트를 등록하기위한 엔드 포인트를 비롯하여 다양한 관리 기능을 제공합니다.
 
 
-**Connectivity service**
+** 응용 프로그램 라우터 **
 
-The Connectivity service provides a standard HTTP Proxy for on-premise connectivity that is accessible by any application. Proxy host and port are available as  variables. Applications are responsible to propagate the user JWT token via the SAP-Connectivity-Authentication header. This is needed by the connectivity service in order to open a tunnel to the subaccount for which a configuration is made in the Cloud Connector.
+마이크로 서비스 아키텍처를 포용하는 비즈니스 애플리케이션은 독립적으로 관리 할 수있는 여러 서비스로 분해됩니다. 이 접근 방식은 일관된 방식으로 보안을 처리하고 동일한 출처 정책을 다루는 것과 같은 응용 프로그램 개발자에게 몇 가지 과제를 제기합니다. Application Router는 브라우저에 의해 액세스되는 엔드 포인트를 노출하여 애플리케이션에 액세스하고 이러한 문제점 중 일부를 해결하는 별도의 구성 요소입니다. 세 가지 주요 기능을 제공합니다.
+- 역방향 프록시 - 비즈니스 응용 프로그램에 대한 단일 진입 점을 제공하고 사용자 요청을 각각의 백엔드 서비스에 전달합니다.
+- 파일 시스템에서 정적 컨텐츠를 제공합니다.
+- 보안 - 중앙 위치에서 로그인, 로그 아웃, 사용자 인증, 권한 부여 및 CSRF 보호와 같은 보안 관련 기능을 제공합니다.
 
-# Sessions
 
-There are three different sessions where we use this sample application - mini code jam (1 hour), basic hands-on (2 hours), advanced hands-on (2 hours). You can find detailed exercises for the session you attend following the respective link below.
+** 연결 서비스 **
 
-:one: **Mini CodeJam (1 hour)**
+연결 서비스는 모든 응용 프로그램에서 액세스 할 수있는 구내 연결을위한 표준 HTTP 프록시를 제공합니다. 프록시 호스트 및 포트는 변수로 사용할 수 있습니다. 응용 프로그램은 SAP-Connectivity-Authentication 헤더를 통해 사용자 JWT 토큰을 전파해야합니다. 이는 클라우드 커넥터에서 구성이 이루어진 하위 계정에 대한 터널을 열려면 연결 서비스에서 필요합니다.
 
-In this session, you will get familiar with the Cockpit and the Cloud Foundry CLI. Specifically, you will learn to:
-- push an application
-- bind a service to an app
-- check app logs
-- change the health check
-- do a blue-green deployment
 
-Detailed steps description for the session: [Mini CodeJam](/exercises/basic-codeJam)
+# 세션 수
 
-:two: **Basic Hands-on (2 hours)**
+미니 코드 잼 (1 시간), 기본 실습 (2 시간), 고급 실습 (2 시간)의 3 가지 세션이이 샘플 응용 프로그램을 사용합니다. 아래의 해당 링크를 따라 참석 한 세션에 대한 자세한 연습을 찾을 수 있습니다.
 
-In this session, you will develop a simple SpringBoot application, run it locally and then push it to SAP Cloud Platform Cloud Foundry Environment. After you explore what you see for the application and check basic logs and metrics, you will enhance the application with supportability features e.g. integration with Application Logging service. You will also see how you can scale the application.
+: 1 : ** 미니 코드 잼 (1 시간) **
 
-Detailed steps description for this session: [Basic Hands-on](exercises/basic-hands-on)
+이 세션에서는 조종실 및 Cloud Foundry CLI에 익숙해 질 것입니다. 특히, 다음을 배우게됩니다.
+- 응용 프로그램을 밀어 넣으십시오.
+- 서비스를 앱에 바인딩
+- 앱 로그 확인
+- 상태 확인 변경
+- 푸른 녹색 배치
 
-:three: **Advanced Hands-on (2 hours)**
+세션 세부 단계 설명 : [Mini CodeJam] (/ exercises / basic-codeJam)
 
-In this session you will explore a bit more sophisticated enhancements and operations of the sample Product List application:
-* Explore how you can update applications running in the Cloud-Foundry , using blue/green deployment approach.
-* Create an MTA archive and check how the deployment and update is simplified in case you have a more complex application that consists of multiple modules and uses multiple services.
-* Secure the Product List application and configure the OAuth 2.0 Authorization Code Grant (human to service communication).
-* Extend the application to consume Connectivity service and access on-premise systems exposed by Cloud Connector
+: 2 : ** 기본 실습 (2 시간) **
 
-Detailed steps description for this session: [Advanced Hands-on](exercises/advanced-hands-on)
+이 세션에서는 간단한 SpringBoot 응용 프로그램을 개발하고 로컬로 실행 한 다음 SAP Cloud Platform Cloud Foundry Environment로 푸시합니다. 애플리케이션에 대한 내용을 탐색하고 기본 로그 및 메트릭을 확인한 후에는 지원 기능과 함께 애플리케이션을 향상시킬 수 있습니다. 응용 프로그램 로깅 서비스와의 통합 또한 응용 프로그램을 확장하는 방법을 볼 수 있습니다.
+
+이 세션의 세부 단계 설명 : [Basic Hands-on] (연습 / 기본 핸즈 온)
+
+: 3 : ** 고급 실습 (2 시간) **
+
+이 세션에서는 샘플 Product List 응용 프로그램의 좀 더 정교한 향상 및 작동을 살펴 봅니다.
+* 청색 / 녹색 배치 방식을 사용하여 Cloud-Foundry에서 실행되는 애플리케이션을 업데이트하는 방법을 알아보십시오.
+* MTA 아카이브를 만들고 여러 모듈로 구성되어 있고 여러 서비스를 사용하는보다 복잡한 응용 프로그램이있는 경우 배포 및 업데이트가 어떻게 단순화되는지 확인하십시오.
+* 제품 목록 응용 프로그램을 보안하고 OAuth 2.0 인증 코드 부여 (사람과 서비스 간 통신)를 구성합니다.
+* 클라우드 커넥터에 의해 노출 된 온 - 프레미스 시스템에 연결성 서비스를 액세스하고 액세스하도록 응용 프로그램을 확장합니다.
+
+이 세션의 세부 단계 설명 : [Advanced Hands-on] (연습 / 고급 핸즈 온)
