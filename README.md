@@ -95,13 +95,13 @@ XS UAA (User Account and Authentication) 서비스는 멀티 파운드 (multi-te
 - 상태 확인 변경
 - 푸른 녹색 배치
 
-세션 세부 단계 설명 : [Mini CodeJam] (/ exercises / basic-codeJam)
+세션 세부 단계 설명 : [Mini CodeJam](/exercises/basic-codeJam)
 
 :two: ** 기본 실습 (2 시간) **
 
 이 세션에서는 간단한 SpringBoot 응용 프로그램을 개발하고 로컬로 실행 한 다음 SAP Cloud Platform Cloud Foundry Environment로 푸시합니다. 애플리케이션에 대한 내용을 탐색하고 기본 로그 및 메트릭을 확인한 후에는 지원 기능과 함께 애플리케이션을 향상시킬 수 있습니다. 응용 프로그램 로깅 서비스와의 통합 또한 응용 프로그램을 확장하는 방법을 볼 수 있습니다.
 
-이 세션의 세부 단계 설명 : [Basic Hands-on] (연습 / 기본 핸즈 온)
+이 세션의 세부 단계 설명 : [Basic Hands-on](exercises/basic-hands-on)
 
 :three: ** 고급 실습 (2 시간) **
 
@@ -111,4 +111,4 @@ XS UAA (User Account and Authentication) 서비스는 멀티 파운드 (multi-te
 * 제품 목록 응용 프로그램을 보안하고 OAuth 2.0 인증 코드 부여 (사람과 서비스 간 통신)를 구성합니다.
 * 클라우드 커넥터에 의해 노출 된 온 - 프레미스 시스템에 연결성 서비스를 액세스하고 액세스하도록 응용 프로그램을 확장합니다.
 
-이 세션의 세부 단계 설명 : [Advanced Hands-on] (연습 / 고급 핸즈 온)
+이 세션의 세부 단계 설명 : [Advanced Hands-on](exercises/advanced-hands-on)
