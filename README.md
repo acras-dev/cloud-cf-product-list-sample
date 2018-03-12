@@ -95,7 +95,7 @@ XS UAA (User Account and Authentication) 서비스는 멀티 파운드 (multi-te
 - 상태 확인 변경
 - 푸른 녹색 배치
 
-세션 세부 단계 설명 : [Mini CodeJam](/exercises/basic-codeJam)
+이 세션 세부 단계 설명 : [Mini CodeJam](/exercises/basic-codeJam)
 
 :two:**기본 실습 (2 시간)**
 
