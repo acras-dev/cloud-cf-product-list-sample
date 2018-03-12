@@ -18,12 +18,12 @@
 
 :three: **클라우드에 올리기**
 
-이 연습에서는 제품 목록 응용 프로그램을 Cloud Foundry Environment 평가판으로 밀어 넣고 지속성 계층에 PostgreSQL 서비스를 사용하도록 응용 프로그램을 변경합니다.
+이 연습에서는 제품 목록 응용 프로그램을 Cloud Foundry Environment 평가판으로 올리고 지속성 계층에 PostgreSQL 서비스를 사용하도록 응용 프로그램을 변경합니다.
 
 :four: **(Optional) 애플리케이션 관찰**
 
 CF CLI 및 SAP 클라우드 플랫폼 조종석을 통해 실행중인 응용 프로그램에 대한 사용 가능한 정보 확인 : 응용 프로그램 이벤트, 로그, 통계, 서비스 인스턴스 등
 
-:five: **(Optional) Blue-Green 배포**
+:five: **(Optional) Blue-Green 배포**(../13_bluegreen)
 
 다운 타임을 줄이는 것이 중요합니다. "Blue-Green"배치 접근법을 통해이를 달성하는 방법을 배워보십시오.
