@@ -1,17 +1,17 @@
-# Setting up the environment
+# 환경 설정
 
 
-## Estimated time
+## 예상 시간
 
 :clock4: 10 분
 
-## Objective
+## 목표
 
 이 연습에서는 SAP Cloud Platform에서 무료 평가판 계정을 만들고, Cloud Foundry Environment 평가판을 시작하고, 로컬 개발 환경을 설정하고, SAP Cloud Platform용 웹 기반 관리 도구 인 SAP Cloud Platform 조종석을 살짝 탐험하는 방법을 배우게됩니다.
 
-# Exercise description
+# 연습문제 설명
 
-## 당신의 클라우드 파운드리 시작
+## 당신의 클라우드 파운드리를 시작하세요.
 
 :bulb: **Note:** 아직 SAP Cloud Platform에 대한 평가판 계정이없는 경우이 [문서](https://www.sap.com/developer/tutorials/hcp-create-trial-account.html)를 수행하여 얻으십시오.
 
@@ -59,7 +59,7 @@ You are now in your Cloud Foundry trial space.
 - Space에서 실행중인 응용 프로그램 목록으로 이동하여 실행중인 응용 프로그램을 모두 삭제하거나 실행중인 응용 프로그램을 모두 중지하십시오.
 - 서비스 인스턴스로 이동하여 모두 삭제하십시오.
 
-## Local development environment
+## 개인 개발 환경
 
 :bulb: **Note:** TechEd에서 제공하는 랩톱을 사용하는 경우 아래 나열된 로컬 개발 환경 도구가 이미 설치되어 있습니다. 이 경우 추가로 설치할 필요가 없습니다. 자신의 노트북을 사용하는 경우, 가지고 있지 않은 경우를 대비하여 아래 나열된 도구를 설치하고 설정해야합니다.
 
