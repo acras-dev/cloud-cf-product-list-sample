@@ -1,15 +1,15 @@
 # Cloud Foundry 제품 목록 샘플
 
-SAP Cloud Platform Cloud Foundry Environment에서 실행되고 일부 서비스를 사용하는 샘플 애플리케이션.
+이 샘플 어플리케이션은 SAP Cloud Platform Cloud Foundry Environment에서 실행되고 일부 서비스를 사용합니다.
 
-이 튜토리얼은 다음을 수행하는 방법을 보여줍니다 ...
-* SAP Cloud Platform Cloud Foundry Environment 평가판 계정에 액세스하십시오.
-* 백업 서비스와 같은 Cloud Foundry의 기본 개념을 사용하여 응용 프로그램을 처음부터 개발하고 추가 기능으로 향상시킵니다.
-* SAP Cloud Platform 조종석 및 CF Foundstone CLI (Cloud Foundry Command Line Interface)를 사용하여 Cloud Foundry 평가판 계정 및 응용 프로그램과 연동하십시오.
-Spring과 Spring Boot와 같은 응용 프로그램 프레임 워크를 사용하여 응용 프로그램을 효율적으로 개발하십시오.
-* 응용 프로그램을 모니터링, 확장 및 업데이트하십시오.
+이 튜토리얼은 아래와 같은 사용방법을 제공합니다.
+* SAP Cloud Platform Cloud Foundry Environment 평가판 계정에 접근하는 방법
+* 백업 서비스와 같은 Cloud Foundry의 기본 개념을 사용하여 응용 프로그램을 처음부터 개발하고 추가 기능으로 향상시키는 방법
+* SAP Cloud Platform 조종석 및 CF Foundstone CLI (Cloud Foundry Command Line Interface)를 사용하여 Cloud Foundry 평가판 계정 및 응용 프로그램과 연동하는 방법
+* Spring과 Spring Boot와 같은 응용 프로그램 프레임 워크를 사용하여 응용 프로그램을 효율적으로 개발하는 방법
+* 응용 프로그램을 모니터링, 확장 및 업데이트하는 방법
 
-# Scenario
+# 시나리오
 
 Put yourself in the shoes of a developer... Your boss comes one morning and tells you that you need to develop a new eCommerce site so your company can sell products in a modern way. Your company has already selected and uses SAP Cloud Platform but you don't yet have much experience with it and for sure you're pretty new to the recently introduced Cloud Foundry Environment. You've heard that this is the proper choice for cloud-native applications development, so you should get started pretty fast and explore it. Your boss wants to get as soon as possible a prototype of the eCommerce site running on SAP Cloud Platform so that he can show it to the sales department and discuss the next steps. The initial requirements are:
 * Have a basic UI that displays the list of products available in a product catalogue.
