@@ -3,87 +3,87 @@
 
 ## Estimated time
 
-:clock4: 10 minutes
+:clock4: 10 분
 
 ## Objective
 
-In this exercise you'll learn how you can create free trial account on the SAP Cloud Platform, start your Cloud Foundry Environment trial, setup local development environment and explore a bit the SAP Cloud Platform cockpit which is the web based administration tool for SAP Cloud Platform.
+이 연습에서는 SAP Cloud Platform에서 무료 평가판 계정을 만들고, Cloud Foundry Environment 평가판을 시작하고, 로컬 개발 환경을 설정하고, SAP Cloud Platform용 웹 기반 관리 도구 인 SAP Cloud Platform 조종석을 살짝 탐험하는 방법을 배우게됩니다.
 
 # Exercise description
 
-## Start your Cloud Foundry Trial
+## 당신의 클라우드 파운드리 시작
 
-:bulb: **Note:** In case you don't have a trial account on the SAP Cloud Platform yet, follow this [step-by-step-tutorial](http://go.sap.com/developer/tutorials/hcp-create-trial-account.html) to get one.
+:bulb: **Note:** 아직 SAP Cloud Platform에 대한 평가판 계정이없는 경우이 [문서](https://www.sap.com/developer/tutorials/hcp-create-trial-account.html)를 수행하여 얻으십시오.
 
-1. Then in [SAP Cloud Platform cockpit](https://account.hana.ondemand.com/#/home/welcome) navigate to your user home. You should see a button *Start Cloud Foundry Trial*.  
+1. 그런 다음 [SAP Cloud Platform cockpit](https://account.hana.ondemand.com/#/home/welcome) 조종석 에서 사용자 홈으로 이동하십시오. Cloud Foundry Trial 시작 버튼이 표시 됩니다.
 <br><br>
 ![Start Cloud Foundry Trial](/img/start_cf_trial.png?raw=true)
 <br><br>
-2. Click on the *Start Cloud Foundry Trial* button – a pop-up will appear. Select a region from the dropdown for your trial and click OK
-- If you attend TechEd Las Vegas or TechEd Bangalore select US East (VA) region.
-- If you attend TechEd Barcelona, select Europe (Frankfurt) region. 
+2. *Start Cloud Foundry Trial* 버튼을 클릭합니다. - 팝업이 나타납니다. 평가판의 드롭 다운에서 지역을 선택하고 확인을 클릭하십시오.
+* TechEd Las Vegas 또는 TechEd Bangalore에 참석하는 경우 US East (VA) 지역을 선택하십시오.
+* TechEd Barcelona에 참석하는 경우 유럽 (프랑크푸르트) 지역을 선택하십시오.
 <br><br>
 ![Select Trial Region](/img/select_trial_region.png?raw=true)
 <br><br>
 
-3. Wait for the procedure to finish. You will get a Global Account, Subaccount, Organization and Space in the region you selected. Once these are created you can navigate to your new Space (click on Go to Space button)
+3. 절차가 끝날 때까지 기다리십시오. 선택한 지역에서 글로벌 계정, 서브 계정, 조직 및 공간을 받게됩니다. 생성이 완료되면 새로운 공간으로 이동할 수 있습니다 (Space to Go 버튼 클릭)
 <br><br>
 ![Select Trial Region](/img/go_to_space.png?raw=true)
 <br><br>
 
 
-:bulb: **Note:** If you already started your Cloud Foundry environment trial you won't see *Start Cloud Foundry Trial* button. In this case, simply click on the *Go to Cloud Foundry Trial* button.
+:bulb: **Note:** Cloud Foundry 환경 평가판을 이미 시작한 경우 Cloud Foundry Trial 시작 버튼 이 표시되지 않습니다 . 이 경우 Cloud Foundry Trial으로 이동 버튼 을 클릭하기 만하면 됩니다. Cloud Foundry 평가판 공간에 있습니다.
 <br><br>
 ![GO to trial](/img/go_to_trial_button.png?raw=true)
 <br><br>
 You are now in your Cloud Foundry trial space.
 
-## Cockpit
-This is a simplified picture of the domain model you have in the Cloud Foundry Environment. If you want to learn more about the different entities, check the [documentation.](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/8ed4a705efa0431b910056c0acdbf377.html)
+## 조종석
+이것은 Cloud Foundry Environment에있는 도메인 모델의 단순화 된 그림입니다. 다른 엔티티에 대해 더 자세히 알고 싶으면 [문서](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/8ed4a705efa0431b910056c0acdbf377.html)를 확인하십시오.
 
 <br><br>
 ![Domain Model Overview](/img/domain_model.png?raw=true)
 <br><br>
 
-This is what you see now in Cockpit:
+이것이 조종실에서 지금 볼 수있는 것입니다.:
 <br><br>
 ![Cockpit Domain Model Overview](/img/cockpit_domain_model.png?raw=true)
 <br><br>
 
-## Clean-up
+## 계정 정리
 
-:bulb: **Note:** There is a limited quota in the Cloud Foundry Environment trial account.
+:bulb: **Note:** Cloud Foundry Environment 평가판 계정에는 제한된 용량이 있습니다.
 
-In case you already used the trial account quota, you have to clean-up applications and service instances prior continuing with the exercises. You can do so via cockpit:
-- navigate to the list of Applications running in your Space and delete all or stop all running applications;
-- go to the Service Instances and delete all.   
+이미 시험 사용 계정 할당량을 사용한 경우 연습을 계속하기 전에 응용 프로그램 및 서비스 인스턴스를 정리해야합니다. 조종실을 통해 그렇게 할 수 있습니다.
+
+- Space에서 실행중인 응용 프로그램 목록으로 이동하여 실행중인 응용 프로그램을 모두 삭제하거나 실행중인 응용 프로그램을 모두 중지하십시오.
+- 서비스 인스턴스로 이동하여 모두 삭제하십시오.
 
 ## Local development environment
 
-:bulb: **Note:** If you use the TechEd provided laptops then your local development environment tools listed below are already installed. In this case no need to install anything additional. If you are using your own laptop, then make sure you install and setup the tools listed below in case you don't have them.
+:bulb: **Note:** TechEd에서 제공하는 랩톱을 사용하는 경우 아래 나열된 로컬 개발 환경 도구가 이미 설치되어 있습니다. 이 경우 추가로 설치할 필요가 없습니다. 자신의 노트북을 사용하는 경우, 가지고 있지 않은 경우를 대비하여 아래 나열된 도구를 설치하고 설정해야합니다.
 
-### Cloud Foundry Command Line Interface (CF CLI)
+클라우드 파운드리 명령 줄 인터페이스 (CF CLI)
+Cloud Foundry 명령 줄 인터페이스 (CF CLI) 설치 또는 업데이트
 
-Install or update the Cloud Foundry Command Line Interface (CF CLI)
+### 설치
+CF CLI를 다운로드하고 설치 지침을 따르십시오 : CF CLI
 
-#### Install
-Download the CF CLI and follow the installation instructions: [CF CLI](https://github.com/cloudfoundry/cli#downloads)
+- Windows : Windows 64 비트 설치 프로그램을 다운로드하십시오. 파일이 폴더로 다운로드됩니다 C:\Users\student\Downloads. 아카이브를 추출하고 실행 파일을 실행하십시오.
+- Mac : OS X 설치 프로그램을 다운로드하십시오. 참고 : 대안으로 Homebrew 오픈 소스 패키지 관리 소프트웨어를 사용하여 CLI를 다운로드 할 수 있습니다.
+- Linux : Debian / Ubuntu 또는 Red Hat 시스템 용 Linux 설치 프로그램을 다운로드하십시오.
 
-- Windows: download the Windows 64bit installer. The file is downloaded into the folder `C:\Users\student\Downloads`. Extract the archive and run the executable.
-- Mac: download the OS X installer. Note: as an alternative - you can use the Homebrew open source package management software to download the CLI.
-- Linux: download the Linux installer for your Debian/Ubuntu or Red Hat system
+### 업데이트
+[CF CLI](https://github.com/cloudfoundry/cli#downloads)바이너리를 다운로드하고 방금 다운로드 한 것으로 교체하십시오. Windows인 경우 `cf.exe`를 `D:\3rdParty\CloudFoundry\` 옮깁니다.
 
-#### Update
-Download the [CF CLI](https://github.com/cloudfoundry/cli#downloads) binary and replace the old one with the one you have just downloaded. For Windows, move `cf.exe` to `D:\3rdParty\CloudFoundry\`.
-
-### Eclipse
-- You should have the STS (Spring Tool Suite) plugin installed
+### 이클립스
+STS (Spring Tool Suite) 플러그인을 설치해야합니다.
 
 ### Java
-Check which Java version is available using `java -version`. The default should be `java version "1.8.0_131"`
+사용 가능한 Java 버전을 확인하십시오 `java -version`. 기본값은 다음과 같아야합니다. `java version "1.8.0_131"`
 
 ### Maven
-Check if maven is correctly configured by running `mvn --version`
+실행으로 Maven이 올바르게 구성되어 있는지 확인하십시오. `mvn --version`
 
 ### Git
-Check if git is installed by running `git --version`
+실행으로 Git이 올바르게 구성되어 있는지 확인하십시오. `git --version`
