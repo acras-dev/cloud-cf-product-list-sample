@@ -7,13 +7,13 @@
 
 ## 목표
 
-이 연습에서는 SAP Cloud Platform에서 무료 평가판 계정을 만들고, Cloud Foundry Environment 평가판을 시작하고, 로컬 개발 환경을 설정하고, SAP Cloud Platform용 웹 기반 관리 도구 인 SAP Cloud Platform 조종석을 살짝 탐험하는 방법을 배우게 됩니다.
+이 연습에서는 SAP Cloud Platform에서 무료 평가판 계정을 만들고, Cloud Foundry Environment 평가판을 시작하고, 로컬 개발 환경을 설정하고, SAP Cloud Platform 용 웹 기반 관리 도구 인 SAP Cloud Platform 조종석을 살짝 탐험하는 방법을 배우게 됩니다.
 
 # 연습 설명
 
 ## 당신의 클라우드 파운드리를 시작하세요.
 
-:bulb: **Note:** 아직 SAP Cloud Platform에 대한 평가판 계정이없는 경우이 [문서](https://www.sap.com/developer/tutorials/hcp-create-trial-account.html)를 수행하여 얻으십시오.
+:bulb: **Note:** 아직 SAP Cloud Platform에 대한 평가판 계정이없는 경우 이 [문서](https://www.sap.com/developer/tutorials/hcp-create-trial-account.html)를 수행하여 얻으십시오.
 
 1. 그런 다음 [SAP Cloud Platform cockpit](https://account.hana.ondemand.com/#/home/welcome) 조종석 에서 사용자 홈으로 이동하십시오. Cloud Foundry Trial 시작 버튼이 표시 됩니다.
 <br><br>
@@ -32,14 +32,14 @@
 <br><br>
 
 
-:bulb: **Note:** Cloud Foundry 환경 평가판을 이미 시작한 경우 Cloud Foundry Trial 시작 버튼 이 표시되지 않습니다 . 이 경우 Cloud Foundry Trial으로 이동 버튼 을 클릭하기 만하면 됩니다. Cloud Foundry 평가판 공간에 있습니다.
+:bulb: **Note:** Cloud Foundry 환경 평가판을 이미 시작한 경우 Cloud Foundry Trial 시작 버튼 이 표시되지 않습니다 . 이 경우 Cloud Foundry Trial으로 이동 버튼 을 클릭하기 만하면 됩니다.
 <br><br>
 ![GO to trial](/img/go_to_trial_button.png?raw=true)
 <br><br>
-You are now in your Cloud Foundry trial space.
+이제 당신의 Cloud Foundry 평가판 공간이 생겼습니다.
 
 ## 조종석
-이것은 Cloud Foundry Environment에있는 도메인 모델의 단순화 된 그림입니다. 다른 엔티티에 대해 더 자세히 알고 싶으면 [문서](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/8ed4a705efa0431b910056c0acdbf377.html)를 확인하십시오.
+이것은 Cloud Foundry Environment에 있는 도메인 모델의 단순화 된 그림입니다. 다른 엔티티에 대해 더 자세히 알고 싶으면 [문서](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/8ed4a705efa0431b910056c0acdbf377.html)를 확인하십시오.
 
 <br><br>
 ![Domain Model Overview](/img/domain_model.png?raw=true)
@@ -59,7 +59,7 @@ You are now in your Cloud Foundry trial space.
 - Space에서 실행중인 응용 프로그램 목록으로 이동하여 실행중인 응용 프로그램을 모두 삭제하거나 실행중인 응용 프로그램을 모두 중지하십시오.
 - 서비스 인스턴스로 이동하여 모두 삭제하십시오.
 
-## 개인 개발 환경
+## 로컬 개발 환경
 
 :bulb: **Note:** TechEd에서 제공하는 랩톱을 사용하는 경우 아래 나열된 로컬 개발 환경 도구가 이미 설치되어 있습니다. 이 경우 추가로 설치할 필요가 없습니다. 자신의 노트북을 사용하는 경우, 가지고 있지 않은 경우를 대비하여 아래 나열된 도구를 설치하고 설정해야합니다.
 
