@@ -1,10 +1,10 @@
 #  Mini CodeJam - 1 hour
 
 이 튜토리얼에서는 다음 작업을 수행하는 방법을 보여줍니다.
-- SAP Cloud Platform Cloud Foundry 환경 시험판에 접근
-- SAP Cloud Platform 조종석 및 Cloud Foundry CLI를 사용하여 Cloud Foundry Environment 평가판 작업
-- 백업 서비스와 같은 Cloud Foundry Environment의 기본 개념 사용
-- 배포한 응용 프로그램이 무엇을하고 있는지 관찰
+* SAP Cloud Platform Cloud Foundry 환경 시험판에 접근
+* SAP Cloud Platform 조종석 및 Cloud Foundry CLI를 사용하여 Cloud Foundry Environment 평가판 작업
+* 백업 서비스와 같은 Cloud Foundry Environment의 기본 개념 사용
+* 배포한 응용 프로그램이 무엇을하고 있는지 관찰
 
 # Exercises
 
