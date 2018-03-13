@@ -42,7 +42,7 @@
 ![Domain Model Overview](/img/domain_model.png?raw=true)
 <br><br>
 
-이것이 조종실에서 지금 볼 수있는 것입니다.:
+이것이 조종실에서 지금 볼 수있는 것입니다.
 <br><br>
 ![Cockpit Domain Model Overview](/img/cockpit_domain_model.png?raw=true)
 <br><br>
