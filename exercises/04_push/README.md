@@ -14,15 +14,16 @@
 	- 윈도우키 + 'R' 키 누르기
 	- 입력창에 ```cmd``` 입력후 엔터
 
-You need to tell the CF CLI which Cloud Foundry you will use. To do this you have to set the API endpoint to the Cloud Controller of the Cloud Foundry region where you created your Cloud Foundry trial using
+1. 사용할 Cloud Foundry CLI를 알려줘야 합니다. 이렇게 하려면 Cloud Foundry 시험판을 만든 Cloud Foundry 지역의 Cloud Controller에 API endpoint를 설정해야 합니다.
+```
+cf api CLOUD_FOUNDRY_API_ENDPOINT
+```
 
-1. 사용할 Cloud Foundry CLI를 알려줘야 합니다. 이렇게 하려면 아래Cloud Foundry 시험판을 만든 Cloud Foundry 지역의 Cloud Controller에 API endpoint를 설정해야 합니다
-```cf api CLOUD_FOUNDRY_API_ENDPOINT```.
- - US10 지역의 API endpoint:
+- US10 지역의 API endpoint 지정하는 방법:
 ```
 cf api https://api.cf.us10.hana.ondemand.com
 ```
- - EU10 지역의 API endpoint:
+ - EU10 지역의 API endpoint 지정하는 방법:
 ```
 cf api https://api.cf.eu10.hana.ondemand.com
 ```
@@ -41,7 +42,7 @@ cf api https://api.cf.eu10.hana.ondemand.com
 	```
 3. 클라우드 파운드리 조직과 사용할 공간을 선택해야합니다. 하나의 Cloud Foundry 조직 및 공간에만 할당 된 경우 시스템은 로그인하면 자동으로 관련 Cloud Foundry 조직 및 공간을 대상으로 지정하며 이전 단계에서 OK 아래에 표시됩니다.
 
-:bulb: **Note:** SAP Cloud Platform Cloud Foundry Environment의 이전 사용으로 인해 지적한 지역에 둘 이상의 Cloud Foundry 조직과 공간을 생성 한 경우 cf target 명령에서 어느 것을 사용해야하는지 선택하거나 프롬프트가 표시 될 때 선택합니다.
+:bulb: **Note:** SAP Cloud Platform Cloud Foundry Environment의 이전 사용으로 인해 지정한 지역에 둘 이상의 Cloud Foundry 조직과 공간을 생성 한 경우 cf target 명령에서 어느 것을 사용해야하는지 선택하거나 프롬프트가 표시 될 때 선택합니다.
 ```
 cf target -o ORGANIZATION -s SPACE
 ```
@@ -49,15 +50,16 @@ cf target -o ORGANIZATION -s SPACE
 이제 Cloud Foundry 공간에서 작업 할 준비가되었습니다.
 
 ## Application Manifest
-When you push an application to the Cloud Foundry Environment you can either provide parameters in CF CLI to the push command or define an application deployment descriptor file (manifest.yml) and summarize there the push parameters instead of typing these every time you push. For more information regarding application manifest file you can check the [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)
 
-* Now we will create an application manifest.yml file for our sample Product List application. Go to Eclipse again and in the Project Explorer in Eclipse on the sample Product List app  -> right click -> New -> File. create file and name it **manifest.yml**.
+응용 프로그램 매니페스트 파일에 대한 자세한 내용은 [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)를 참조하십시오
 
-* Now open the file and insert the following snippet adjusting it to your application:
+* 이제 샘플 제품 목록 응용 프로그램에 대한 manifest.yml 응용 프로그램을 만듭니다. 이클립스로 다시 이동하고 Eclipse의 프로젝트 탐색기에서 샘플 제품 목록 앱 -> 마우스 오른쪽 버튼 클릭 -> 새로 만들기 -> 파일을 클릭한다. 파일을 만들고 이름을 **manifest.yml**로 지정하십시오.
 
-  :bulb: **Note** ```path``` should point to the jar file produced in you project's target folder as an outcome of the Maven build, so maybe you will have to replace the name of the jar with your jar file name.
+* 이제 파일을 열고 애플리케이션에 맞게 다음 스니펫을 삽입하십시오.
 
-  :bulb: **Note** ```host``` should be unique as the host namespace is shared with all applications within Cloud Foundry, so add at the end your birth date - day, month and year.
+  :bulb: **Note** ```path``` Maven 빌드의 결과로 프로젝트의 대상 폴더에서 생성 된 jar 파일을 가리켜 야합니다. 그래서 jar 파일 이름을 jar 파일 이름으로 바꿔야 할 것입니다.
+
+  :bulb: **Note** ```host``` 호스트 네임 스페이스가 Cloud Foundry 내의 모든 응용 프로그램과 공유되므로 메모가 고유해야합니다. 따라서 생년월일 - 일, 달 및 연도를 끝에 추가하십시오.
 
 ```Configuration
  applications:
@@ -69,7 +71,7 @@ When you push an application to the Cloud Foundry Environment you can either pro
    path: target/my-product-list-0.0.1-SNAPSHOT.jar
    buildpack: https://github.com/cloudfoundry/java-buildpack.git#v4.3
 ```
-**Save** the file after editing.
+수정이 끝나면 **Save** 합니다.
 
 ## Push
 - At the command prompt, go to the root directory of your SpringBoot application where you just created the manifest.yml file. Type the following command:
