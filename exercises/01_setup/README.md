@@ -81,8 +81,10 @@ STS (Spring Tool Suite) 플러그인을 설치해야합니다.
 
 ### Maven
 실행으로 Maven이 올바르게 구성되어 있는지 확인하십시오. `mvn --version`
+
 설치방법 : https://maven.apache.org/install.html
 
 ### Git
 실행으로 Git이 올바르게 구성되어 있는지 확인하십시오. `git --version`
-설치방법 : https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+설치방법: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
