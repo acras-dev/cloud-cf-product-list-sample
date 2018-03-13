@@ -26,7 +26,7 @@
 ![Select Trial Region](/img/select_trial_region.png?raw=true)
 <br><br>
 
-3. 절차가 끝날 때까지 기다리십시오. 선택한 지역에서 글로벌 계정, 서브 계정, 조직 및 공간을 받게됩니다. 생성이 완료되면 새로운 공간으로 이동할 수 있습니다 (Space to Go 버튼 클릭)
+3. 절차가 끝날 때까지 기다리십시오. 선택한 지역에서 글로벌 계정, 서브 계정, 조직 및 공간을 받게됩니다. 생성이 완료되면 새로운 공간으로 이동할 수 있습니다 (Go to Space 버튼 클릭)
 <br><br>
 ![Select Trial Region](/img/go_to_space.png?raw=true)
 <br><br>
