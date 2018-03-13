@@ -1,49 +1,52 @@
 # Exercise 03: Push the application to SAP Cloud Platform Cloud Foundry Environment
 
-## Estimated time
+## 예상 시간
 
-:clock4: 10 minutes
+:clock4: 10 분
 
-## Objective
-In this exercise you'll learn how you can push applications on the SAP Cloud Platform in your trial account for Cloud Foundry Environment. We will use the Cloud Foundry Command Line Interface. Open a command prompt and follow the steps below.
+## 목표
+이 연습에서는 Cloud Foundry Environment 평가판 계정에서 SAP Cloud Platform의 애플리케이션을 푸시 할 수있는 방법을 학습합니다. 우리는 Cloud Foundry Command Line Interface를 사용할 것입니다. 명령 프롬프트를 열고 아래 단계를 수행하십시오.
 
-# Exercise description
-## Target & Login
+# 연습문제 설명
+## 대상 & 로그인
 
-:bulb: **Note** (Windows instructions) Switch to the terminal on your computer. For that please:
-	- press the Windows key and the 'R' key
-	- type ```cmd``` into the input field and press the return key
+:bulb: **Note** (Windows) 터미널을 실행하십시오. For that please:
+	- 윈도우키 + 'R' 키 누르기
+	- 입력창에 ```cmd``` 입력후 엔터
 
-1. You need to tell the CF CLI which Cloud Foundry you will use. To do this you have to set the API endpoint to the Cloud Controller of the Cloud Foundry region where you created your Cloud Foundry trial using ```cf api CLOUD_FOUNDRY_API_ENDPOINT```.
- - If you attend TechEd Las Vegas, target the US10 region API endpoint:
+You need to tell the CF CLI which Cloud Foundry you will use. To do this you have to set the API endpoint to the Cloud Controller of the Cloud Foundry region where you created your Cloud Foundry trial using
+
+1. 사용할 Cloud Foundry CLI를 알려줘야 합니다. 이렇게 하려면 아래Cloud Foundry 시험판을 만든 Cloud Foundry 지역의 Cloud Controller에 API endpoint를 설정해야 합니다
+```cf api CLOUD_FOUNDRY_API_ENDPOINT```.
+ - US10 지역의 API endpoint:
 ```
 cf api https://api.cf.us10.hana.ondemand.com
 ```
- - If you attend TechEd Barcelona, target the EU10 region API endpoint:
+ - EU10 지역의 API endpoint:
 ```
 cf api https://api.cf.eu10.hana.ondemand.com
 ```
-:bulb: **Note:** You can find the API endpoints for the different regions where Cloud Foundry Environment is available in the [SAP Cloud Platform Documentation](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/350356d1dc314d3199dca15bd2ab9b0e.html)
+:bulb: **Note:** [SAP Cloud Platform Documentation](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/350356d1dc314d3199dca15bd2ab9b0e.html)문서에서 Cloud Foundry Environment를 사용할 수 있는 여러 지역에 대한 API 엔드 포인트를 찾을 수 있습니다.
 
-2. Login with your user account. At the command prompt type:
+2. 사용자 계정으로 로그인하십시오. 명령 프롬프트에서 다음을 입력하십시오.
 	```
 	cf login
 	```
 
-	You will be prompted to fill in the e-mail and password you used when you registered for the SAP Cloud Platform trial account:
+	SAP Cloud Platform 평가판 계정에 등록 할 때 사용한 전자 메일 및 암호를 입력하라는 메시지가 나타납니다.
 
 	```
 	Email> enter your e-mail
 	Password> password for your user
 	```
-3. You have to select the Cloud Foundry organization and space that you will use. If you are assigned to only one Cloud Foundry organization and space, the system automatically targets you to the relevant Cloud Foundry organization and space once you login and you will see it in the previous step under OK.
+3. 클라우드 파운드리 조직과 사용할 공간을 선택해야합니다. 하나의 Cloud Foundry 조직 및 공간에만 할당 된 경우 시스템은 로그인하면 자동으로 관련 Cloud Foundry 조직 및 공간을 대상으로 지정하며 이전 단계에서 OK 아래에 표시됩니다.
 
-:bulb: **Note:** In case you have created more than one Cloud Foundry organization and space in the region you pointed to due to previous usage of SAP Cloud Platform Cloud Foundry Environment, you cna select which one should be used by the cf target command or choose when prompted in the CF CLI:
+:bulb: **Note:** SAP Cloud Platform Cloud Foundry Environment의 이전 사용으로 인해 지적한 지역에 둘 이상의 Cloud Foundry 조직과 공간을 생성 한 경우 cf target 명령에서 어느 것을 사용해야하는지 선택하거나 프롬프트가 표시 될 때 선택합니다.
 ```
 cf target -o ORGANIZATION -s SPACE
 ```
 
-You are now ready to start working in your Cloud Foundry space.
+이제 Cloud Foundry 공간에서 작업 할 준비가되었습니다.
 
 ## Application Manifest
 When you push an application to the Cloud Foundry Environment you can either provide parameters in CF CLI to the push command or define an application deployment descriptor file (manifest.yml) and summarize there the push parameters instead of typing these every time you push. For more information regarding application manifest file you can check the [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)
