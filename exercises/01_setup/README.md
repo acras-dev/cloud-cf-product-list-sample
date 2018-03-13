@@ -67,13 +67,13 @@
 Cloud Foundry 명령 줄 인터페이스 (CF CLI) 설치 또는 업데이트
 
 ### 설치
-CF CLI를 다운로드하고 설치 지침을 따르십시오 : CF CLI
+CF CLI를 다운로드하고 설치 지침을 따르십시오 : [CF CLI](https://github.com/cloudfoundry/cli#downloads)
 
 - Windows : Windows 64 비트 설치 프로그램을 다운로드하십시오. 파일이 폴더로 다운로드됩니다 C:\Users\student\Downloads. 아카이브를 추출하고 실행 파일을 실행하십시오.
 - Mac : OS X 설치 프로그램을 다운로드하십시오. 참고 : 대안으로 Homebrew 오픈 소스 패키지 관리 소프트웨어를 사용하여 CLI를 다운로드 할 수 있습니다.
 - Linux : Debian / Ubuntu 또는 Red Hat 시스템 용 Linux 설치 프로그램을 다운로드하십시오.
 
-### 업데이트
+#### 업데이트
 [CF CLI](https://github.com/cloudfoundry/cli#downloads)바이너리를 다운로드하고 방금 다운로드 한 것으로 교체하십시오. Windows인 경우 `cf.exe`를 `D:\3rdParty\CloudFoundry\` 옮깁니다.
 
 ### 이클립스
