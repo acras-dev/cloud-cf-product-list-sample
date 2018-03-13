@@ -1,46 +1,46 @@
-# Cloning sample from Github
+# Github의 샘플 복제
 
-## Estimated time
+## 예상 시간
 
-:clock4: 5 minutes
+:clock4: 5 분
 
-## Objective
+## 목표
 
-In this exercise you'll learn how you can clone the target version of the Product List sample application, import it in your local Eclipse environment and build it. This is the target source code of the Product List application that you will actually develop as part of the basic hands-on session starting from scratch. We will it in the basic hands-on session as a reference or to copy easily some snippets or files.
+이 연습에서는 Product List 샘플 애플리케이션의 대상 버전을 복제하고 로컬 Eclipse 환경에서 가져 와서 빌드하는 방법을 학습합니다. 처음부터 시작하는 기본 실습 세션의 일부로 실제로 개발할 제품 목록 응용 프로그램의 대상 소스 코드입니다. 기본 실습 세션에서 참조 용으로 사용하거나 일부 스니펫이나 파일을 쉽게 복사 할 수 있습니다.
 
-# Exercise description
+# 연습문제 설명
 
-## 1 Download the sample code as zip
-1. Go to the root of the project in github: https://github.com/SAP/cloud-cf-product-list-sample
-2. Click on **Clone or download** button and select Download zip
+## 1 zip으로 샘플 코드 다운로드
+1. github에서 프로젝트의 루트로 이동합니다.: https://github.com/SAP/cloud-cf-product-list-sample
+2. **Clone or download** 버튼을 눌러 다운로드
 <br><br>
 ![Download ZIP](/img/github_download_zip.png?raw=true)
 <br><br>
 
-3.  Unzip the downloaded file in your students directory - a new directory ```cloud-cf-product-list-sample``` will be created.
+3. students 디렉토리에서 다운로드 한 파일의 압축을 풉니다. cloud-cf-product-list-sample라는 새로운 디렉토리가 생성됩니다.
 
-## 2. Import the sample project into Eclipse
-1. Open the Windows Start menu and enter ```CPL...``` in the input field. Under ```Programs``` you will see ```ABAP in Eclipse - CPL...```. Click on this entry to open Eclipse.
-2. Now import the target state of the sample project as Maven project into your Eclipse workspace: In the Eclipse menu, chose ```File```> ```Import...```.
-3. In the ```Import``` wizard, select ```Maven``` > ```Existing Maven Projects``` and click ```Next```.
+## 2. Eclipse로 샘플 프로젝트 가져 오기
+1. Windows 시작 메뉴를 열고 Eclipse를 실행합니다.
+2. 이제 샘플 프로젝트를 Maven 프로젝트로 Eclipse 작업 공간에 가져 오십시오.: Eclipse 메뉴에서 ```File```> ```Import...```를 선택합니다.
+3. ```Import``` 화면에서, ```Maven``` > ```Existing Maven Projects``` 를 선택하고 ```Next```를 클릭합니다.
 <br><br>
 ![Import Maven Project](/img/import_maven_project.png?raw=true)
 <br><br>
 
-4. In the next step of the ```Import Maven Projects``` popup, click ```Browse```, navigate into the unziped root folder of ```cloud-cf-product-list-sample-master``` project in your student directory folder (```D:\Files\Session\CPL...```), then click ```Finish```.
-5. The project is now imported in Eclipse. You should see the project in the Project Explorer like in the screenshot below.  
+4. ```Import Maven Projects``` 팝업의 다음단계에서, ```Browse```, 클릭하고 아까 압축 풀어둔 ```cloud-cf-product-list-sample-master``` 프로젝트를 찾아 루트폴더를 지정한 다음 ```Finish``` 버튼을 클릭합니다.
+5. 이제 Eclipse에서 프로젝트를 가져옵니다. 아래 스크린 샷과 같이 프로젝트 탐색기에서 프로젝트를 볼 수 있습니다.  
 <br><br>
 ![Import Maven Project](/img/imported_project_eclipse.png?raw=true)
 <br><br>
 
-## 3. Build the project in Eclipse using Maven  
+## 3. Maven을 사용하여 Eclipse에서 프로젝트를 빌드하십시오.  
 
-1. Now build the project in Eclipse: Select the project in the Project Explorer, open its context menu and click on ```Run As``` > ```Maven build...```.
+1. 이제 Eclipse에서 프로젝트를 빌드하십시오. 프로젝트 탐색기에서 프로젝트를 선택하고 컨텍스트 메뉴를 연뒤 ```Run As``` > ```Maven build...``` 를 클릭합니다.
 <br><br>
 ![Import Maven Project](/img/run_maven_build.png?raw=true)
 <br><br>
 
-2. In the ```Edit Configuration```popup, enter ```clean install``` into the ```Goals```field and click ```Run```. The Maven build should finish without errors.
+2. ```Edit Configuration``` 팝업이 나오면 ```Goals``` 란에 ```clean install``` 입력하고 ```Run```을 클릭합니다. Maven 빌드는 오류없이 완료되어야합니다.
 <br><br>
 ![Import Maven Project](/img/maven_clean_install.png?raw=true)
 <br><br>
