@@ -11,7 +11,7 @@
 # 연습문제 설명
 
 ## 1 zip으로 샘플 코드 다운로드
-1. github에서 프로젝트의 루트로 이동합니다.: https://github.com/SAP/cloud-cf-product-list-sample
+1. github에서 프로젝트의 루트로 이동합니다. https://github.com/SAP/cloud-cf-product-list-sample
 2. **Clone or download** 버튼을 눌러 다운로드
 <br><br>
 ![Download ZIP](/img/github_download_zip.png?raw=true)
@@ -40,7 +40,7 @@
 ![Import Maven Project](/img/run_maven_build.png?raw=true)
 <br><br>
 
-2. ```Edit Configuration``` 팝업이 나오면 ```Goals``` 란에 ```clean install``` 입력하고 ```Run```을 클릭합니다. Maven 빌드는 오류없이 완료되어야합니다.
+2. ```Edit Configuration``` 팝업이 나오면 ```Goals``` 란에 ```clean install``` 입력하고 ```Run```을 클릭합니다. Maven 빌드는 오류없이 완료되어야 합니다.
 <br><br>
 ![Import Maven Project](/img/maven_clean_install.png?raw=true)
 <br><br>
