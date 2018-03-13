@@ -163,6 +163,7 @@ Cloud Foundry가 응용 프로그램 컨테이너에서 사용할 수있는 환�
 - `VCAP_APP_PORT`
 - `VCAP_APPLICATION`
 - `VCAP_SERVICES`
+
 마지막으로 `VCAP_SERVICES`가 중요합니다. 서비스가 바인드 가능한 서비스를 사용하는 경우 Cloud Foundry가 서비스를 바인드 한 후 애플리케이션을 복원 할 때 연결 세부 정보를 추가하기 때문입니다. 다음 예제는 postgresql 서비스가 바인드 된 응용 프로그램에서 가져온 것입니다.
 
 ## 상태 점검
