@@ -15,6 +15,7 @@
     cf map-route GREEN_APP_NAME DOMAIN -n BLUE_APP_HOSTNAME
     ```
     지역에 따라 `DOMAIN` 값은 아래를 참조해 변경:
+    
 
     - `cfapps.us10.hana.ondemand.com` for Las Vegas
     - `cfapps.eu10.hana.ondemand.com` for Barcelona
