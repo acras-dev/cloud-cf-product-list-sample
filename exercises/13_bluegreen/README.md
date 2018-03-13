@@ -18,6 +18,7 @@
 
     - `cfapps.us10.hana.ondemand.com` for Las Vegas
     - `cfapps.eu10.hana.ondemand.com` for Barcelona
+    
 
     **결과:** `cf map-route` 명령 후 Cloud Foundry 라우터는 임시 URL에 대한 트래픽을 Green 애플리케이션으로 계속 전송합니다. 몇 초 내에 Cloud Foundry 라우터는 Blue 및 Green 버전의 애플리케이션간에 원래의 생산 URL에 대한 트래픽의로드 밸런싱을 시작합니다.
 
