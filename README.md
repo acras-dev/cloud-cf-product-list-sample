@@ -89,7 +89,7 @@ XS UAA (User Account and Authentication) 서비스는 멀티 파운드 (multi-te
 :one:**미니 코드 잼 (1 시간)**
 
 이 세션에서는 조종실 및 Cloud Foundry CLI에 익숙해 질 것입니다. 특히, 다음을 배우게됩니다.
-- 응용 프로그램을 밀어 넣으십시오.
+- 응용 프로그램을 Push 하십시오.
 - 서비스를 앱에 바인딩
 - 앱 로그 확인
 - 상태 확인 변경
