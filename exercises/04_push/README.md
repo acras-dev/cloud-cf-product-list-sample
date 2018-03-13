@@ -1,11 +1,11 @@
-# Exercise 03: 응용프로그램을 SAP Cloud Platform Cloud Foundry Environment로 Push
+# Exercise 03: 응용 프로그램을 SAP Cloud Platform Cloud Foundry Environment로 Push
 
 ## 예상 시간
 
 :clock4: 10 분
 
 ## 목표
-이 연습에서는 Cloud Foundry Environment 평가판 계정에서 SAP Cloud Platform의 응용프로그램을 푸시 할 수있는 방법을 학습합니다. 우리는 Cloud Foundry Command Line Interface를 사용할 것입니다. 명령 프롬프트를 열고 아래 단계를 수행하십시오.
+이 연습에서는 Cloud Foundry Environment 평가판 계정에서 SAP Cloud Platform의 응용 프로그램을 푸시 할 수있는 방법을 학습합니다. 우리는 Cloud Foundry Command Line Interface를 사용할 것입니다. 명령 프롬프트를 열고 아래 단계를 수행하십시오.
 
 # 연습문제 설명
 ## 대상 & 로그인
@@ -49,17 +49,17 @@ cf target -o ORGANIZATION -s SPACE
 
 이제 Cloud Foundry 공간에서 작업 할 준비가되었습니다.
 
-## 응용프로그램 Manifest
+## 응용 프로그램 Manifest
 
-응용프로그램 Manifest 파일에 대한 자세한 내용은 [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)를 참조하십시오
+응용 프로그램 Manifest 파일에 대한 자세한 내용은 [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)를 참조하십시오
 
 * 이제 sample Product List 응용 프로그램에 대한 manifest.yml을 만듭니다. 이클립스로 다시 이동하고 Eclipse의 프로젝트 탐색기에서 sample Product List app -> 오른쪽 클릭 -> New -> File. 을 클릭한다. 파일을 만들고 이름을 **manifest.yml**로 하십시오.
 
-* 이제 파일을 열고 응용프로그램에 맞게 다음 스니펫을 삽입하십시오.
+* 이제 파일을 열고 응용 프로그램에 맞게 다음 스니펫을 삽입하십시오.
 
   :bulb: **Note** ```path``` Maven 빌드의 결과로 프로젝트의 대상 폴더에서 생성 된 jar 파일을 가리켜 야합니다. 그래서 jar 파일 이름을 jar 파일 이름으로 바꿔야 할 것입니다.
 
-  :bulb: **Note** ```host``` 호스트 네임 스페이스가 Cloud Foundry 내의 모든 응용프로그램과 공유되므로 메모가 고유해야합니다. 따라서 생년월일 - 일, 달 및 연도를 끝에 추가하십시오.
+  :bulb: **Note** ```host``` 호스트 네임 스페이스가 Cloud Foundry 내의 모든 응용 프로그램과 공유되므로 메모가 고유해야합니다. 따라서 생년월일 - 일, 달 및 연도를 끝에 추가하십시오.
 
 ```Configuration
  applications:
@@ -78,11 +78,11 @@ cf target -o ORGANIZATION -s SPACE
 ```
 cf push
 ```
-방금 만든 응용 프로그램 manifest.yml을 사용하여 응용 프로그램 배포 프로세스가 시작됩니다. 첫 번째 단계는 응용 프로그램 바이너리를 클라우드에 업로드하는 것입니다. 다음 단계에서는 소위 스테이징이 발생하여 :droplet:물방울이 생깁니다. 그런 다음 출시 단계에서는 Cloud Foundry에 애플리케이션 시작 방법을 알려줍니다. 일단 명령이 성공하면 브라우저에서 응용 프로그램을 요청할 수 있습니다 - 콘솔에 인쇄 된 URL을 복사하여 붙여 넣기하십시오.
+방금 만든 응용 프로그램 manifest.yml을 사용하여 응용 프로그램 배포 프로세스가 시작됩니다. 첫 번째 단계는 응용 프로그램 바이너리를 클라우드에 업로드하는 것입니다. 다음 단계에서는 소위 스테이징이 발생하여 :droplet:물방울이 생깁니다. 그런 다음 출시 단계에서는 Cloud Foundry에 응용 프로그램 시작 방법을 알려줍니다. 일단 명령이 성공하면 브라우저에서 응용 프로그램을 요청할 수 있습니다 - 콘솔에 인쇄 된 URL을 복사하여 붙여 넣기하십시오.
 
 :bulb:**Note:** *command fails*이 발생한 경우, 오류 메시지를 읽으십시오. 로컬 샘플의 manifest.yml에서 매개 변수를 올바르게 변경하지 않았거나 평가판 계정의 할당량이 초과된 것일 수 있습니다. 이미 평가판을 사용했다면 연습을 계속하기 전에 응용 프로그램 및 서비스 인스턴스를 정리해야 합니다. 조종실을 통해 그렇게 할 수 있습니다.
 
-## 응용프로그램 호출하기
+## 응용 프로그램 호출하기
 평가판 계정으로 SAP Cloud Platform Cloud Foundry Environment에서 실행되는 응용 프로그램을 사용할 수 있습니다. Chrome 브라우저를 열고 SAP Cloud Platform cockpit으로 이동합니다.
 - https://account.hana.ondemand.com/cockpit#/home/overview
 - Home 클릭
@@ -94,7 +94,7 @@ cf push
 <br><br>
 ![GO to space](/img/cockpit_CF_space_org.png?raw=true)
 <br><br>
-- 실행중인 응용 프로그램을 볼 수있는 평가판 space를 보고 있습니다. 방금 푸시 한 제품 목록 응용 프로그램이 보여야 합니다. 애플리케이션 이름을 클릭 할 수 있습니다. 전용 애플리케이션보기가 열리며 애플리케이션 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 애플리케이션을 볼 수 있습니다.
+- 실행중인 응용 프로그램을 볼 수있는 평가판 space를 보고 있습니다. 방금 푸시 한 제품 목록 응용 프로그램이 보여야 합니다. 응용 프로그램 이름을 클릭 할 수 있습니다. 전용 응용 프로그램보기가 열리며 응용 프로그램 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 응용 프로그램을 볼 수 있습니다.
 <br><br>
 ![Running applications in cockpit](/img/running_app_cockpit.png?raw=true)
 <br><br>
@@ -105,9 +105,7 @@ A dedicated application view will open where you will see the Application Routes
 
 
 ## 서비스
-지금까지 우리는 Java Virtual Machine의 메모리에있는 제품의 표현을 로컬 테스트, 빠른 처리주기에 유용했지만 몇 가지 단점이 있습니다. 애플리케이션을 다시 시작하면 모든 변경 사항이 손실됩니다. 데이터가 다른 응용 프로그램의 하나의 실행 프로세스보다 다릅니다.이를 해결하고 데이터베이스를 클라우드의 백업 서비스로 추가합시다. 코드를 변경하지 않고도 그렇게 할 수 있습니다. 우리는 서비스 인스턴스를 생성하여 애플리케이션에 바인드하고 애플리케이션을 복원하여 데이터베이스 사용을 시작해야합니다. 아래 단계를 따르십시오.
-So far we have used representation of the products in the memory of the Java Virtual Machine which is good for local testing, fast turnaround cycles, however it has some drawbacks – if one restarts the application, all changes would be lost, if you have more than one running process of the application the data differs, etc.  Let’s address that and add a database as a backing service in the cloud. We can do that without changes in the code. We have to create a service instance, bind it to the application and restage the applicaiton so it starts using the database. Follow the steps below.
-
+지금까지 우리는 Java Virtual Machine의 메모리에있는 제품의 표현을 로컬 테스트, 빠른 처리주기에 유용했지만 몇 가지 단점이 있습니다. 응용 프로그램을 다시 시작하면 모든 변경 사항이 손실됩니다. 데이터가 다른 응용 프로그램의 하나의 실행 프로세스보다 다릅니다.이를 해결하고 데이터베이스를 클라우드의 백업 서비스로 추가합시다. 코드를 변경하지 않고도 그렇게 할 수 있습니다. 우리는 서비스 인스턴스를 생성하여 응용 프로그램에 바인드하고 응용 프로그램을 복원하여 데이터베이스 사용을 시작해야합니다. 아래 단계를 따르십시오.
 1. 사용자가 사용할 수 있는 서비스 목록 표시 서비스 목록, 서비스 ```cf marketplace``` 계획에 대한 간단한 설명 및 정보가 표시되어야합니다.
 2. 예제에서는 PostgreSQL을 사용할 것입니다. 구체적인 서비스에 대한 자세한 정보를 보려면 `cf marketplace -s SERVICE` 명령어를 사용하십시오.
 
@@ -129,13 +127,13 @@ CF CLI에서 `cf create-service SERVICE PLAN SERVICE_INSTANCE`를 사용하여 P
   ```
 당신의 space 내의 서비스 목록을 확인한다.
 
-5. 마지막 단계는 서비스 인스턴스를 애플리케이션에 바인딩하는 것입니다.
+5. 마지막 단계는 서비스 인스턴스를 응용 프로그램에 바인딩하는 것입니다.
 CF CLI에서 `cf bind-service APP_NAME SERVICE_INSTANCE`을 사용합니다.
 
 ```
  cf bind-service product-list postgres
 ```
-6. 이제는 애플리케이션 환경이 업데이트되도록 백업 서비스를 이미 확보 했으므로 애플리케이션이 PostgreSQL을 사용하여 지속성을 유지할 수 있도록 애플리케이션을 다시 준비합니다.
+6. 이제는 응용 프로그램 환경이 업데이트되도록 백업 서비스를 이미 확보 했으므로 응용 프로그램이 PostgreSQL을 사용하여 지속성을 유지할 수 있도록 응용 프로그램을 다시 준비합니다.
 CF CLI에서 `cf restage APP_NAME`을 사용합니다.
 
   ```
@@ -146,11 +144,11 @@ CF CLI에서 `cf restage APP_NAME`을 사용합니다.
 
 PostgreSQL을 사용하기 때문에 차이가 없을지라도 다시 한번 응용 프로그램을 다시 요청할 수 있습니다.
 
-:bulb: **Note** 응용 프로그램에 서비스를 바인딩하는 대신 응용프로그램 Manifest를 사용하는 것이 좋습니다. manifest.yml을 사용하여 서비스를 바인딩 할 때 환경을 업데이트하고 응용 프로그램이 서비스를 사용할 수 있도록 응용프로그램을 다시 푸시해야합니다. 예를 들어이 샘플을 추가하려면이 스 니펫을 추가 한 다음 cf를 입력해 애플리케이션을 다시 푸시합니다.
+:bulb: **Note** 응용 프로그램에 서비스를 바인딩하는 대신 응용 프로그램 Manifest를 사용하는 것이 좋습니다. manifest.yml을 사용하여 서비스를 바인딩 할 때 환경을 업데이트하고 응용 프로그램이 서비스를 사용할 수 있도록 응용 프로그램을 다시 푸시해야합니다. 예를 들어 샘플을 추가하려면 스니펫을 추가 한 다음 cf를 입력해 응용 프로그램을 다시 푸시합니다.
 
 ```Config
 services:
  - SERVICE_INSTANCE_NAME
 ```
 
-보통이 시점에서 서비스 인스턴스를 사용하고 애플리케이션 코드를 변경해야합니다. 서비스 인스턴스에 액세스하는 방법에 대한 정보는 응용 프로그램 환경에서 환경 변수 VCAP_SERVICES로 사용할 수 있습니다. 우리의 경우 SpringBoot 프레임 워크는이 유선 PostgreSQL 서비스를 감지하고 이에 대한 작업을 시작하는 메커니즘을 제공하므로 응용 프로그램 코드를 변경할 필요가 없습니다.
+보통 이 시점에서 서비스 인스턴스를 사용하고 응용 프로그램 코드를 변경해야합니다. 서비스 인스턴스에 액세스하는 방법에 대한 정보는 응용 프로그램 환경에서 환경 변수 VCAP_SERVICES로 사용할 수 있습니다. 우리의 경우 SpringBoot 프레임 워크는 wired PostgreSQL 서비스를 감지하고 이에 대한 작업을 시작하는 메커니즘을 제공하므로 응용 프로그램 코드를 변경할 필요가 없습니다.
