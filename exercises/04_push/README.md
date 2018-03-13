@@ -1,4 +1,4 @@
-# Exercise 03: 응용 프로그램을 SAP Cloud Platform Cloud Foundry Environment로 Push
+# Exercise 03: 응용 프로그램을 SAP Cloud Platform Cloud Foundry Environment로 올리기
 
 ## 예상 시간
 
@@ -73,7 +73,7 @@ cf target -o ORGANIZATION -s SPACE
 ```
 수정이 끝나면 저장합니다.
 
-## Push
+## 올리기
 - 명령 프롬프트에서 manifest.yml 파일을 방금 작성한 SpringBoot 응용 프로그램의 루트 디렉토리로 이동하십시오. 다음 명령을 입력하십시오.
 ```
 cf push
