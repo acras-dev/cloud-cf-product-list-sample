@@ -69,7 +69,7 @@ Cloud Foundry 명령 줄 인터페이스 (CF CLI) 설치 또는 업데이트
 ### 설치
 CF CLI를 다운로드하고 설치 지침을 따르십시오 : [CF CLI](https://github.com/cloudfoundry/cli#downloads)
 
-- Windows : Windows 64 비트 설치 프로그램을 다운로드하십시오. 파일이 폴더로 다운로드됩니다 C:\Users\student\Downloads. 아카이브를 추출하고 실행 파일을 실행하십시오.
+- Windows : Windows 64 비트 설치 프로그램을 다운로드하십시오.
 - Mac : OS X 설치 프로그램을 다운로드하십시오. 참고 : 대안으로 Homebrew 오픈 소스 패키지 관리 소프트웨어를 사용하여 CLI를 다운로드 할 수 있습니다.
 - Linux : Debian / Ubuntu 또는 Red Hat 시스템 용 Linux 설치 프로그램을 다운로드하십시오.
 
@@ -80,10 +80,13 @@ CF CLI를 다운로드하고 설치 지침을 따르십시오 : [CF CLI](https:/
 STS (Spring Tool Suite) 플러그인을 설치해야합니다.
 
 ### Java
-사용 가능한 Java 버전을 확인하십시오 `java -version`. 기본값은 다음과 같아야합니다. `java version "1.8.0_131"`
+사용 가능한 Java 버전을 확인하십시오 `java -version`.
+없다면 Java를 다운로드하고 설치하십시오 : http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 
 ### Maven
 실행으로 Maven이 올바르게 구성되어 있는지 확인하십시오. `mvn --version`
+CF CLI를 다운로드하고 설치 지침을 따르십시오 : https://maven.apache.org/install.html
 
 ### Git
 실행으로 Git이 올바르게 구성되어 있는지 확인하십시오. `git --version`
+CF CLI를 다운로드하고 설치 지침을 따르십시오 : https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
