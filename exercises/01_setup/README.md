@@ -61,7 +61,7 @@
 
 ## 로컬 개발 환경
 
-:bulb: **Note:** TechEd에서 제공하는 랩톱을 사용하는 경우 아래 나열된 로컬 개발 환경 도구가 이미 설치되어 있습니다. 이 경우 추가로 설치할 필요가 없습니다. 자신의 노트북을 사용하는 경우, 가지고 있지 않은 경우를 대비하여 아래 나열된 도구를 설치하고 설정해야합니다.
+:bulb: **Note:** 로컬 개발 환경이 이미 설치되어 있는 경우 설치할 필요가 없습니다.
 
 클라우드 파운드리 명령 줄 인터페이스 (CF CLI)
 Cloud Foundry 명령 줄 인터페이스 (CF CLI) 설치 또는 업데이트
@@ -74,7 +74,7 @@ CF CLI를 다운로드하고 설치 지침을 따르십시오 : [CF CLI](https:/
 - Linux : Debian / Ubuntu 또는 Red Hat 시스템 용 Linux 설치 프로그램을 다운로드하십시오.
 
 #### 업데이트
-[CF CLI](https://github.com/cloudfoundry/cli#downloads)바이너리를 다운로드하고 방금 다운로드 한 것으로 교체하십시오. Windows인 경우 `cf.exe`를 `D:\3rdParty\CloudFoundry\` 옮깁니다.
+[CF CLI](https://github.com/cloudfoundry/cli#downloads) 바이너리를 다운로드하고 기존파일과 교체하십시오. Windows인 경우 `cf.exe`를 설치되어있는 폴더로 옮깁니다.
 
 ### 이클립스
 STS (Spring Tool Suite) 플러그인을 설치해야합니다.
