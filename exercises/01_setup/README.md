@@ -11,7 +11,7 @@
 
 # 연습 설명
 
-## 당신의 클라우드 파운드리를 시작하세요.
+## 당신의 Cloud Foundry를 시작하세요.
 
 :bulb: **Note:** 아직 SAP Cloud Platform에 대한 평가판 계정이없는 경우 이 [문서](https://www.sap.com/developer/tutorials/hcp-create-trial-account.html)를 수행하여 얻으십시오.
 
