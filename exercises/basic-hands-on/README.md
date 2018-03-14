@@ -1,35 +1,35 @@
-# Hands-on session - 2 hours
+# 실습세션 - 2 시간
 
-This tutorial shows how to:
-* get access to SAP Cloud Platform Cloud Foundry Environment trial
-* work with your Cloud Foundry trial using the SAP Cloud Platform cockpit and Cloud Foundry CLI
-* use basic concepts of Cloud Foundry, like backing services,
-* use application frameworks like Spring and Spring Boot to efficiently develop an application,
-* monitor and scale your application.
+이 튜토리얼에서는 다음 작업을 수행하는 방법을 보여줍니다.
+* SAP Cloud Platform Cloud Foundry 환경 시험판에 접근
+* SAP Cloud Platform 조종석 및 Cloud Foundry CLI를 사용하여 Cloud Foundry 평가판 작업 수행
+* 백업 서비스와 같은 Cloud Foundry의 기본 개념을 사용하고,
+* Spring 및 Spring Boot와 같은 응용 프로그램 프레임 워크를 사용하여 응용 프로그램을 효율적으로 개발하고,
+* 응용 프로그램을 모니터하고 확장.
 
 
-# Exercises
+# 수업과정
 
-:one: **Setup the environment**
+:one: **[환경 설정](../01_setup)**
 
-In this exercise, you will start a free SAP Cloud Platform Cloud Foundry Environment trial which you can use to deploy and run applications. You will also setup your local development environment and tools: [setup](../01_setup)
+이 과정에서는 응용 프로그램을 배포하고 실행하는 데 사용할 수있는 무료 SAP Cloud Platform Cloud Foundry Environment 평가판을 시작합니다. 또한 로컬 개발 환경과 도구를 설치합니다.
 
-:two: **Clone the sample application**
+:two: **[샘플 응용프로그램 복제](../02_clone)**
 
-Clone the target version of the application that we will develop during the session. As a result you will have the target version of the application imported in Eclipse in case you need it as a reference or to copy easily some snippets: [clone](../02_clone)
+이 세션 중에 개발할 응용 프로그램의 대상 버전을 복제합니다. 따라서 참조로 필요하거나 쉽게 일부 스니펫을 복사해야하는 경우 Eclipse에서 가져온 대상 버전의 응용 프로그램을 가져올 수 있습니다.
 
-:three: **Push to cloud**
+:three: **[클라우드에 올리기](../04_push)**
 
-In this exercise, you will push the Product List application to your Clooud Foundry environment trial, change the application to use PostgreSQL service for persistence layer: [push](../04_push)
+이 과정에서는 제품 목록 응용 프로그램을 Clooud Foundry 환경 평가판으로 올리고, 지속성 계층에 PostgreSQL 서비스를 사용하도록 응용 프로그램을 변경합니다.
 
-:four: **Observe the application**
+:four: **[응용프로그램 관찰](../05_observe)**
 
-Check what information is available for the running application via CF CLI and SAP Cloud Platform cockpit: application events, logs, metrics, service instances, etc.: [observe](../05_observe)
+CF CLI 및 SAP 클라우드 플랫폼 조종석을 통해 실행중인 응용 프로그램에 대한 사용 가능한 정보 확인 : 응용 프로그램 이벤트, 로그, 통계, 서비스 인스턴스 등
 
-:five: **Integrate application logging**
+:five: **[응용프로그램 로깅 통합](../12_app_logs)**
 
-In this exercise, we improve the application with supportability enhancements e.g. integrate with Application Logging service and understand how health-checks work and can be changed: [application logging](../12_app_logs)
+이 과정에서는 응용 프로그램 로깅 서비스와 통합하는 등 지원 기능 향상을 통해 응용 프로그램을 향상시키고 상태 검사가 작동하고 변경 될 수있는 방법을 이해합니다.
 
-:six: **(Optional) Scale**
+:six: **(Optional) 스케일(../07_scale)**
 
-Explore different options for application scaling that are available in the SAP Cloud Platform Cloud Foundry Environment.  [scale](../07_scale)
+SAP Cloud Platform Cloud Foundry Environment에서 제공되는 다양한 애플리케이션 확장 옵션을 살펴보십시오.
