@@ -9,7 +9,7 @@
 
 이 연습에서는 SAP Cloud Platform에서 무료 평가판 계정을 만들고, Cloud Foundry Environment 평가판을 시작하고, 로컬 개발 환경을 설정하고, SAP Cloud Platform 용 웹 기반 관리 도구 인 SAP Cloud Platform 조종석을 살짝 탐험하는 방법을 배우게 됩니다.
 
-# 연습 설명
+# 연습과정 설명
 
 ## 당신의 Cloud Foundry를 시작하세요.
 
