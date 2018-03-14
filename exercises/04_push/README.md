@@ -94,11 +94,11 @@ cf push
 <br><br>
 ![GO to space](/img/cockpit_CF_space_org.png?raw=true)
 <br><br>
-- 실행중인 응용 프로그램을 볼 수있는 평가판 space를 보고 있습니다. 방금 올린 제품 목록 응용 프로그램이 보여야 합니다. 응용 프로그램 이름을 클릭 할 수 있습니다. 전용 응용 프로그램보기가 열리며 응용 프로그램 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 응용 프로그램을 볼 수 있습니다.
+- 실행중인 응용 프로그램을 볼 수있는 평가판 space를 보고 있습니다. 방금 올린 product-list 응용 프로그램이 보여야 합니다. 응용 프로그램 이름을 클릭 할 수 있습니다. 전용 응용 프로그램보기가 열리며 응용 프로그램 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 응용 프로그램을 볼 수 있습니다.
 <br><br>
 ![Running applications in cockpit](/img/running_app_cockpit.png?raw=true)
 <br><br>
-A dedicated application view will open where you will see the Application Routes - click on the URL to see your application running in a browser.
+전용 애플리케이션 보기가 열리며 애플리케이션 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 애플리케이션을 볼 수 있습니다.
 <br><br>
 ![Application Routes](/img/application_routes_cockpit.png?raw=true)
 <br><br>
