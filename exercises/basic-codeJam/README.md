@@ -1,4 +1,4 @@
-#  Mini CodeJam - 1 hour
+#  미니 코드잼 - 1 시간
 
 이 튜토리얼에서는 다음 작업을 수행하는 방법을 보여줍니다.
 * SAP Cloud Platform Cloud Foundry 환경 시험판에 접근
@@ -6,11 +6,11 @@
 * 백업 서비스와 같은 Cloud Foundry Environment의 기본 개념 사용
 * 배포한 응용 프로그램이 무엇을하고 있는지 관찰
 
-# Exercises
+# 수업 과정
 
 :one: **[환경 설정](../01_setup)**
 
-이 연습에서는 응용 프로그램을 배포하고 실행하는 데 사용할 수있는 무료 SAP Cloud Platform Cloud Foundry Environment 평가판 계정에 등록합니다. 또한 개발 환경과 도구를 설정합니다.
+이 과정에서는 응용 프로그램을 배포하고 실행하는 데 사용할 수있는 무료 SAP Cloud Platform Cloud Foundry Environment 평가판 계정에 등록합니다. 또한 개발 환경과 도구를 설정합니다.
 
 :two: **[샘플 응용 프로그램 복제](../02_clone)**
 
@@ -18,7 +18,7 @@
 
 :three: **[클라우드에 올리기](../04_push)**
 
-이 연습에서는 제품 목록 응용 프로그램을 Cloud Foundry Environment 평가판으로 올리고 지속성 계층에 PostgreSQL 서비스를 사용하도록 응용 프로그램을 변경합니다.
+이 과정에서는 Product List 응용 프로그램을 Cloud Foundry Environment 평가판으로 올리고 지속성 계층에 PostgreSQL 서비스를 사용하도록 응용 프로그램을 변경합니다.
 
 :four: **[(Optional) 응용 프로그램 관찰](../05_observe)**
 
