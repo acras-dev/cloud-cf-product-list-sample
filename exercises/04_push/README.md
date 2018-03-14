@@ -5,7 +5,7 @@
 :clock4: 10 분
 
 ## 목표
-이 연습에서는 Cloud Foundry Environment 평가판 계정에서 SAP Cloud Platform의 응용 프로그램을 푸시 할 수있는 방법을 학습합니다. 우리는 Cloud Foundry Command Line Interface를 사용할 것입니다. 명령 프롬프트를 열고 아래 단계를 수행하십시오.
+이 연습에서는 Cloud Foundry Environment 평가판 계정에서 SAP Cloud Platform의 응용 프로그램을 올릴 수있는 방법을 학습합니다. 우리는 Cloud Foundry Command Line Interface를 사용할 것입니다. 명령 프롬프트를 열고 아래 단계를 수행하십시오.
 
 # 연습문제 설명
 ## 대상 & 로그인
@@ -94,7 +94,7 @@ cf push
 <br><br>
 ![GO to space](/img/cockpit_CF_space_org.png?raw=true)
 <br><br>
-- 실행중인 응용 프로그램을 볼 수있는 평가판 space를 보고 있습니다. 방금 푸시 한 제품 목록 응용 프로그램이 보여야 합니다. 응용 프로그램 이름을 클릭 할 수 있습니다. 전용 응용 프로그램보기가 열리며 응용 프로그램 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 응용 프로그램을 볼 수 있습니다.
+- 실행중인 응용 프로그램을 볼 수있는 평가판 space를 보고 있습니다. 방금 올린 제품 목록 응용 프로그램이 보여야 합니다. 응용 프로그램 이름을 클릭 할 수 있습니다. 전용 응용 프로그램보기가 열리며 응용 프로그램 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 응용 프로그램을 볼 수 있습니다.
 <br><br>
 ![Running applications in cockpit](/img/running_app_cockpit.png?raw=true)
 <br><br>
@@ -144,7 +144,7 @@ CF CLI에서 `cf restage APP_NAME`을 사용합니다.
 
 PostgreSQL을 사용하기 때문에 차이가 없을지라도 다시 한번 응용 프로그램을 다시 요청할 수 있습니다.
 
-:bulb: **Note** 응용 프로그램에 서비스를 바인딩하는 대신 응용 프로그램 Manifest를 사용하는 것이 좋습니다. manifest.yml을 사용하여 서비스를 바인딩 할 때 환경을 업데이트하고 응용 프로그램이 서비스를 사용할 수 있도록 응용 프로그램을 다시 푸시해야합니다. 예를 들어 샘플을 추가하려면 스니펫을 추가 한 다음 cf를 입력해 응용 프로그램을 다시 푸시합니다.
+:bulb: **Note** 응용 프로그램에 서비스를 바인딩하는 대신 응용 프로그램 Manifest를 사용하는 것이 좋습니다. manifest.yml을 사용하여 서비스를 바인딩 할 때 환경을 업데이트하고 응용 프로그램이 서비스를 사용할 수 있도록 응용 프로그램을 다시 올려야합니다. 예를 들어 샘플을 추가하려면 스니펫을 추가 한 다음 cf를 입력해 응용 프로그램을 다시 올립니다.
 
 ```Config
 services:
