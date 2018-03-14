@@ -57,9 +57,9 @@ cf target -o ORGANIZATION -s SPACE
 
 * 이제 파일을 열고 응용 프로그램에 맞게 다음 스니펫을 삽입하십시오.
 
-  :bulb: **Note** ```path``` Maven 빌드의 결과로 프로젝트의 대상 폴더에서 생성 된 jar 파일을 가리켜 야합니다. 그래서 jar 파일 이름을 jar 파일 이름으로 바꿔야 할 것입니다.
+  :bulb: **Note** ```path``` Maven 빌드의 결과로 프로젝트의 대상 폴더에서 생성된 jar 파일을 가리켜 야합니다.
 
-  :bulb: **Note** ```host``` 호스트 네임 스페이스가 Cloud Foundry 내의 모든 응용 프로그램과 공유되므로 메모가 고유해야합니다. 따라서 생년월일 - 일, 달 및 연도를 끝에 추가하십시오.
+  :bulb: **Note** ```host``` 호스트 네임 스페이스가 Cloud Foundry 내의 모든 응용 프로그램과 공유되므로 메모가 고유해야합니다. 따라서 고유번호한값(예를들어 생년월일-일-월-년도)을 추가하십시오.
 
 ```Configuration
  applications:
