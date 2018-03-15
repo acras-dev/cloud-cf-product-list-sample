@@ -5,12 +5,12 @@
 :clock4: 10 분
 
 ## 목표
-이 연습에서는 Cloud Foundry Environment 평가판 계정에서 SAP Cloud Platform의 응용 프로그램을 올릴 수있는 방법을 학습합니다. 우리는 Cloud Foundry Command Line Interface를 사용할 것입니다. 명령 프롬프트를 열고 아래 단계를 수행하십시오.
+이 연습에서는 Cloud Foundry Environment 평가판 계정에서 SAP Cloud Platform의 응용 프로그램을 올리는 방법을 학습합니다. Cloud Foundry Command Line Interface를 사용할 것입니다. 명령 프롬프트를 열고 아래 단계를 수행하십시오.
 
 # 연습과정 설명
 ## 대상 & 로그인
 
-:bulb: **Note** (Windows) 터미널을 실행하십시오. For that please:
+:bulb: **Note** (Windows) 터미널을 실행하십시오. Tips:
 	- 윈도우키 + 'R' 키 누르기
 	- 입력창에 ```cmd``` 입력후 엔터
 
@@ -40,20 +40,20 @@ cf api https://api.cf.eu10.hana.ondemand.com
 	Email> enter your e-mail
 	Password> password for your user
 	```
-3. 클라우드 파운드리 조직과 사용할 공간을 선택해야합니다. 하나의 Cloud Foundry 조직 및 공간에만 할당 된 경우 시스템은 로그인하면 자동으로 관련 Cloud Foundry 조직 및 공간을 대상으로 지정하며 이전 단계에서 OK 아래에 표시됩니다.
+3. 클라우드 파운드리 조직과 사용할 SPACE를 선택해야합니다. 하나의 Cloud Foundry 조직 및 SPACE에만 할당 된 경우 시스템은 로그인하면 자동으로 관련 Cloud Foundry 조직 및 SPACE을 대상으로 지정하며 이전 단계에서 OK 아래에 표시됩니다.
 
 :bulb: **Note:** SAP Cloud Platform Cloud Foundry Environment의 이전 사용으로 인해 지정한 지역에 둘 이상의 Cloud Foundry 조직과 공간을 생성 한 경우 cf target 명령에서 어느 것을 사용해야하는지 선택하거나 프롬프트가 표시 될 때 선택합니다.
 ```
 cf target -o ORGANIZATION -s SPACE
 ```
 
-이제 Cloud Foundry 공간에서 작업 할 준비가되었습니다.
+이제 당신의 Cloud Foundry SPACE 지정이 완료되었습니다.
 
 ## 응용 프로그램 Manifest
 
 응용 프로그램 Manifest 파일에 대한 자세한 내용은 [Cloud Foundry documentation](https://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)를 참조하십시오
 
-* 이제 sample Product List 응용 프로그램에 대한 manifest.yml을 만듭니다. 이클립스로 다시 이동하고 Eclipse의 프로젝트 탐색기에서 sample Product List app -> 오른쪽 클릭 -> New -> File. 을 클릭한다. 파일을 만들고 이름을 **manifest.yml**로 하십시오.
+* 이제 샘플 Product List 응용 프로그램에 대한 manifest.yml을 만듭니다. 이클립스로 다시 이동하고 Eclipse의 프로젝트 탐색기에서 sample Product List app -> 오른쪽 클릭 -> New -> File. 을 클릭한다. 파일을 만들고 이름을 **manifest.yml**로 하십시오.
 
 * 이제 파일을 열고 응용 프로그램에 맞게 다음 스니펫을 삽입하십시오.
 
@@ -105,7 +105,7 @@ cf push
 
 
 ## 서비스
-지금까지 우리는 Java Virtual Machine의 메모리에있는 제품의 표현을 로컬 테스트, 빠른 처리주기에 유용했지만 몇 가지 단점이 있습니다. 응용 프로그램을 다시 시작하면 모든 변경 사항이 손실됩니다. 데이터가 다른 응용 프로그램의 하나의 실행 프로세스보다 다릅니다.이를 해결하고 데이터베이스를 클라우드의 백업 서비스로 추가합시다. 코드를 변경하지 않고도 그렇게 할 수 있습니다. 우리는 서비스 인스턴스를 생성하여 응용 프로그램에 바인드하고 응용 프로그램을 복원하여 데이터베이스 사용을 시작해야합니다. 아래 단계를 따르십시오.
+지금까지 우리는 Java Virtual Machine의 메모리에있는 제품의 표현을 로컬 테스트, 빠른 처리주기에 유용했지만 몇 가지 단점이 있습니다. 응용 프로그램을 다시 시작하면 모든 변경 사항이 손실됩니다. 데이터가 다른 응용 프로그램의 하나의 실행 프로세스보다 다릅니다. 이를 해결하고 데이터베이스를 클라우드의 백업 서비스로 추가합시다. 코드를 변경하지 않고도 그렇게 할 수 있습니다. 우리는 서비스 인스턴스를 생성하여 응용 프로그램에 바인드하고 응용 프로그램을 복원하여 데이터베이스 사용을 시작해야합니다. 아래 단계를 따르십시오.
 1. 사용자가 사용할 수 있는 서비스 목록 표시 서비스 목록, 서비스 ```cf marketplace``` 계획에 대한 간단한 설명 및 정보가 표시되어야합니다.
 2. 예제에서는 PostgreSQL을 사용할 것입니다. 구체적인 서비스에 대한 자세한 정보를 보려면 `cf marketplace -s SERVICE` 명령어를 사용하십시오.
 
