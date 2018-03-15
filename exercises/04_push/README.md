@@ -1,4 +1,4 @@
-# 연습과정 03: 응용 프로그램을 SAP Cloud Platform Cloud Foundry Environment로 올리기
+Space# 연습과정 03: 응용 프로그램을 SAP Cloud Platform Cloud Foundry Environment로 올리기
 
 ## 예상 시간
 
@@ -38,14 +38,14 @@ cf api https://api.cf.eu10.hana.ondemand.com
 	Email> enter your e-mail
 	Password> password for your user
 	```
-3. 클라우드 파운드리 조직과 사용할 SPACE를 선택해야합니다. 하나의 Cloud Foundry 조직 및 SPACE에만 할당 된 경우 시스템은 로그인하면 자동으로 관련 Cloud Foundry 조직 및 SPACE을 대상으로 지정하며 이전 단계에서 OK 아래에 표시됩니다.
+3. 클라우드 파운드리 조직과 사용할 Space를 선택해야합니다. 하나의 Cloud Foundry 조직 및 Space에만 할당 된 경우 시스템은 로그인하면 자동으로 관련 Cloud Foundry 조직 및 Space을 대상으로 지정하며 이전 단계에서 OK 아래에 표시됩니다.
 
 :bulb: **Note:** SAP Cloud Platform Cloud Foundry Environment의 이전 사용으로 인해 지정한 지역에 둘 이상의 Cloud Foundry 조직과 공간을 생성 한 경우 cf target 명령에서 어느 것을 사용해야하는지 선택하거나 프롬프트가 표시 될 때 선택합니다.
 ```
-cf target -o ORGANIZATION -s SPACE
+cf target -o ORGANIZATION -s Space
 ```
 
-이제 당신의 Cloud Foundry SPACE 지정이 완료되었습니다.
+이제 당신의 Cloud Foundry Space 지정이 완료되었습니다.
 
 ## 응용 프로그램 Manifest
 
@@ -88,11 +88,11 @@ cf push
 <br><br>
 ![GO to trial](/img/go_to_trial_button.png?raw=true)
 <br><br>
-- Global Account -> subaccount(일반적으로 trial) -> 왼쪽 메뉴에서 Space 클릭 -> 만들어져 있는 Space 클릭(일반적으로 dev)
+- Global Account -> subaccount(일반적으로 trial) -> 왼쪽 메뉴에서 Spaces 클릭 -> 만들어져 있는 Space 클릭(일반적으로 dev)
 <br><br>
-![GO to space](/img/cockpit_CF_space_org.png?raw=true)
+![GO to Space](/img/cockpit_CF_Space_org.png?raw=true)
 <br><br>
-- 실행중인 응용 프로그램을 볼 수있는 평가판 space를 보고 있습니다. 방금 올린 product-list 응용 프로그램이 보여야 합니다. 응용 프로그램 이름을 클릭 할 수 있습니다. 전용 응용 프로그램보기가 열리며 응용 프로그램 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 응용 프로그램을 볼 수 있습니다.
+- 실행중인 응용 프로그램을 볼 수있는 평가판 Space를 보고 있습니다. 방금 올린 product-list 응용 프로그램이 보여야 합니다. 응용 프로그램 이름을 클릭 할 수 있습니다. 전용 응용 프로그램보기가 열리며 응용 프로그램 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 응용 프로그램을 볼 수 있습니다.
 <br><br>
 ![Running applications in cockpit](/img/running_app_cockpit.png?raw=true)
 <br><br>
@@ -123,7 +123,7 @@ CF CLI에서 `cf create-service SERVICE PLAN SERVICE_INSTANCE`를 사용하여 P
   ```
   cf services
   ```
-당신의 space 내의 서비스 목록을 확인한다.
+당신의 Space 내의 서비스 목록을 확인한다.
 
 5. 마지막 단계는 서비스 인스턴스를 응용 프로그램에 바인딩하는 것입니다.
 CF CLI에서 `cf bind-service APP_NAME SERVICE_INSTANCE`을 사용합니다.
