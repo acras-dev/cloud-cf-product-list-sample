@@ -14,7 +14,7 @@
 1. github에서 프로젝트의 루트로 이동합니다. https://github.com/SAP/cloud-cf-product-list-sample
 2. **Branch: master**를 클릭하고 드롭다운 리스트에서 **advanced** branch를 선택합니다.
 3. 이제 **Clone or download** 버튼을 클릭하고 zip 다운로드를 선택하십시오.
-4. 압출을 ```cloud-cf-product-list-sample-advanced``` 이름으로 해제합니다.
+4. 원하는 디렉토리에 압축을 풉니다. ```cloud-cf-product-list-sample-advanced``` 라는 새로운 디렉토리가 생성됩니다.
 
 ## 2. Eclipse로 샘플 프로젝트 가져오기
 1. Eclipse를 실행합니다.
