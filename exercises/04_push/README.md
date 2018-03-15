@@ -1,4 +1,4 @@
-# Exercise 03: 응용 프로그램을 SAP Cloud Platform Cloud Foundry Environment로 올리기
+# 연습과정 03: 응용 프로그램을 SAP Cloud Platform Cloud Foundry Environment로 올리기
 
 ## 예상 시간
 
@@ -7,7 +7,7 @@
 ## 목표
 이 연습에서는 Cloud Foundry Environment 평가판 계정에서 SAP Cloud Platform의 응용 프로그램을 올릴 수있는 방법을 학습합니다. 우리는 Cloud Foundry Command Line Interface를 사용할 것입니다. 명령 프롬프트를 열고 아래 단계를 수행하십시오.
 
-# 연습문제 설명
+# 연습과정 설명
 ## 대상 & 로그인
 
 :bulb: **Note** (Windows) 터미널을 실행하십시오. For that please:
