@@ -226,7 +226,7 @@ public class ConfigSecurity extends ResourceServerConfigurerAdapter {
 
 **master branch & advanced branch 모두 필수입니다. advanced branch 경우 'npm install'단계만 실행해야 합니다. 동작원리를 좀더 이해하고자 여전히 살펴볼 필요는 있습니다.**
 
-[XS Advanced Application Router](https://github.com/SAP/cloud-cf-product-list-sample/blob/advanced/src/main/approuter/README.md)는 여러 가지 응용 프로그램 (microservices)로 구성된 비즈니스 애플리케이션에 대한 single entry point을 제공하는 데 사용됩니다. 백엔드 마이크로 서비스에 대한 요청을 디스패치하고 역방향 프록시 역할을 합니다. 어떤 요청을 _destinations_로 전달해야 하는지를 결정하는 규칙을 _routes_ 라고 합니다. application router는 사용자를 인증하고 사용자 정보를 전파하도록 구성 할 수 있으며 static content를 제공 할 수 있습니다.
+[XS Advanced Application Router](https://github.com/acras-dev/cloud-cf-product-list-sample/tree/advanced/src/main/approuter/README.md)는 여러 가지 응용 프로그램 (microservices)로 구성된 비즈니스 애플리케이션에 대한 single entry point을 제공하는 데 사용됩니다. 백엔드 마이크로 서비스에 대한 요청을 디스패치하고 역방향 프록시 역할을 합니다. 어떤 요청을 _destinations_로 전달해야 하는지를 결정하는 규칙을 _routes_ 라고 합니다. application router는 사용자를 인증하고 사용자 정보를 전파하도록 구성 할 수 있으며 static content를 제공 할 수 있습니다.
 
 **Note** application router가 어떤 식 으로든 백엔드 microservices을 숨기지 않습니다. application router를 거치지 않고도 직접 접근할 수 있습니다. 따라서 백엔드 마이크로 서비스 는 JWT 토큰의 유효성을 검사하고 적절한 범위 검사를 구현하여 모든 엔드 포인트를 보호 해야 합니다.
 
