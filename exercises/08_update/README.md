@@ -15,9 +15,9 @@
 Blue-Green deploy는 Blue 및 Green이라는 두 개의 동일한 생산 환경을 실행하여 가동 중지 시간과 위험을 줄이는 기술입니다. Blue가 현재 라이브이고 Green이 유휴 상태라고 가정합시다. 새 버전의 소프트웨어를 준비 할 때 deploy 및 최종 테스트 단계는 실제 환경이 아닌 환경 (예 : Green)에서 수행됩니다. Green에서 소프트웨어를 deploy하고 완전히 테스트 한 후에는 들어오는 모든 요청이 Blue 대신 Green으로 바뀌도록 라우터를 전환합니다. Green은 현재 라이브이며 Blue는 유휴 상태입니다.
 
 <br><br>
-![Blue Green 1](/img/Blue_Green_1.png?raw=true)
+![Blue Green 1](/img/blue_green_1.png?raw=true)
 <br><br>
-![Blue Green 2](/img/Blue_Green_2.png?raw=true)
+![Blue Green 2](/img/blue_green_2.png?raw=true)
 <br><br>
 
 이 기술을 사용하면 응용 프로그램 deploy로 인한 가동 중지 시간을 줄이고 위험이 줄어 듭니다. 새 버전의 Green에서 예상치 못한 문제가 발생하면 트래픽을 Blue로 다시 라우팅하여 마지막 버전으로 즉시 롤백 할 수 있습니다.
