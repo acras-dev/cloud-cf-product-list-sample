@@ -1,18 +1,18 @@
-# Update the application
+# 응용 프로그램 업데이트
 
-## Estimated time
+## 예상 시간
 
-:clock4: 15 minutes
+:clock4: 15 분
 
-## Objective
+## 목표
 
-In this exercise you'll learn how you can update an application using blue-green deployment mechanism. In case your application is more complex we will explore also the option to build an Multi-Target Application archive, deploy it and benefit from the automated blue-green deployment with MTAs.
+이 과정에서는 blue-green 배포 메커니즘을 사용하여 응용 프로그램을 업데이트하는 방법을 배웁니다. 응용 프로그램이 더 복잡한 경우 다중 대상 응용 프로그램 아카이브를 구축하고 배포하고 MTA를 사용하여 blue-green을 자동으로 배치함으로써 이익을 얻을 수있는 옵션을 탐색합니다.
 
-# Exercise description
-To show-case the update we need two running instances of the application at the same time and to achieve this in the limits of the trial account we need only one Product List application running in the beginning. Then we will add an updated version.
+# 연습과정 설명
+업데이트를 표시하려면 동시에 두 개의 실행중인 응용 프로그램 인스턴스가 필요하며 평가판 계정의 한도내에서 이를 수행하려면 처음에 하나의 샘플 응용 프로그램만 실행하면 됩니다. 다음 업데이트된 버전을 추가합니다.
 
-## Blue-green deployment
-Blue-green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green. Let's assume Blue is currently live and Green is idle. As you prepare a new version of your software, deployment and the final stage of testing takes place in the environment that is not live: in this example, Green. Once you have deployed and fully tested the software in Green, you switch the router so all incoming requests now go to Green instead of Blue. Green is now live, and Blue is idle.
+## Blue-green 배치
+Blue-green 배치는 Blue 및 Green이라는 두 개의 동일한 생산 환경을 실행하여 가동 중지 시간과 위험을 줄이는 기술입니다. Blue가 현재 라이브이고 Green이 유휴 상태라고 가정합시다. 새 버전의 소프트웨어를 준비 할 때 배포 및 최종 테스트 단계는 실제 환경이 아닌 환경 (예 : 녹색)에서 수행됩니다. Green에서 소프트웨어를 배포하고 완전히 테스트 한 후에는 들어오는 모든 요청이 파란색 대신 녹색으로 바뀌도록 라우터를 전환합니다. 녹색은 현재 라이브이며 파란색은 유휴 상태입니다.
 
 <br><br>
 ![Blue Green 1](/img/blue_green_1.png?raw=true)
@@ -20,14 +20,14 @@ Blue-green deployment is a technique that reduces downtime and risk by running t
 ![Blue Green 2](/img/blue_green_2.png?raw=true)
 <br><br>
 
+이 기술을 사용하면 응용 프로그램 배포로 인한 가동 중지 시간을 줄일 수 있습니다. 또한 Blue-green 배치로 위험이 줄어 듭니다. 새 버전의 Green에서 예상치 못한 문제가 발생하면 트래픽을 Blue로 다시 라우팅하여 마지막 버전으로 즉시 롤백 할 수 있습니다.
 
-This technique can eliminate downtime due to application deployment. In addition, blue-green deployment reduces risk: if something unexpected happens with your new version on Green, you can immediately roll back to the last version by switching back routing the traffic to Blue.
+:bulb: **Note:** 응용 프로그램에서 관계형 데이터베이스를 사용하는 경우 청록색 배포는 업데이트 도중 녹색 데이터베이스와 파란색 데이터베이스간에 불일치가 발생할 수 있습니다. 데이터 무결성을 최대화하려면 역방향 및 정방향 호환성을 위해 단일 데이터베이스를 구성하십시오.
 
-:bulb: **Note:** If your app uses a relational database, blue-green deployment can lead to discrepancies between your Green and Blue databases during an update. To maximize data integrity, configure a single database for backward and forward compatibility.
+### 실전
 
-### Let's see this in action
+업데이트에 대한 변경 준비 - 업데이트로 새 버전의 앱을 쉽게 알아보기 위해 **index.html**을 변경해 보겠습니다. Eclipse 에서 index.html 파일을 열고 제품 목록 페이지가 작성된 원시를 찾고 제품에서 GREEN 제품으로 제목을 변경하십시오.
 
-Prepare a change for the update - let's just change the index.html for the sake of noticing easily the new version of the app with the update. Open the **index.html** file in Eclipse, find the raw where the product list page is created and change the title from Products to GREEN Products:
 ```java
 // create the list page
 			var products = new sap.m.Page("products", {
@@ -36,31 +36,31 @@ Prepare a change for the update - let's just change the index.html for the sake 
 				content : productList
 			});
 ```
-2. Open the application manifest file and change the application name to e.g. changed-product-list and host to something different than the original app e.g. add again prefix changed and save the **manifest.yml**. Run a Maven build after this change (Run As -> Maven build)
-3. Open console in the product list sample application root folder (where manifest.yml that you just changed resides) and push the new version under different name: ```cf push```
-4. You have two instances of the application running. The "productive" where all the traffic is directed and the new one that you can test accessing via different URL (route). Check that the changed version works as expected accessing it under the different URL - verify the title is now **GREEN Products**.
+2. 응용 프로그램 매니페스트 파일을 열고 응용 프로그램 이름을 changed-product-list로 변경하고 호스트를 원래 응용 프로그램과 다른 다른 것으로 변경합니다. 예 : 접두사를 다시 추가하고 **manifest.yml**을 저장합니다. 변경 후 Maven 빌드 실행 (Run As -> Maven build)
+3. 방금 변경 한 manifest.yml 이 있는 샘플 응용 프로그램 루트 폴더에서 콘솔을 열고 새 버전을 다른 이름으로 ```cf push``` 명령을 실행합니다.
+4. 응용 프로그램의 두 인스턴스가 실행 중입니다. 모든 트래픽이 전달되는 "productive"이며 다른 URL (route)을 통해 액세스를 테스트 할 수있는 새로운 트래픽입니다. 변경된 버전이 다른 URL에서 접근하는 것으로 예상되는대로 작동하는지, 제목이 **GREEN Products** 인지 확인합니다.
 <br><br>![New app version](/img/changed_app_UI.png?raw=true)
 <br><br>
-5. Now that both apps are up and running, switch the router so all incoming requests go to the new  app version (Green) and the old (Blue). Do this by mapping the original URL route to the Green application using the cf map-route command ```cf map-route GREEN_APP_NAME DOMAIN -n BLUE_APP_HOSTNAME```
-6. After the cf map-route command within a few seconds, the CF Router begins load balancing traffic for the original productive URL between Blue and Green version of the application.
-7. Un-map the route to Blue version. Once you verify Green version is running as expected, stop routing requests to Blue version using the cf unmap-route command:
+5. 이제 두 앱이 모두 실행되고 있습니다. 들어오는 모든 요청이 새 앱 버전 (Green)과 이전 버전 (Blue)으로 바뀌도록 라우터를 전환하십시오. cf map-route 명령을 사용하여 원본 URL 경로를 Green ```cf map-route GREEN_APP_NAME DOMAIN -n BLUE_APP_HOSTNAME``` 명령어로 어플리케이션에 매핑하여 이를 수행하십시오.
+6. 몇 초 내에 cfmap-route 명령을 실행하면 CF 라우터는 Blue 및 Green 버전의 응용 프로그램간에 원래의 생산 URL에 대한 트래픽 부하 분산을 시작합니다.
+7. 경로를 Blue 버전으로 매핑 해제합니다. Green 버전이 예상대로 실행되는지 확인한 후 아래 명령어로 Blue 버전으로 라우팅 되지 않도록 변경합니다.
 ```
 cf unmap-route BLUE_APP_NAME DOMAIN -n HOSTNAME
 ```
-After the command the CF Router stops sending traffic to Blue version. Now all traffic for the productive domain is sent to Green version.
+명령 후 CF 라우터는 Blue 버전으로 트래픽 전송을 중단합니다. 이제는 생산적인 도메인의 모든 트래픽이 Green 버전으로 전송됩니다.
 
-To remove temporary route to Green version you can use cf unmap-route. The route can be deleted using cf delete-route or reserved for later use. You can also decommission Blue, or keep it in case you need to roll back your changes.
+Green 버전의 임시 경로를 제거하려면 cf unmap-route를 사용할 수 있습니다. cf delete-route를 사용하여 경로를 삭제하거나 나중에 사용할 수 있도록 예약 할 수 있습니다. Blue을 폐기하거나 변경 사항을 롤백해야 할 경우를 대비하여 유지할 수도 있습니다.
 
-## MTA and automated blue-green deployment
+## MTA 및 자동화 blue-green 배치
 
-To continue with the next exercise, you need to cleanup your trial account as there is are limited resources - delete all applications and service instances.
+다음 연습을 계속 진행하려면 제한된 리소스가 있으므로 모든 응용 프로그램 및 서비스 인스턴스를 삭제하여 평가판 계정을 정리해야합니다.
 
-### Build an MTA archive
-To build a deployment-ready Multi-Target Application (MTA) we need to define the MTA modules with a deployment descriptor (mta.yaml) and then package the MTA Archive (MTAR) - we will use the [MTA Archive Builder tool](https://help.sap.com/viewer/58746c584026430a890170ac4d87d03b/HANA%202.0%20SPS%2002/en-US/ba7dd5a47b7a4858a652d15f9673c28d.html) for this.
+### MTA 아카이브 만들기
+배포 준비 다중 대상 응용 프로그램 (MTA)을 구축하려면 deployment descriptor (mta.yaml)로 MTA 모듈을 정의한 다음 MTA 보관 파일 (MTAR)을 패키지화 해야합니다. [MTA Archive Builder tool](https://help.sap.com/viewer/58746c584026430a890170ac4d87d03b/HANA%202.0%20SPS%2002/en-US/ba7dd5a47b7a4858a652d15f9673c28d.html)를 사용합니다.
 
-1. You already have the MTA Archive Builder tool available - mta.jar (file location). Copy it next to the root folder of your application
-2. Create an empty mta.yaml file in the root folder of you application.
-3. Now besides the application you can specify the service instances to be bound to the application via the mta.yaml.
+1. mta.jar (파일 위치)를 사용할 수있는 MTA 보관 도구 작성 도구가 이미 있습니다. 응용 프로그램의 루트 폴더 옆에 복사하십시오.
+2. 응용 프로그램의 루트 폴더에 빈 mta.yaml 파일을 만듭니다.
+3. 이제 응용 프로그램 외에도 mta.yaml을 통해 응용 프로그램에 바인딩 할 서비스 인스턴스를 지정할 수 있습니다.
 
 ```Configuration
 _schema-version: "2.0.0"
@@ -94,37 +94,37 @@ resources:
     parameters:
       service-plan: lite
 ```
-**Save** the file after editing.
-4. Build the MTAR
-You need to run the MTA archive builder tool. Open a command line in the root folder of your Product List application. The you need to execute in console is: java -jar [path to mta.jar] --build-target=CF build
+편집 후 파일을 **Save**하십시오.
+4. MTAR 빌드 MTA 보관 빌더 도구를 실행해야 합니다. Product List 응용 프로그램의 루트 폴더에서 터미널을 엽니다. java -jar [path to mta.jar] --build-target = CF build 명령어를 실행합니다. 
 ```
 java -jar ../mta.jar --build-target=CF build
 ```
 
-As result the mtar archive s created in the root folder of your application. In my case the name is product-list.mtar but it may differ for your local environment - you can see it in the end of the command or just check in the root folder of your app.
+결과적으로 응용 프로그램의 루트 폴더에 mtar 아카이브가 생성됩니다. 필자의 경우 이름은 product-list.mtar이지만 로컬 환경에 따라 다를 수 있습니다. 명령의 마지막 부분에서 볼 수도 있고 앱의 루트 폴더에서 확인할 수도 있습니다.
 
-### Deploy MTA
+### MTA 배포
 
-To deploy the MTAR we need the MTA CF CLI plugin, download the MTA CF CLI plugin from [here](https://tools.hana.ondemand.com/#cloud)
+MTAR을 배포하려면 MTA CF CLI 플러그인이 필요합니다. MTA CF CLI 플러그인을 [다운로드](https://tools.hana.ondemand.com/#cloud) 하십시오.
 
-Prerequisite: You are logged in to the Cloud Foundry Environment via command line. Refer to Target & Login from *push* exercise.
+선행조건: 커맨드 라인을 통해 Cloud Foundry Environment에 로그인합니다.
 
-1. Deploy the MTAR product-list.mtar
+1. MTAR product-list.mtar 배포
 
 	```
 	cf deploy product-list.mtar
 	```
-2. As a result the application is deployed and service instances are created. You check that the mta is deployed via command in CF CLI:
+2. 과적으로 응용 프로그램이 전개되고 서비스 인스턴스가 작성됩니다. CF CLI에서 명령을 통해 mta가 배포되었는지 확인합니다.
 
 	```
 	cf mtas
 	```
-You can also verify that the application is up and running via: ```cf apps```
+```cf apps``` 명령어로 응용 프로그램이 실행되고 있는지 확인할 수 있습니다.
 
-### Automated blue-green deployment
-Request the application - you now have the GREEN Products title version of it running.
+### 자동화 blue-green 배치
+응용 프로그램을 요청하십시오 - 이제 GREEN Products 제목 버전이 실행 중입니다.
 
-Prepare the change for the update - let's again change the index.html for the sake of noticing easily the new version of the app with the update. Open the **index.html** file in Eclipse, find the raw where the product list page is created and change the title from Products to GREEN Products:
+업데이트에 대한 변경 준비 - 업데이트로 새 버전의 응용 프로그램을 쉽게 알 수 있도록 index.html을 다시 변경해 보겠습니다. Eclipse 에서 **index.html** 파일을 열고 제품 목록 페이지가 작성된 원시를 찾고 제품에서 GREEN 제품으로 제목을 변경하십시오.
+
 ```java
 // create the list page
 			var products = new sap.m.Page("products", {
@@ -133,22 +133,22 @@ Prepare the change for the update - let's again change the index.html for the sa
 				content : productList
 			});
 ```
-1. Build again the MTAR to get the new version of the application packaged for deployment.
+1. MTAR을 다시 빌드하여 배포 용으로 패키지 된 새 버전의 응용 프로그램을 가져옵니다.
 
 	```
 	java -jar ../mta.jar --build-target=CF build
 	```
-2. Deploy the MTAR using blue/green deployment command:
+2. 아래 blue/green 명령을 사용하여 MTAR 배포합니다.
 
 	```
 	cf bg-deploy MTAR_FILE
 	```
-When the command succeeds, you will get in the console similar output:
+명령이 성공하면 아래와 비슷한 메세지가 나옵니다.
 
 ```
 Application "product-list-green" started and available at "Here you will find URL of the GREEN application version"
 ```
-Open it in a browser to see the change of the title is applied.
+브라우저에서 열어 제목 변경이 적용되었는지 확인합니다.
 
-What the command did is determining there's already a version of the MTA deployed, deployed the new version and registered a temporary route so that it can be validated. If the test was successful you can now bind the new app version to the official route.
+아래 명령어는 수행 한 작업은 이미 MTA의 버전이 배포되었는지 확인하고 새 버전을 배포하고 유효성을 검사 할 수 있도록 임시 경로를 등록한 것입니다. 테스트가 성공적이면 새 앱 버전을 공식 경로에 바인딩 할 수 있습니다.
 ```cf map-route GREEN_APP_NAME DOMAIN -n BLUE_APP_HOSTNAME```
