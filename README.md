@@ -1,4 +1,4 @@
-# 샘플용 Cloud Foundry 응용 프로그램 소개
+# 샘플 Cloud Foundry 응용 프로그램 소개
 이 샘플 응용 프로그램은 SAP Cloud Platform Cloud Foundry Environment에서 실행되고 일부 서비스를 사용합니다.
 
 이 튜토리얼에서는 다음 작업을 수행하는 방법을 보여줍니다.
