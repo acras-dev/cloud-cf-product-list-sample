@@ -1,4 +1,4 @@
-# advanced branch부터 원본 프로그램 복제
+# advanced branch 샘플 응용 프로그램 복제
 
 ## 예상 시간
 
