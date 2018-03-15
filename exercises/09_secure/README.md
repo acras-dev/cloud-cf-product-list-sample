@@ -25,7 +25,7 @@ AP Cloud Platform에서 OAuth 2.O를 사용하여 샘플 응용 프로그램을 
 
 ### 1 단계 : 응용 프로그램 보안 설명자 정의
 
-**이 단계는 master branch에서 작업하는 경우에만 필수입니다. advanced branch인 경우 동작원리만 이해하면 되고 아무 것도 변경할 필요가 없습니다.**
+**이 단계는 master branch에서 작업하는 경우에만 필수입니다. advanced branch인 경우 원리만 이해하고 아무 것도 변경할 필요가 없습니다.**
 
 응용 프로그램 보안 설명자는 샘플 응용 프로그램에 액세스하는 데 사용할 인증 방법 및 권한 유형의 세부 정보를 정의합니다. 샘플 응용 프로그램은 이 정보를 사용하여 범위 검사를 수행합니다. 범위를 사용하면 세밀한 사용자 권한을 얻을 수 있습니다. Spring Security는 모든 HTTP 엔드포인트에서 각 HTTP 메소드의 범위를 확인할 수 있습니다. 범위는 [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) which in turn are issued by the [XS UAA Service](https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/1.0.12/en-US/17acf1ac0cf84487a3199c51b28feafd.html)에 의해 전달되며, 이 토큰은 차례로 XS UAA 서비스에서 발행됩니다.
 
@@ -60,7 +60,7 @@ AP Cloud Platform에서 OAuth 2.O를 사용하여 샘플 응용 프로그램을 
 
 ### 2 단계 : XS UAA 서비스 생성 및 구성
 
-**master branch & advanced branch 모두 필수**
+**master branch & advanced branch 모두 필수입니다.**
 
 사용자에게 샘플 응용 프로그램에 대한 액세스 권한을 부여하려면 이 응용 프로그램에 대한 XS UAA 서비스 인스턴스를 만들어야 합니다. XSUAA 서비스 인스턴스는 바운드 애플리케이션에 대한 OAuth 2.0 클라이언트 역할을 합니다.
 * CF CLI에 사용할 Cloud Foundry를 알려줘야 합니다. 이렇게 하려면 Cloud Foundry 시험판을 만든 Cloud Foundry 지역의 Cloud Controller에 API endpoint를 설정해야 합니다.
@@ -92,24 +92,24 @@ cf api https://api.cf.eu10.hana.ondemand.com
 * XS UAA 서비스 인스턴스 생성합니다. `cf create-service xsuaa application xsuaa -c ./src/main/security/xs-security.json`
 * 서비스에 XS UAA 서비스 인스턴스를 추가합니다. `manifest.yml`: `- xsuaa`
 
-### Step 3: Adding required security libraries
+### 3 단계 : 필수 보안 라이브러리 추가
 
-**This step is mandatory only if you work on the master branch. For the advanced branch you can go through it to understand what is happening (no need to change anything)**
+**이 단계는 master branch에서 작업하는 경우에만 필수입니다. advanced branch인 경우 원리만 이해하고 아무 것도 변경할 필요가 없습니다.**
 
-To secure the application we have to add Spring Security to the classpath. By configuring Spring Security in the application, Spring Boot automatically secures all HTTP endpoints with BASIC authentication. Since we want to use OAuth 2.0 together with [Java Web Tokens (JWT)](https://tools.ietf.org/html/rfc7519) instead, we need to add the Spring OAUTH and Spring JWT dependencies as well.
+응용 프로그램 보안을 위해 클래스 보안에 Spring Security를 추가해야 합니다. Spring Security는 응용 프로그램에서 Spring Security를 구성함으로써 BASIC 인증을 통해 자동으로 모든 HTTP endpoint를 보호합니다. [Java Web Token (JWT)](https://tools.ietf.org/html/rfc7519) 와 함께 OAuth 2.0을 사용하기 때문에 Spring OAUTH와 Spring JWT 의존성을 추가해야 합니다.
 
-To enable offline JWT validation the SAP XS Security Libraries need to be added as well. The libraries are stored in `cloud-cf-product-list-sample-advanced/libs`. The latest version can be downloaded from the [Service Marketplace](https://launchpad.support.sap.com/#/softwarecenter/template/products/%20_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATE&ENR=73555000100200004333&V=MAINT&TA=ACTUAL&PAGE=SEARCH/XS%20JAVA%201). At the time of writing the latest version is `XS_JAVA_4-70001362`.
+오프라인 JWT 유효성 검사를 사용하려면 SAP XS 보안 라이브러리도 추가해야합니다. 라이브러리는 `cloud-cf-product-list-sample-advanced/libs`에 저장됩니다. 최신 버전은 [Service Marketplace](https://launchpad.support.sap.com/#/softwarecenter/template/products/%20_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATE&ENR=73555000100200004333&V=MAINT&TA=ACTUAL&PAGE=SEARCH/XS%20JAVA%201)에서 다운로드 할 수 있습니다. 작성 당시 최신 버전은 `XS_JAVA_4-70001362`입니다.
 
-**Note:** Be aware to adapt the version number in your `pom.xml` in case you are using a newer version of the SAP XS Security Libraries.
+**Note:** 최신 버전의 SAP XS 보안 라이브러리를 사용하는 경우 에는 `pom.xml` 안에 버전 번호를 적용해야합니다.
 
-* Unzip `cloud-cf-product-list-sample-advanced/libs/XS_JAVA_4-70001362.ZIP`
-* Install SAP XS Security Libraries to your local maven repo by executing:
+* `cloud-cf-product-list-sample-advanced/libs/XS_JAVA_4-70001362.ZIP` 압축풀기
+* 다음을 실행하여 SAP XS 보안 라이브러리를 로컬 Maven 저장소에 설치하십시오.
 
 ```shell
 cd cloud-cf-product-list-sample-advanced/libs
 mvn clean install
 ```
-* The following dependencies are already added to the advanced `pom.xml` file:
+* advanced `pom.xml` 파일에는 이미 다음 종속성이 추가되어 있습니다.
 
 ```xml
 <dependency>
@@ -161,20 +161,20 @@ mvn clean install
 </dependency>
 ```
 
-**Note:** In case you started with the master branch the unit tests will fail. To disable authentication for the unit tests we need to enhance the `ControllerTest` class.
+**Note:** master branch로 시작한 경우 단위 테스트가 실패합니다. 단위 테스트에 대한 인증을 사용하지 않으려면 `ControllerTest` 클래스를 향상시켜야합니다.
 
-* Add `@AutoConfigureMockMvc(secure = false)` to `ControllerTests` class
-* Build the project in Eclipse (`Context Menu -> Run As -> Maven install`) -> Result: BUILD SUCCESS
-* Run the project as Spring Boot App (`Context Menu -> Run As -> Spring Boot App`)
-* Call `localhost:8080` from your browser -> a window is popping up informing us that authentication is required
+* `ControllerTests` 클래스에 `@AutoConfigureMockMvc(secure = false)` 추가
+* Eclipse에서 프로젝트 빌드 (`Context Menu -> Run As -> Maven install`) -> Result: BUILD SUCCESS
+* Spring Boot App으로 프로젝트를 실행하십시오. (`Context Menu -> Run As -> Spring Boot App`)
+* 당신의 브라우저에 `localhost:8080` 호출 -> 인증이 필요하다는 창이 표시됩니다.
 
-All HTTP endpoints are secured and the Product List application is inaccessible. To regain access, we need to configure the Spring Security.
+모든 HTTP endpoints가 보호되고 샘플 응용 프로그램에 접근할 수 없습니다. 다시 액세스하려면 스프링 보안을 구성해야합니다.
 
-### Step 4: Configuration of the Spring Security framework
+### 4 단계 : Spring Security 프레임 워크의 설정
 
-**This step is mandatory only if you work on the master branch. For the advanced branch you can go through it to understand what is happening (no need to change anything)**
+**이 단계는 master branch에서 작업하는 경우에만 필수입니다. advanced branch인 경우 원리만 이해하고 아무 것도 변경할 필요가 없습니다.**
 
-* In the advanced branch, a new class `com.sap.cp.cf.demoapps.ConfigSecurity.java` was created including the following scope checks and offline token validations.
+* advanced branch 에서는 클래스 `com.sap.cp.cf.demoapps.ConfigSecurity.java`가 아래 범위 검사 및 오프라인 토큰 유효성 검사가 포함되 만들어졌습니다.
 
 ```java
 package com.sap.cp.cf.demoapps;
@@ -217,23 +217,23 @@ public class ConfigSecurity extends ResourceServerConfigurerAdapter {
 }
 ```
 
-Now all endpoints are blocked except the health endpoint. You can verify that by:
-* running `Maven Install`
-* right clicking on `product-list` and then `Run As -> Spring Boot App`
-* clicking on the following link http://localhost:8080/health
+이제 모든 종단점이 상태 종단점을 제외하고 차단됩니다. 아래 과정으로 확인 할 수 있습니다.
+* `Maven Install` 실행
+* `product-list` 오른쪽클릭하고 `Run As -> Spring Boot App`
+* http://localhost:8080/health 접근
 
-### Step 5: Adding the XS Advanced Application Router
+### 5 단계 : XS 고급 응용 프로그램 라우터 추가
 
-**This step is mandatory for both the master and the advanced branch. For the latter, only the 'npm install' step has to be executed. You should still go entirely through it to have a better understanding of what is happening though.**
+**master branch & advanced branch 모두 필수입니다. advanced branch 경우 'npm install'단계만 실행해야 합니다. 동작원리를 좀더 이해하고자 여전히 살펴볼 필요는 있습니다.**
 
-The [XS Advanced Application Router](https://github.com/SAP/cloud-cf-product-list-sample/blob/advanced/src/main/approuter/README.md) is used to provide a single entry point to a business application that consists of several different apps (microservices). It dispatches requests to backend microservices and acts as a reverse proxy. The rules that determine which request should be forwarded to which _destinations_ are called _routes_. The application router can be configured to authenticate the users and propagate the user information. Finally, the application router can serve static content.
+[XS Advanced Application Router](https://github.com/SAP/cloud-cf-product-list-sample/blob/advanced/src/main/approuter/README.md)는 여러 가지 응용 프로그램 (microservices)로 구성된 비즈니스 애플리케이션에 대한 single entry point을 제공하는 데 사용됩니다. 백엔드 마이크로 서비스에 대한 요청을 디스패치하고 역방향 프록시 역할을 합니다. 어떤 요청을 _destinations_로 전달해야 하는지를 결정하는 규칙을 _routes_ 라고 합니다. application router는 사용자를 인증하고 사용자 정보를 전파하도록 구성 할 수 있으며 static content를 제공 할 수 있습니다.
 
-**Note** that the application router does not hide the backend microservices in any way. They are still directly accessible bypassing the application router. So, the backend microservices _must_ protect all their endpoints by validating the JWT token and implementing proper scope checks.
+**Note** application router가 어떤 식 으로든 백엔드 microservices을 숨기지 않습니다. application router를 거치지 않고도 직접 접근할 수 있습니다. 따라서 백엔드 마이크로 서비스 는 JWT 토큰의 유효성을 검사하고 적절한 범위 검사를 구현하여 모든 엔드 포인트를 보호 해야 합니다.
 
-* Download and install the application router in `product-list/src/main/approuter`
-  * Create a new folder: `mkdir product-list/src/main/approuter`
-  * Change directory to: `cd product-list/src/main/approuter`
-  * Create a new file to specify the version of the application router: `vi package.json`
+* `product-list/src/main/approuter`에 application router를 다운로드하여 설치하십시오.
+  * 새폴더 만들기: `mkdir product-list/src/main/approuter`
+  * 경로 변경: `cd product-list/src/main/approuter`
+  * 새 파일을 만들어 application router의 버전을 지정: `vi package.json`
 
 ```json
 {
@@ -247,15 +247,14 @@ The [XS Advanced Application Router](https://github.com/SAP/cloud-cf-product-lis
 }
 ```
 
-*  Run `npm install`
-:bulb: For the advanced branch only this command has to be executed from `cloud-cf-product-list-sample-advanced/src/main/approuter`
+* :bulb: 오직 advanced branch 경우 `cloud-cf-product-list-sample-advanced/src/main/approuter`에서 `npm install` 실행
 
 ```shell
     approuter$ npm config set @sap:registry https://npm.sap.com
     approuter$ npm install @sap/approuter
 ```
 
-* Configure the application router by defining the destinations and routes: `vi src/main/approuter/xs-app.json`
+* `vi src/main/approuter/xs-app.json`에 대상 및 경로를 정의하여 application router를 구성합니다.
 
 ```json
 {
@@ -267,7 +266,7 @@ The [XS Advanced Application Router](https://github.com/SAP/cloud-cf-product-lis
 }
 ```
 
-* Add the application router to the `manifest.yml`
+* `manifest.yml`에 application router 추가하기
 
 ```yml
 ---
