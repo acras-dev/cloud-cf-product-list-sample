@@ -16,8 +16,7 @@
 <br><br>
 ![Download ZIP](/img/github_download_zip.png?raw=true)
 <br><br>
-
-3. 원하는 디렉토리에 다운로드 파일의 압축을 풉니다. cloud-cf-product-list-sample 라는 새로운 디렉토리가 생성됩니다.
+3. 원하는 디렉토리에 압축을 풉니다. ```cloud-cf-product-list-sample``` 라는 새로운 디렉토리가 생성됩니다.
 
 ## 2. Eclipse로 샘플 프로젝트 가져 오기
 1. Eclipse를 실행합니다.
