@@ -1,4 +1,4 @@
-# SAP Cloud Platform Cloud Foundry 환경에서 애플리케이션 관측
+# SAP Cloud Platform Cloud Foundry 환경에서 응용 프로그램 관측
 
 ## 예상 시간
 
@@ -65,12 +65,12 @@ cf logs product-list
 
 :bulb: **Note:** 콘솔에서 로그 실시간 스트림 모드를 종료하려면 **Ctrl + C**를 클릭하십시오 
 
-- 애플리케이션의 최근 로그 표시 명령어 `cf logs APP_NAME`
+- 응용 프로그램의 최근 로그 표시 명령어 `cf logs APP_NAME`
 ```
 cf logs product-list --recent
 ```
 ### 조종석
-Cockpit에서 응용 프로그램 로그를 보려면 공간의 응용 프로그램 목록으로 다시 이동하여 푸시 한 응용 프로그램을 선택하고 시작합니다 (응용 프로그램 이름 클릭). 그런 다음 왼쪽 탐색 메뉴에서 **Logs**를 클릭 하면 최근 응용 프로그램 로그가 표시된 테이블이 표시됩니다. 애플리케이션에 둘 이상의 애플리케이션 인스턴스가 실행중인 경우 로그를 볼 인스턴스에 대한 드롭 다운을 선택할 수 있습니다. 
+Cockpit에서 응용 프로그램 로그를 보려면 공간의 응용 프로그램 목록으로 다시 이동하여 푸시 한 응용 프로그램을 선택하고 시작합니다 (응용 프로그램 이름 클릭). 그런 다음 왼쪽 탐색 메뉴에서 **Logs**를 클릭 하면 최근 응용 프로그램 로그가 표시된 테이블이 표시됩니다. 응용 프로그램에 둘 이상의 응용 프로그램 인스턴스가 실행중인 경우 로그를 볼 인스턴스에 대한 드롭 다운을 선택할 수 있습니다. 
 <br><br>
 ![Logs in cockpit](/img/cockpit_logs.png?raw=true)
 <br><br>
@@ -84,21 +84,21 @@ CPU, 메모리 및 디스크 사용에 대한 정보를 포함하여 응용 프�
 cf app product-list
 ```
 ### 조종석
-왼쪽 탐색 메뉴의 구체적인 애플리케이션보기에 이미 있는 경우 **Overview**를 선택 하면 실행중인 애플리케이션과 유사한 정보가 표시됩니다. 
+왼쪽 탐색 메뉴의 구체적인 응용 프로그램보기에 이미 있는 경우 **Overview**를 선택 하면 실행중인 응용 프로그램과 유사한 정보가 표시됩니다. 
 
 <br><br>
 ![Metrics in cockpit](/img/cockpit_overview_app.png?raw=true)
 <br><br>
 
 ## 이벤트
-최근 애플리케이션 이벤트 (e.g. create, re-stage, update, etc.), 발생한시기 및 누가 실행했는지 보여줍니다.
+최근 응용 프로그램 이벤트 (e.g. create, re-stage, update, etc.), 발생한시기 및 누가 실행했는지 보여줍니다.
 
 ### CF CLI
 ```
 cf events APP_NAME
 ```
 ### 조종석
-조종실에 이벤트 표시 - 전용 애플리케이션보기에서 왼쪽 탐색 **Events**를 선택하십시오 . 
+조종실에 이벤트 표시 - 전용 응용 프로그램보기에서 왼쪽 탐색 **Events**를 선택하십시오 . 
 <br><br>
 ![Metrics in cockpit](/img/cockpit_events.png?raw=true)
 <br><br>
@@ -164,7 +164,7 @@ Cloud Foundry가 응용 프로그램 컨테이너에서 사용할 수있는 환�
 - `VCAP_APPLICATION`
 - `VCAP_SERVICES`
 
-마지막으로 `VCAP_SERVICES`가 중요합니다. 서비스가 바인드 가능한 서비스를 사용하는 경우 Cloud Foundry가 서비스를 바인드 한 후 애플리케이션을 복원 할 때 연결 세부 정보를 추가하기 때문입니다. 다음 예제는 postgresql 서비스가 바인드 된 응용 프로그램에서 가져온 것입니다.
+마지막으로 `VCAP_SERVICES`가 중요합니다. 서비스가 바인드 가능한 서비스를 사용하는 경우 Cloud Foundry가 서비스를 바인드 한 후 응용 프로그램을 복원 할 때 연결 세부 정보를 추가하기 때문입니다. 다음 예제는 postgresql 서비스가 바인드 된 응용 프로그램에서 가져온 것입니다.
 
 ## 상태 점검
 응용 프로그램 상태 검사는 실행중인 Cloud Foundry 응용 프로그램의 상태를 지속적으로 확인하는 모니터링 프로세스입니다. Cloud Foundry에서 기본 시간 초과는 60 초이고 구성 가능한 최대 시간 제한은 180 초입니다. Cloud Foundry에서 사용할 수있는 상태 확인에는 세 가지 유형이 있습니다.
