@@ -1,26 +1,27 @@
-# Cloning sample target from advanced branch
+# advanced branch부터 원본 프로그램 복제
 
-## Estimated time
+## 예상 시간
 
-:clock4: 5 minutes
+:clock4: 5 분
 
-## Objective
+## 목표
 
-In this exercise you'll learn how to download the target version of the Product List sample application for the advanced session which is not in the master branch but in dedicated advanced branch, then import it in your local Eclipse environment.
+이 연습에서는 master branch가 아닌 advanced branch에 있는 고급 세션에 대한 원본 다운로드 방법을 배우고 로컬 Eclipse 환경에 가져옵니다.
 
-# Exercise description
+# 연습과정 설명
 
-//check where the downloaded zip or git clone are stored on the image
+## 1. 샘플 코드를 zip으로 다운로드하십시오.
+1. github에서 프로젝트의 루트로 이동합니다. https://github.com/SAP/cloud-cf-product-list-sample
+2. **Branch: master** 를클릭하고 드롭다운 리스트에서 **advanced** branch를 선택합니다.
+3. 이제 **Clone or download** 버튼을 클릭하고 zip 다운로드를 선택하십시오.
+4. 압출을 ```cloud-cf-product-list-sample-advanced``` 이름으로 해제합니다.
 
-## 1. Download the sample code as zip
-1. Go to the root of the project in github: https://github.com/SAP/cloud-cf-product-list-sample
-2. Click on **Branch: master** dropdown and select **advanced** branch.
-3. Now click on **Clone or download** button and select Download zip
-4. Unzip the downloaded file in your students directory - a new directory ```cloud-cf-product-list-sample-advanced``` will be created.
-
-## 2. Import the sample project into Eclipse
-1. Open the Windows Start menu and enter ```CPL...``` in the input field. Under ```Programs``` you will see ```ABAP in Eclipse - CPL...```. Click on this entry to open Eclipse.
-2. Now import the target state of the sample project as Maven project into your Eclipse workspace: In the Eclipse menu, chose ```File```> ```Import...```.
-3. In the ```Import``` wizard, select ```Maven``` > ```Existing Maven Projects``` and click ```Next```.
-4. In the next step of the ```Import Maven Projects``` popup, click ```Browse```, navigate into the ```cloud-cf-product-list-sample-advanced``` project in your student directory folder (```D:\Files\Session\CPL...```), then click ```Finish```.
-5. The project is now imported in Eclipse. You should see the project in the Project Explorer like in the screenshot below.   
+## 2. Eclipse로 샘플 프로젝트 가져오기
+1. Eclipse를 실행합니다.
+2. 이제 샘플 프로젝트를 Maven 프로젝트로 Eclipse 작업 공간에 가져 오십시오.: Eclipse 메뉴에서 ```File```> ```Import...```를 선택합니다.
+3. ```Import``` 화면에서, ```Maven``` > ```Existing Maven Projects``` 를 선택하고 ```Next```를 클릭합니다.
+4. ```Import Maven Projects``` 팝업의 다음단계에서, ```Browse```, 클릭하고 아까 압축 풀어둔 ```cloud-cf-product-list-sample-advanced``` 프로젝트를 찾아 루트폴더를 지정한 다음 ```Finish``` 버튼을 클릭합니다.
+5. 이제 Eclipse에서 프로젝트를 가져옵니다. 아래 스크린 샷과 같이 프로젝트 탐색기에서 프로젝트를 볼 수 있습니다.  
+<br><br>
+![Import Maven Project](/img/imported_project_eclipse.png?raw=true)
+<br><br>
