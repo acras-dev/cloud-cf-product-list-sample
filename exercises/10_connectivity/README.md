@@ -21,7 +21,7 @@
 * 클라우드 커넥터를 구성하고 첫 번째 단계에서 백엔드 시스템을 공개하십시오.
 * 연결 서비스를 사용하도록 응용 프로그램을 수정하십시오.
 * 이를 업데이트하고 연결 서비스 인스턴스에 바인딩하십시오.
-* 응용 프로그램을 테스트하십시오. 클라우드 커넥터에서 사용하지 않는 경우 온-프레미스 시스템에 액세스 할 수 없도록하십시오.
+* 응용 프로그램을 테스트하십시오. 클라우드 커넥터에서 사용하지 않는 경우 온-프레미스 시스템에 액세스 할 수 없도록 하십시오.
 
 
 # 세부 단계
@@ -295,8 +295,7 @@ https://www.sap.com/developer/tutorials/hcp-cloud-connector-setup.html
 * 응용 프로그램을 열고 온-프레미스 시스템에서 static 파일을 가져 왔는지 확인하십시오. Python 서버를 시작하는 데 사용한 CLI를 사용하여 온-프레미스 시스템에 대한 호출을 모니터링 할 수 있습니다.
 
 	![Console](/img/connectivity_onpremiseconsole.png?raw=true)
-* 노출 된 백엔드 시스템을 사용하지 않도록 설정합니다. 클라우드 커넥터 UI -> "Cloud To-Premise"-> 액세스 제어 -> 생성 한 가상 매핑을 선택하고 아래의 리소스 테이블에서 / images 리소스를 비활성화합니다 .
-노출 된 백엔드 시스템을 사용하지 않도록 설정합니다. 클라우드 커넥터 UI ->> "Cloud To On-Premise" -> Access Control -> 생성한 가상 매핑을 선택하고 아래의 리소스 테이블에서 */images* resource를 비활성화합니다 .
+* 노출 된 백엔드 시스템을 사용하지 않도록 설정합니다. 클라우드 커넥터 UI ->> "Cloud To On-Premise" -> Access Control -> 생성한 가상 매핑을 선택하고 아래의 리소스 테이블에서 */images* 리소스를 비활성화합니다.
 
 	![Disable resource](/img/connectivity_disable.png?raw=true)
 
