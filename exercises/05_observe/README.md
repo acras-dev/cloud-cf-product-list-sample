@@ -10,7 +10,7 @@
 
 이 모든 연습을 위해 두 도구 (CF CLI 및 조종석)를 통해 액세스 할 수있는 정보가 있습니다. 아래에서 CF CLI에서 실행해야하는 명령과 정보를 얻기위한 콕 피트 메뉴의 각 탐색을 찾을 수 있습니다.
 
-# 연습문제 설명
+# 연습과정 설명
 
 Kibana에서 로그를 볼 수 있으려면 서비스 application-logs가 앱에 바인딩되어 있어야합니다.
 
@@ -196,7 +196,7 @@ cf set-health-check APP_NAME http --endpoint PATH (default to /)
 cf set-health-check APP_NAME port
 cf set-health-check APP_NAME PROCESS_NAME
 ```
-CF CLI 명령 `cf get-health-check APP_NAME`을 사용하여 주어진 앱의 상태 검사 유형을 표시합니다. 제품 목록 응용 프로그램에 대해 구성된 기본 상태 검사가 무엇인지 확인할 수 있습니다.
+CF CLI 명령 `cf get-health-check APP_NAME`을 사용하여 주어진 앱의 상태 검사 유형을 표시합니다. Product List 응용 프로그램에 대해 구성된 기본 상태 검사가 무엇인지 확인할 수 있습니다.
 ```
 cf get-health-check product-list
 ```
