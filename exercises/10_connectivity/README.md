@@ -58,35 +58,38 @@ https://www.sap.com/developer/tutorials/hcp-cloud-connector-setup.html
 
 * [Cloud Connector configuration UI](https://scc.fair.sap.corp:8443) 엽니다. ID/PW: (**Administrator** : **welcome**) 
 * [SAP Cloud Platform cockpit](https://account.hana.ondemand.com/cockpit) 열고 Home -> Cloud Foundry Environment -> US East (VA) Cloud Foundry 지역으로 이동하십시오.
-* 평가판 하위 계정으로 이동하여 오른쪽 하단의 ""refresh"아이콘을 클릭하십시오. ID를 클립 보드에 복사하십시오.
+* 평가판 하위 계정으로 이동하여 오른쪽 하단의 "refresh" 아이콘을 클릭하십시오. ID를 클립 보드에 복사하십시오.
+
 	![Get Subaccount ID](/img/connectivity_subaccountid.png?raw=true)
 * 클라우드 커넥터 UI로 이동하여 "Add Subaccount" 버튼을 클릭하십시오.
+
 	![Add Subaccount](/img/connectivity_addsubaccount.png?raw=true)
-* Region Host: cf.us10.hana.ondemand.com. Subaccount Name: 위에서 클립보드에 복사한 ID. 평가판 하위 계정 및 비밀번호를 만드는 데 사용 된 이메일 주소를 입력. description과 display name을 입력 할 수 있습니다.
+* Region Host: cf.us10.hana.ondemand.com. Subaccount Name: 위에서 클립보드에 복사한 ID. 평가판 하위 계정 및 비밀번호를 만드는 데 사용 된 이메일 주소를 입력. description과 display name을 당신 편한데로 입력 할 수 있습니다.
+
 	![Subaccount Information](/img/connectivity_subaccountinfo.png?raw=true)
-* 모든 구성이 성공적으로 완료되면 클라우드 커넥터가 "Connected status"를 출력합니다.
+* 모든 구성이 성공적으로 완료되면 클라우드 커넥터가 "Connected status" 메세지를 보여줍니다.
 
-## Configure Cloud Connector and expose the test backend system
+## 클라우드 커넥터 구성 및 테스트 백엔드 시스템 노출
 
-By default backend systems are not accessible by the cloud application and have to be configured in Cloud Connector.
-* In the Cloud Connector UI, go to "Cloud To On-Premise" -> "Access Control" and add mapping:
+기본적으로 백엔드 시스템은 클라우드 애플리케이션에서 접근할 수 없으므로 클라우드 커넥터에서 구성해야합니다.
+* 클라우드 커넥터 UI에서, "Cloud To On-Premise" -> "Access Control" 이동해 add mapping 클릭
 
 	![Add Mapping](/img/connectivity_addaccess.png?raw=true)
-* Select backend type "Non SAP System" -> Protocol "HTTP" -> Internal host "localhost", Internal port "10080" -> Virtual host can be "**mybackend**" and you can keep the port 10080 -> Principal propagation type "None" -> Finish;
-* Expose the */images* folder and all of its content.
-	* Add a new resource to your virtual mapping:
+* backend type 선택 "Non SAP System" -> Protocol "HTTP" -> Internal host "localhost", Internal port "10080" -> Virtual host는 "**mybackend**"가 될 수 있고 port 10080 를 유지할 수 있음 -> Principal propagation type "None" -> Finish;
+* */images* 폴더와 모든 컨텐츠를 노출하십시오.
+	* virtual mapping에 new resource를 추가합시오.
 
 		![Add Resource](/img/connectivity_resourceButton.png?raw=true)
-	* Enter **/images** as URL path and select **Path and all sub-paths**:
+	* URL path에 **/images** 입력하고 **Path and all sub-paths** 선택합니다.
 
 		![Resource data](/img/connectivity_addresource.png?raw=true)
 
-Now you have connected and configured Cloud Connector and you have exposed one backend system to the cloud applications.
+이제 Cloud Connector를 연결하고 구성했으며 하나의 백엔드 시스템을 클라우드 응용 프로그램에 공개했습니다.
 
-## Modify the cloud application
+## 클라우드 애플리케이션 수정
 
-Now let us modify the application to consume the connectivity service:
-* Add the following dependency to the *pom.xml* file:
+이제 연결 서비스를 사용하도록 애플리케이션을 수정합니다.
+* *pom.xml* 파일에 다음 종속성을 추가 하십시오
 ```xml
 	<dependency>
 	      <groupId>org.cloudfoundry.identity</groupId>
@@ -100,8 +103,8 @@ Now let us modify the application to consume the connectivity service:
               <version>2.5</version>
         </dependency>
 ```
-* In Eclipse, add a new class to the *com.sap.cp.cf.demoapps* package and name it **ConnectivityConsumer**;
-* Change the content of the newly created **ConnectivityConsumer.java** file to:
+* Eclipse에서 *com.sap.cp.cf.demoapps* 패키지에 새 클래스를 추가하고 **ConnectivityConsumer**로 이름을 지정합니다 .
+* 새로 생성 된 **ConnectivityConsumer.java** 파일 내용을 다음으로 변경합니다.
 ```java
 	package com.sap.cp.cf.demoapps;
 
@@ -220,8 +223,9 @@ Now let us modify the application to consume the connectivity service:
 	}
 
 ```
-The **getImageFromBackend** method handles the requests to the on-premise system. It is tasked with retrieving an image from the server via the connectivity service. The **getServiceCredentials** method is used to read JSON-formated credentials from the environment variables of the application. The **getProxy** method configures the Connectivity service endpoint as a proxy. The **getAccessToken** method requests a JWT access token from the xsuaa service. The token is used for the authorization of the connectivity proxy. The **getClientOAuthToken** retrieves the client JWT token. Applications are responsible to propagate this token via the **SAP-Connectivity-Authentication** header. This is needed by the connectivity service to open a tunnel to the subaccount for which a configuration is made in the Cloud Connector.
-* Now add a way to make calls to the on-premise system. To achieve this, map all *images/\<file\>* requests to go through the *getImageFromBackend(String fileName)* method, with *\<file\>* passed as the argument. Change the content of **Controller.java** to:
+**getImageFromBackend** 메소드는 온-프레미스 시스템에 대한 요청을 처리합니다. 연결 서비스를 통해 서버에서 이미지를 가져 오는 작업이 수행됩니다. **getServiceCredentials** 메소드는 애플리케이션 환경 변수의 JSON 포맷된 인증 정보를 판독하는 데 사용됩니다. **getProxy**의 메소드는 프록시로 연결 서비스 endpoint를 구성합니다. **getAccessToken** 메소드는 xsuaa 서비스에서 JWT 액세스 토큰을 요청합니다. 토큰은 연결 프록시의 권한 부여에 사용됩니다. **getClientOAuthToken**는 클라이언트 JWT 토큰을 검색합니다. 응용 프로그램은 **SAP-Connectivity-Authentication** 헤더를 통해 이 토큰을 전달할 책임이 있습니다. 이는 클라우드 커넥터에서 구성이 이루어진 하위 계정에 대한 터널을 열기 위해 연결 서비스에서 필요합니다.
+* 이제 사내 시스템에 호출할 수있는 메소드를 추가하십시오. 이를 위해 모든 *images/\<file\>* 요청을 매핑하여 *\<file\>* 을 인수로 전달하여 *getImageFromBackend(String fileName)* 메소드를 수행하십시오. **Controller.java**의 내용을 다음과 같이 변경하십시오.
+
 ```java
 	package com.sap.cp.cf.demoapps;
 
@@ -261,6 +265,7 @@ The **getImageFromBackend** method handles the requests to the on-premise system
 		}
 	}
 ```		
+
 :bulb: **Note:** If you look at **Application.java**, you will see that the URLs for the icons match the pattern you mapped in the controller, for example *"images/HT-1000.jpg"*. This means that when the list items are loaded, the icons will be retrieved from the on-premise system.
 
 ## Create connectivity service instance and bind it to the application
