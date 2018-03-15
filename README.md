@@ -86,7 +86,7 @@ XS UAA (User Account and Authentication) 서비스는 멀티 파운드 (multi-te
 
 미니 코드잼 (1 시간), 기본 실습 (2 시간), 고급 실습 (2 시간)의 3 가지 세션 모두 위에서 언급한 샘플 응용 프로그램(Product List)을 사용합니다.
 
-:one:**미니 코드잼 (1 시간)**
+:one:**[미니 코드잼 (1 시간)](/exercises/basic-codeJam)**
 
 이 세션에서는 조종실 및 Cloud Foundry CLI에 익숙해 질 것입니다.
 - 응용 프로그램을 올리십시오.
@@ -95,20 +95,16 @@ XS UAA (User Account and Authentication) 서비스는 멀티 파운드 (multi-te
 - 상태 확인 변경
 - 푸른 녹색 배치
 
-이 세션 세부 단계 설명 : [Mini CodeJam](/exercises/basic-codeJam)
 
-:two:**기본 실습 (2 시간)**
+:two:**[기본 실습 (2 시간)](exercises/basic-hands-on)**
 
 이 세션에서는 간단한 SpringBoot 응용 프로그램을 개발하고 로컬로 실행 한 다음 SAP Cloud Platform Cloud Foundry Environment로 올립니다. 응용 프로그램에 대한 내용을 탐색하고 기본 로그 및 메트릭을 확인한 후에는 지원 기능과 함께 응용 프로그램을 향상시킬 수 있습니다. 응용 프로그램 로깅 서비스와의 통합 또한 응용 프로그램을 확장하는 방법을 볼 수 있습니다.
 
-이 세션의 세부 단계 설명 : [Basic Hands-on](exercises/basic-hands-on)
 
-:three:**고급 실습 (2 시간)**
+:three:**[고급 실습 (2 시간)](exercises/advanced-hands-on)**
 
 이 세션에서는 샘플 응용 프로그램의 좀 더 정교한 향상 및 작동을 살펴 봅니다.
 * Blue-Green 배치 방식을 사용하여 Cloud-Foundry에서 실행되는 응용 프로그램을 업데이트하는 방법을 알아보십시오.
 * MTA 아카이브를 만들고 여러 모듈로 구성되어 있고 여러 서비스를 사용하는보다 복잡한 응용 프로그램이있는 경우 배포 및 업데이트가 어떻게 단순화되는지 확인하십시오.
 * 응용 프로그램을 보안하고 OAuth 2.0 인증 코드 부여 (사람과 서비스 간 통신)를 구성합니다.
 * 클라우드 커넥터에 의해 노출 된 온-프레미스 시스템에 연결성 서비스를 액세스 가능하도록 응용 프로그램을 확장합니다.
-
-이 세션의 세부 단계 설명 : [Advanced Hands-on](exercises/advanced-hands-on)
