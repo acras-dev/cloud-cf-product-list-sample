@@ -17,7 +17,7 @@
 
 **advanced** branch 지점의 product list 응용 프로그램 복제
 
-:three: **[앱을 보호하고 클라우드로 올리기](../09_secure)**
+:three: **[OAuth 2.0으로 보안된 애플리케이션 만들기](../09_secure)**
 
 Product List 응용 프로그램에 보안을 설정하고 OAuth 2.0 클라이언트 자격 인증 (서비스 통신에 대한 서비스) 및 OAuth 2.0 인증 코드 부여 (휴먼에서 서비스로의 통신)
 
