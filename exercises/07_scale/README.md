@@ -1,49 +1,49 @@
-# Scale the application
+# 응용 프로그램의 스케일 조정
 
-## Estimated time
+## 예상 시간
 
-:clock4: 20 minutes
+:clock4: 20 분
 
-## Objective
+## 목표
 
-In this exercise you'll learn how you can scale up and down your application.
+이 연습에서는 응용 프로그램의 스케일 조정 방법을 배웁니다.
 
 # Exercise description
 
-Factors such as user load, or the number and nature of tasks performed by an application, can change the disk space and memory the application uses. For many applications, increasing the available disk space, memory or launching more instances (CPUs) can improve overall performance. Similarly, running additional instances of an application can allow the application to handle increases in user load and concurrent requests. These adjustments are called scaling an application.
+사용자로드 또는 응용 프로그램에서 수행하는 작업의 수와 특성과 같은 요소는 응용 프로그램에서 사용하는 디스크 공간과 메모리를 변경할 수 있습니다. 많은 응용 프로그램에서 사용 가능한 디스크 공간, 메모리를 늘리거나 더 많은 인스턴스 (CPU)를 실행하면 전반적인 성능을 향상시킬 수 있습니다. 마찬가지로 응용 프로그램의 추가 인스턴스를 실행하면 응용 프로그램이 사용자로드 및 동시 요청의 증가를 처리 할 수 있습니다. 이를 응용 프로그램의 스케일 조정이라고 합니다.
 
-You can scale an application up or down to meet changes in traffic or demand manually via CF CLI or Cockpit and also automatically using the SAP Cloud Platform Application Autoscaler service.
+CF CLI 또는 조종석을 통해 수동으로 트래픽 또는 수요의 변화에 맞게 응용 프로그램을 위 / 아래로 확장하고 SAP Cloud Platform Application Autoscaler 서비스를 자동으로 사용할 수 있습니다.
 
 
-## Prepare the stage for scaling
+## 스케일링을 위한 준비
 
-In case you have more than one application already running in the account, we need to clean up a bit to be sure we have quota left to try out the scaling options. What you need is one instance of the SpringBoot Product List application running in the account.
-- Open the command line
-- List all applications in your target space
+계정에서 이미 실행중인 응용 프로그램이 두 개 이상인 경우에는 크기 조정 옵션을 시도하기 위해 쿼터가 남도록 조금씩 정리해야합니다. 필요한 것은 계정에서 실행되는 SpringBoot Product List 응용 프로그램의 한 인스턴스입니다.
+- 터미널 열기
+- 대상 Space에 있는 모든 응용 프로그램 나열
 ```
 cf apps
 ```
-- If there are more applications besides one Product List app running in the space, stop them to free memory quota for the next exercises - executing the stop command for each running application
+- 해당 Space에서 실행중인 하나의 Product List 앱 이외에 더 많은 응용 프로그램이있는 경우 다음 연습을 위해 메모리 할당량을 비우도록 각 응용 프로그램에 대해 중지 명령을 실행합니다.
 ```
 cf stop APP_NAME
 ```
-:bulb:**Note:** Prior continuing with the next exercises make sure you have one instance of the Product List application running in the account. You can clone the sample from master branch and push it.
+:bulb:**Note:** 다음 연습을 계속하기 전에 계정에서 Product List 응용 프로그램 인스턴스 하나를 실행해야합니다. 마스터 브랜치에서 샘플을 복제하고 올릴수 있습니다.
 
-## Vertical scale
+## 수직 스케일
 
-Vertically scaling an application changes the disk space limit or memory limit that Cloud Foundry applies to all instances of the application.
+응용 프로그램을 세로로 확장하면 Cloud Foundry가 응용 프로그램의 모든 인스턴스에 적용하는 디스크 공간 제한 또는 메모리 제한이 변경됩니다.
 
 ### CF CLI
 
-Use ```cf scale APP_NAME -k DISK``` to change the disk space limit applied to all instances of your application. DISK must be an integer followed by either an M, for megabytes, or G, for gigabytes.
+```cf scale APP_NAME -k DISK``` 명령어는 응용 프로그램의 모든 인스턴스에 적용되는 디스크 공간 제한을 변경하는 데 사용 합니다. DISK는 정수 여야하며 메가 바이트의 경우 M 또는 기가 바이트의 경우 G입니다.
 
-Use ```cf scale APP_NAME -m MEMORY``` to change the memory limit applied to all instances of your application. MEMORY must be an integer followed by either an M, for megabytes, or G, for gigabytes.
+Use ```cf scale APP_NAME -m MEMORY``` 명령어는 응용 프로그램의 모든 인스턴스에 적용되는 메모리 제한을 변경하는 데 사용 합니다. MEMORY는 정수 여야하며 그 뒤에 메가 바이트의 경우 M 또는 기가 바이트의 경우 G가옵니다.
 
-- We want to scale down the application and make our sample application run with less memory - 256MB.
+- 우리는 애플리케이션을 축소하고 256MB의 적은 메모리로 샘플 응용 프로그램을 실행하려고합니다.
 ```
 cf scale APP_NAME -m 712M
 ```
-Executing this command in CF CLI will cause the application to restart (you should confirm with yes in console that this is ok). Then once the application is running again, you can refresh the application view in cockpit and see that now it uses 712 MB memory. You can see this also in console - the output of scale command or listing the application:
+CF CLI에서 이 명령을 실행하면 응용 프로그램이 다시 시작됩니다 (콘솔에서 "예"로 확인하는 것이 좋습니다). 그런 다음 응용 프로그램이 다시 실행되면 조종석에서 응용 프로그램보기를 새로 고치고 712MB 메모리를 사용하는지 확인할 수 있습니다. 콘솔에서도 볼 수 있습니다.
 ```
 cf app APP-NAME
 ```
