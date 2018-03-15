@@ -6,7 +6,7 @@
 
 ## 목표
 
-이 연습에서는 응용 프로그램이 SAP Cloud Platform 응용 프로그램 로깅 서비스와 통합되는 방법과 Kobana 대시 보드의 응용 프로그램 로그를 Cloud Foundry 구성 요소 로그와 함께 시각화하는 방법을 배우게됩니다.
+이 연습에서는 응용 프로그램이 SAP Cloud Platform 응용 프로그램 로깅 서비스와 통합되는 방법과 Kibana 대시 보드의 응용 프로그램 로그를 Cloud Foundry 구성 요소 로그와 함께 시각화하는 방법을 배우게됩니다.
 
 
 # 연습과정 설명
@@ -43,7 +43,7 @@ private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 <br><br>
 ![Application Log Analysis](/img/cockpit_open_log_analysis.png?raw=true)
 <br><br>
-* 브라우저에서 응용 프로그램이 동작하는 지역의 Kibana URL이 열려야 합니다. https://logs.cf.us10.hana.ondemand.com (EU10 지역선택시 us10 대신 eu10 으로 변경)
+* 브라우저에서 응용 프로그램이 동작하는 지역의 Kibana URL이 열려야 합니다. https://logs.cf.us10.hana.ondemand.com (EU10 지역 선택시 us10 대신 eu10 으로 변경)
 * 조종석에 사용하고 평가판 계정을 만든 전자 메일 및 암호로 로그인하십시오.
 * Kibana의 product-list 앱 선택
 <br><br>
@@ -54,10 +54,8 @@ private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 ![Kibana requests and logs](/img/kibana_requests_logs.png?raw=true)
 <br><br>
 * 요청 및 응용 프로그램 로그가 표시됩니다.
-* 그런데 응용 프로그램 로그의 msg 필드가 이상하게 보입니다.
-  
-  * Correlation Id가 빈값으로 보입니다.
-  
+* 그런데 응용 프로그램 로그의 msg 필드가 이상하게 보입니다.  
+  * Correlation Id가 빈값으로 보입니다.  
   * 따라서 어떤 응용 프로그램 로그가 어떤 요청에 속해 있는지 알기가 어렵습니다. 
   <br><br>
   ![Kibana Message](/img/kibana_msg_no_correlationid.png?raw=tru)
@@ -72,8 +70,7 @@ private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 * 이클립스에서 - 해당 project 오른쪽 클릭 -> Run As... -> Maven Build
 * 터미널에서 응용 프로그램의 루트폴더로 이동한 다음 `cf push product-list` 입력
 * Cloud Foundry 평가판 계정에서 응용 프로그램이 실행되면 조종실로 이동하여 응용 프로그램을 탐색하고 브라우저에서 응용 프로그램 경로를 요청하여 로그를 생성하는 상대 경로를 추가합니다. `YOUR_APP_URL/productsByParam?name=Notebook%20Basic%2015`
-* Kibana가 아직 열려있는 경우 탭을 새로 고침하여 최신 로그를 표시 할 수 있습니다. 닫은 경우 조종석으로 다시 이동하여 응용 프로그램 보기에서 왼쪽 탐색 메뉴의 로그 탭을 클릭하고 Kibana 링크를 클릭하십시오. ( **Open Log Analysis**를 클릭하십시오 )
-  
+* Kibana가 아직 열려있는 경우 탭을 새로 고침하여 최신 로그를 표시 할 수 있습니다. 닫은 경우 조종석으로 다시 이동하여 응용 프로그램 보기에서 왼쪽 탐색 메뉴의 로그 탭을 클릭하고 Kibana 링크를 클릭하십시오. ( **Open Log Analysis**를 클릭하십시오 )  
   * 이제 응용 프로그램 로그의 msg 필드에서 알아볼만한 형식의 메시지를 볼 수 있습니다. 
   <br><br>
   ![Kibana logs format](/img/kibana_logs_format.png?raw=true)
