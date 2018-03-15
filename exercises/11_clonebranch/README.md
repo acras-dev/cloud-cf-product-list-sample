@@ -10,7 +10,7 @@
 
 # 연습과정 설명
 
-## 1. 샘플 코드를 zip으로 다운로드하십시오.
+## 1. 샘플 코드를 다운로드하십시오.
 1. github에서 프로젝트의 루트로 이동합니다. https://github.com/SAP/cloud-cf-product-list-sample
 2. **Branch: master** 를클릭하고 드롭다운 리스트에서 **advanced** branch를 선택합니다.
 3. 이제 **Clone or download** 버튼을 클릭하고 zip 다운로드를 선택하십시오.
