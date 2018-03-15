@@ -14,7 +14,7 @@
 
 이 과정에서는 응용 프로그램을 배포하고 실행하는 데 사용할 수있는 무료 SAP Cloud Platform Cloud Foundry Environment 평가판을 시작합니다. 또한 로컬 개발 환경과 도구를 설치합니다.
 
-:two: **[샘플 응용프로그램 복제](../02_clone)**
+:two: **[샘플 응용 프로그램 복제](../02_clone)**
 
 이 세션에서 개발하려는 응용 프로그램 원본을 복제합니다. 복제를 통해 원본 응용 프로그램을 참조하거나 일부 스니펫을 복사해야하는 경우 이클립스에 임포트할 수 있습니다.
 
@@ -32,4 +32,4 @@ CF CLI 및 SAP 클라우드 플랫폼 조종석을 통해 실행중인 응용 �
 
 :six: **[(Optional) 스케일](../07_scale)**
 
-SAP Cloud Platform Cloud Foundry Environment에서 제공되는 다양한 애플리케이션 확장 옵션을 살펴보십시오.
+SAP Cloud Platform Cloud Foundry Environment에서 제공되는 다양한 응용 프로그램 확장 옵션을 살펴보십시오.
