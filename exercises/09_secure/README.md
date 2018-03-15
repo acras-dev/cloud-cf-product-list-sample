@@ -1,35 +1,36 @@
-# Securing an Application with OAuth 2.0
+# OAuth 2.0으로 보안된 애플리케이션 만들기
 
-## Estimated time
+## 예상 시간
 
-:clock4: 60 minutes
+:clock4: 60 분
 
-## Objective
-In this exercise, you will learn how to secure the Product List application by using a flexible authorization framework - OAuth 2.0. The Authorization Code grant of OAuth 2.0 provides an excellent security mechanism to grant only authorized users access to your application and its data. The SAP XS Advanced Application Router, the SAP XS UAA OAuth authorization service and Spring Boot are outstanding tools to configure roles, assign them to users and, finally, implement role checks in your application.
+## 목표
+이 연습에서는 유연한 인증 프레임 워크 인 OAuth 2.0을 사용하여 샘플 응용 프로그램을 보호하는 방법을 학습합니다. OAuth 2.0의 승인 코드 부여는 승인 된 사용자에게만 애플리케이션 및 데이터에 대한 액세스 권한을 부여하는 탁월한 보안 메커니즘을 제공합니다. SAP XS Advanced Application Router, SAP XS UAA OAuth 인증 서비스 및 Spring Boot는 역할을 구성하고 사용자에게 할당하고 마지막으로 응용 프로그램에서 역할 검사를 구현하는 탁월한 도구입니다.
 
-# Exercise description
-Microservices deployed on SAP Cloud Platform are freely accessible via the internet. To restrict access to authorized users only each microservice like the Product List application has to implement appropriate security mechanisms like [OAuth 2.0.](https://tools.ietf.org/html/rfc6749)
+# 연습과정 설명
+SAP Cloud Platform에 배포 된 마이크로 서비스는 제한없이 접근할 수 있습니다. 인증된 사용자에게만 액세스를 제한하려면 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) 같은 적절한 보안 메커니즘을 구현해야 합니다.
 
 ## Steps overview
-The following steps are required to protect the Product List application with OAuth 2.O on the SAP Cloud Platform:
+AP Cloud Platform에서 OAuth 2.O를 사용하여 샘플 응용 프로그램을 보호하려면 다음 단계가 필요합니다.
 
-* Step 1: Definition of the Application Security Descriptor
-* Step 2: Creation and configuration of the XS UAA service
-* Step 3: Adding required security libraries
-* Step 4: Configuration of the Spring Security framework
-* Step 5: Adding the XS Advanced Application Router
-* Step 6: Configuration of trust
+* 1 단계 : 응용 프로그램 보안 설명자 정의
+* 2 단계 : XS UAA 서비스 생성 및 구성
+* 3 단계 : 필수 보안 라이브러리 추가
+* 4 단계 : Spring Security 프레임 워크의 설정
+* 5 단계 : XS 고급 응용 프로그램 라우터 추가
+* 6 단계 : 신뢰 구성
 
-:warning: If not yet done, please [clone](https://github.com/SAP/cloud-cf-product-list-sample/tree/master/exercises/11_clonebranch) the advanced version of the application and import it into Eclipse.
+:warning: 아직 샘플 응용 프로그램이 준비되지 않았다면 아래 url을 참고해 Eclipse에 가져 오십시오.
+```(https://github.com/SAP/cloud-cf-product-list-sample/tree/master/exercises/11_clonebranch)```
 
-### Step 1: Definition of the Application Security Descriptor
+### 1 단계 : 응용 프로그램 보안 설명자 정의
 
-**This step is mandatory only if you work on the master branch. For the advanced branch you can go through it to understand what is happening (no need to change anything)**
+**이 단계는 master branch에서 작업하는 경우에만 필수입니다. advanced branch인 경우 동작원리만 이해하면 되고 아무 것도 변경할 필요가 없습니다.**
 
-An Application Security Descriptor defines the details of the authentication methods and authorization types to use for accessing the Product List application. The Product List application uses this information to perform scope checks. With scopes a fine-grained user authorization can be build up. Spring Security allows to check scopes for each HTTP method on all HTTP endpoints. Scopes are carried by [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) which in turn are issued by the [XS UAA Service](https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/1.0.12/en-US/17acf1ac0cf84487a3199c51b28feafd.html).
+응용 프로그램 보안 설명자는 샘플 응용 프로그램에 액세스하는 데 사용할 인증 방법 및 권한 유형의 세부 정보를 정의합니다. 샘플 응용 프로그램은 이 정보를 사용하여 범위 검사를 수행합니다. 범위를 사용하면 세밀한 사용자 권한을 얻을 수 있습니다. Spring Security는 모든 HTTP 엔드포인트에서 각 HTTP 메소드의 범위를 확인할 수 있습니다. 범위는 [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) which in turn are issued by the [XS UAA Service](https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/1.0.12/en-US/17acf1ac0cf84487a3199c51b28feafd.html)에 의해 전달되며, 이 토큰은 차례로 XS UAA 서비스에서 발행됩니다.
 
-* Create the file `xs-security.json` in `src/main/security/`.
-* Paste the following JSON content
+* `src/main/security/` 안에 `xs-security.json` 파일을 생성합니다.
+* 아래 JSON content를 복사/붙여넣기 합니다.
 
 ```json
 {
@@ -57,37 +58,39 @@ An Application Security Descriptor defines the details of the authentication met
 }
 ```
 
-### Step 2: Creation and configuration of the XS UAA service
+### 2 단계 : XS UAA 서비스 생성 및 구성
 
-**Mandatory for both master and advanced branch**
+**master branch & advanced branch 모두 필수**
 
-To grant users access to the Product List application, an instance of the XS UAA service for this application must be created; the XSUAA service instance acts as an OAuth 2.0 client for the bound application.
-* You need to tell the CF CLI which Cloud Foundry you will use. To do this you have to set the API endpoint to the Cloud Controller of the Cloud Foundry region where you created your Cloud Foundry trial using ```cf api CLOUD_FOUNDRY_API_ENDPOINT```.
-  * If you attend TechEd Las Vegas, target the US10 region API endpoint:
-  ```
-  cf api https://api.cf.us10.hana.ondemand.com
-  ```
-  * If you attend TechEd Barcelona, target the EU10 region API endpoint:
-  ```
-  cf api https://api.cf.eu10.hana.ondemand.com
-  ```
+사용자에게 샘플 응용 프로그램에 대한 액세스 권한을 부여하려면 이 응용 프로그램에 대한 XS UAA 서비스 인스턴스를 만들어야 합니다. XSUAA 서비스 인스턴스는 바운드 애플리케이션에 대한 OAuth 2.0 클라이언트 역할을 합니다.
+* CF CLI에 사용할 Cloud Foundry를 알려줘야 합니다. 이렇게 하려면 Cloud Foundry 시험판을 만든 Cloud Foundry 지역의 Cloud Controller에 API endpoint를 설정해야 합니다.
+```
+cf api CLOUD_FOUNDRY_API_ENDPOINT
+```
+- US10 지역의 API endpoint 지정하는 방법:
+```
+cf api https://api.cf.us10.hana.ondemand.com
+```
+- EU10 지역의 API endpoint 지정하는 방법:
+```
+cf api https://api.cf.eu10.hana.ondemand.com
+```
+:bulb: **Note:** [SAP Cloud Platform Documentation](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/350356d1dc314d3199dca15bd2ab9b0e.html) 문서에서 Cloud Foundry Environment를 사용할 수 있는 여러 지역에 대한 API endpoint를 찾을 수 있습니다.
 
-:bulb: **Note:** You can find the API endpoints for the different regions where Cloud Foundry Environment is available in the [SAP Cloud Platform Documentation](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/350356d1dc314d3199dca15bd2ab9b0e.html)
-
-* Login with your user account. At the command prompt type:
+* 사용자 계정으로 로그인하십시오. 명령 프롬프트에서 다음을 입력하십시오.
 	```
 	cf login
 	```
 
-	You will be prompted to fill in the e-mail and password you used when you registered for the SAP Cloud Platform trial account:
+	SAP Cloud Platform 평가판 계정에 등록 할 때 사용한 전자 메일 및 암호를 입력하라는 메시지가 나타납니다.
 
 	```
 	Email> enter your e-mail
 	Password> password for your user
 	```
-* Show the marketplace:  `cf m`
-* Create the XS UAA service instance: `cf create-service xsuaa application xsuaa -c ./src/main/security/xs-security.json`
-* Add the XS UAA service instance under services to the `manifest.yml`: `- xsuaa`
+* marketplace 조회합니다. `cf m`
+* XS UAA 서비스 인스턴스 생성합니다. `cf create-service xsuaa application xsuaa -c ./src/main/security/xs-security.json`
+* 서비스에 XS UAA 서비스 인스턴스를 추가합니다. `manifest.yml`: `- xsuaa`
 
 ### Step 3: Adding required security libraries
 
