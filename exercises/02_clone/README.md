@@ -20,13 +20,12 @@
 3. 원하는 디렉토리에 다운로드 파일의 압축을 풉니다. cloud-cf-product-list-sample 라는 새로운 디렉토리가 생성됩니다.
 
 ## 2. Eclipse로 샘플 프로젝트 가져 오기
-1. Windows 시작 메뉴를 열고 Eclipse를 실행합니다.
+1. Eclipse를 실행합니다.
 2. 이제 샘플 프로젝트를 Maven 프로젝트로 Eclipse 작업 공간에 가져 오십시오.: Eclipse 메뉴에서 ```File```> ```Import...```를 선택합니다.
 3. ```Import``` 화면에서, ```Maven``` > ```Existing Maven Projects``` 를 선택하고 ```Next```를 클릭합니다.
 <br><br>
 ![Import Maven Project](/img/import_maven_project.png?raw=true)
 <br><br>
-
 4. ```Import Maven Projects``` 팝업의 다음단계에서, ```Browse```, 클릭하고 아까 압축 풀어둔 ```cloud-cf-product-list-sample-master``` 프로젝트를 찾아 루트폴더를 지정한 다음 ```Finish``` 버튼을 클릭합니다.
 5. 이제 Eclipse에서 프로젝트를 가져옵니다. 아래 스크린 샷과 같이 프로젝트 탐색기에서 프로젝트를 볼 수 있습니다.  
 <br><br>
