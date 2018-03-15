@@ -300,65 +300,65 @@ applications:
     - xsuaa
 ```
 
-* [Push the product list application togehter with a approuter](https://github.com/SAP/cloud-cf-product-list-sample/tree/master/exercises/04_push) to your cloud foundry space: `cf push`
+* `cf push` 명령어로 approuter를 추가한 응용프로그램 [올리기](https://github.com/SAP/cloud-cf-product-list-sample/tree/master/exercises/04_push)
 
-### Step 6: Trust configuration
+### 6 단계 : Trust configuration
 
-**This step is mandatory for both master and advanced branch**
+**master branch & advanced branch 모두 필수입니다.**
 
-Now let us see how to enable access to the application for the business users or end-users.
-- Launch the `approuter` application in the browser and logon with your user credentials
-- You will get an error, Insufficient scope for this resource
+이제 업무용 사용자 또는 최종 사용자를 위해 응용 프로그램에 접근하는 방법을 알아 보겠습니다.
+- 브라우저에서 `approuter` 응용 프로그램을 실행하고 사용자 자격 증명으로 로그온하십시오
+- Insufficient scope for this resource 라는 오류를 보게됩니다.
 <br><br>
 ![Authorizations](/img/security_cockpit_0.png?raw=true)
 <br><br>
-In order to enable access, the end-users should be assigned the required authorizations. The authorizations of the application is registered with the authorization services, xsuaa, using the security.json. You can view these authorizations for the application in the Cockpit.
-- Navigate to the `Org --> Space --> Applications --> approuter` [this is the front end application]
-- Expand the `Security` group and navigate to `Roles` UI
+최종 사용자에게 필요한 인증을 할당해야합니다. 응용 프로그램의 권한은 security.json을 사용하여 xsuaa 권한 서비스에 등록됩니다. 조종석에서 응용 프로그램에 대한 이러한 권한을 볼 수 있습니다.
+- `Org --> Space --> Applications --> approuter` 이동합니다. [this is the front end application]
+- `Security` 그룹을 확장하고 `Roles` UI로 이동합니다.
 <br><br>
 ![Authorizations](/img/security_cockpit_1.png?raw=true)
 <br><br>
-- The UI lists the roles defined by the application
+- UI는 응용 프로그램에서 정의한 역할을 나열합니다.
 <br><br>
 ![Authorizations](/img/security_cockpit_2.png?raw=true)
 <br><br>
-- In order to provide access to the end-users, the above role has to be assigned to the end-user. Roles can't be directly assigned to the end-users, you will have to create RoleCollection and add the required Roles to the RoleCollection.
-- Navigate to the `Subaccount --> Security --> RoleCollections` [expand the security group to see this entry]
+- 최종 사용자에 대한 액세스를 제공하려면 위의 역할을 최종 사용자에게 할당해야합니다. 역할을 최종 사용자에게 직접 할당 할 수는 없으므로 RoleCollection을 만들고 필요한 역할을 RoleCollection에 추가해야합니다.
+- `Subaccount --> Security --> RoleCollections` 이동합니다. [expand the security group to see this entry]
 <br><br>
 ![Authorizations](/img/security_cockpit_3.png?raw=true)
 <br><br>
-- Click on button **New Role Collection**
+- **New Role Collection** 버튼을 클릭하십시오.
 <br><br>
 ![Authorizations](/img/security_cockpit_4.png?raw=true)
 <br><br>
-- Enter the name and description for the RoleCollection and click on button **Save**
+- RoleCollection의 이름과 설명을 입력하고 **Save** 버튼을 클릭하십시오.
 <br><br>
 ![Authorizations](/img/security_cockpit_5.png?raw=true)
 <br><br>
-- Navigate into the RoleCollection and click on button **Add Role**
+- RoleCollection으로 이동하고 **Add Role** 버튼을 클릭하십시오.
 <br><br>
 ![Authorizations](/img/security_cockpit_6.png?raw=true)
 <br><br>
-- In the pop-up dialog, choose the sample application, the role template and the role. Click on button **Save**
+- 팝업 대화 상자에서 샘플 애플리케이션, 역할 템플리트 및 역할을 선택하십시오. **Save** 버튼을 클릭하십시오.
 <br><br>
 ![Authorizations](/img/security_cockpit_7.png?raw=true)
 <br><br>
-- As a next step, assign this RoleCollection to the user. Navigate to the `Subaccount --> Trust Configuration` [expand the security group to see this entry]
-- Click on the link **SAP ID Service** - the default trust configuration
+- 다음 단계로 이 RoleCollection을 사용자에게 할당하십시오.  `Subaccount --> Trust Configuration` 이동합니다. [expand the security group to see this entry]
+- 기본 trust configuration인 **SAP ID Service**를 클릭하십시오.
 <br><br>
 ![Authorizations](/img/security_cockpit_8.png?raw=true)
 <br><br>
-- Before assigning the RoleCollection to the end-user, the user should have logged on to SAP ID Service at least once
-- The logon URL is https://$identityzone.$uaaDomain. This can be identified from the xsuaa binding credentials (`cf env approuter` and look for `xsuaa.credentials.url`)
-- Now, in the `Role Collection Assignment' UI, enter your user id used to logon to the current account and click on button **Show Assignments**
-- It lists the current Role Collection assignment to the user and also allows to add new Role Collections to the user
-- Click on button **Add Assignment**
+- 최종 사용자에게 RoleCollection을 할당하기 전에 사용자는 최소한 한 번 SAP ID 서비스에 로그온해야합니다.
+- 로그온 URL은 https://$identityzone.$uaaDomain 입니다. 이것은 xsuaa 바인딩 자격 증명에서 식별 할 수 있습니다. (`cf env approuter` & `xsuaa.credentials.url`에서 확인)
+- 이제 'Role Collection Assignment'UI에서 현재 계정에 로그온하는 데 사용 된 사용자 ID를 입력하고 **Show Assignments** 버튼을 클릭한다.
+- 사용자에게 현재 역할 컬렉션 할당을 나열하고 사용자에게 새 역할 컬렉션을 추가 할 수도 있습니다.
+- **Add Assignment** 버튼을 클릭하십시오.
 <br><br>
 ![Authorizations](/img/security_cockpit_9.png?raw=true)
 <br><br>
-- In the pop-up dialog, choose the Role Collection you have defined recently and click on button **Add Assignment**
+- 팝업 대화 상자에서 최근 정의한 역할 컬렉션을 선택하고 **Add Assignment** 버튼을 클릭하십시오.
 <br><br>
 ![Authorizations](/img/security_cockpit_10.png?raw=true)
 <br><br>
-- Now, the user should be able to access the application
-- Launch the application on the browser and login with your credentials. You should be able to see the product list
+- 이제 사용자는 애플리케이션에 접근할 수 있어야합니다.
+- 브라우저에서 응용 프로그램을 실행하고 자격 증명으로 로그인하십시오. 제품 목록을 볼 수 있어야합니다.
