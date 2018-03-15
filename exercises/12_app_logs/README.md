@@ -49,12 +49,12 @@ private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 <br><br>
 ![Kibana select app](/img/kibana_product_list_app.png?raw=true)
 <br><br>
-* `<Press>` 요청 및 로그
+* Requests and Logs 누르기
 <br><br>
 ![Kibana requests and logs](/img/kibana_requests_logs.png?raw=true)
 <br><br>
-* 요청 및 응용 프로그램 로그 표시됩니다.
-* 응용 프로그램 로그의 msg 필드가 이상하게 보입니다.
+* 요청 및 응용 프로그램 로그가 표시됩니다.
+* 그런데 응용 프로그램 로그의 msg 필드가 이상하게 보입니다.
   * Correlation Id가 빈값으로 보입니다.
   * 따라서 어떤 응용 프로그램 로그가 어떤 요청에 속해 있는지 알기가 어렵습니다. 
   <br><br>
