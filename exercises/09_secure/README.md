@@ -27,7 +27,7 @@ AP Cloud Platform에서 OAuth 2.O를 사용하여 샘플 응용 프로그램을 
 
 **이 단계는 master branch에서 작업하는 경우에만 필수입니다. advanced branch인 경우 원리만 이해하고 아무 것도 변경할 필요가 없습니다.**
 
-Application Security Descriptor는 샘플 응용 프로그램에 액세스하는 데 사용할 인증 방법 및 권한 유형의 세부 정보를 정의합니다. 샘플 응용 프로그램은 이 정보를 사용하여 범위 검사를 수행합니다. 범위를 사용하면 세밀한 사용자 권한을 얻을 수 있습니다. Spring Security는 모든 HTTP 엔드포인트에서 각 HTTP 메소드의 범위를 확인할 수 있습니다. 범위는 [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) which in turn are issued by the [XS UAA Service](https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/1.0.12/en-US/17acf1ac0cf84487a3199c51b28feafd.html)에 의해 전달되며, 이 토큰은 차례로 XS UAA 서비스에서 발행됩니다.
+Application Security Descriptor는 제품 목록 응용 프로그램에 접근하는 데 사용할 인증 방법 및 권한 유형의 세부 정보를 정의합니다. 샘플 응용 프로그램은 이 정보를 사용하여 scope 검사를 수행합니다. scope를 사용하면 세밀한 사용자 권한을 얻을 수 있습니다. Spring Security는 모든 HTTP endpoints에서 각 HTTP 메소드의 scope를 확인할 수 있게합니다. 범위는 [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519)에 의해 전달되며,이 토큰은 차례로 [XS UAA 서비스](https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/1.0.12/en-US/17acf1ac0cf84487a3199c51b28feafd.html)에서 발행됩니다.
 
 * `src/main/security/` 안에 `xs-security.json` 파일을 생성합니다.
 * 아래 JSON content를 복사/붙여넣기 합니다.
@@ -96,7 +96,7 @@ cf api https://api.cf.eu10.hana.ondemand.com
 
 **이 단계는 master branch에서 작업하는 경우에만 필수입니다. advanced branch인 경우 원리만 이해하고 아무 것도 변경할 필요가 없습니다.**
 
-응용 프로그램 보안을 위해 클래스 보안에 Spring Security를 추가해야 합니다. Spring Security는 응용 프로그램에서 Spring Security를 구성함으로써 BASIC 인증을 통해 자동으로 모든 HTTP endpoint를 보호합니다. [Java Web Token (JWT)](https://tools.ietf.org/html/rfc7519) 와 함께 OAuth 2.0을 사용하기 때문에 Spring OAUTH와 Spring JWT 의존성을 추가해야 합니다.
+응용 프로그램 보안을 위해 클래스 보안에 Spring Security를 추가해야 합니다. Spring Security는 응용 프로그램에서 Spring Security를 구성함으로써 BASIC 인증을 통해 자동으로 모든 HTTP endpoints를 보호합니다. [Java Web Token (JWT)](https://tools.ietf.org/html/rfc7519) 와 함께 OAuth 2.0을 사용하기 때문에 Spring OAUTH와 Spring JWT 의존성을 추가해야 합니다.
 
 오프라인 JWT 유효성 검사를 사용하려면 SAP XS 보안 라이브러리도 추가해야합니다. 라이브러리는 `cloud-cf-product-list-sample-advanced/libs`에 저장됩니다. 최신 버전은 [Service Marketplace](https://launchpad.support.sap.com/#/softwarecenter/template/products/%20_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATE&ENR=73555000100200004333&V=MAINT&TA=ACTUAL&PAGE=SEARCH/XS%20JAVA%201)에서 다운로드 할 수 있습니다. 작성 당시 최신 버전은 `XS_JAVA_4-70001362`입니다.
 
@@ -226,9 +226,9 @@ public class ConfigSecurity extends ResourceServerConfigurerAdapter {
 
 **master branch & advanced branch 모두 필수입니다. advanced branch 경우 'npm install'단계만 실행해야 합니다. 동작원리를 좀더 이해하고자 여전히 살펴볼 필요가 있습니다.**
 
-[XS Advanced Application Router](https://github.com/acras-dev/cloud-cf-product-list-sample/tree/advanced/src/main/approuter/README.md)는 여러 가지 응용 프로그램 (microservices)로 구성된 비즈니스 애플리케이션에 대한 single entry point을 제공하는 데 사용됩니다. 백엔드 마이크로 서비스에 대한 요청을 디스패치하고 역방향 프록시 역할을 합니다. 어떤 요청을 _destinations_로 전달해야 하는지를 결정하는 규칙을 _routes_ 라고 합니다. application router는 사용자를 인증하고 사용자 정보를 전파하도록 구성 할 수 있으며 static content를 제공 할 수 있습니다.
+[XS Advanced Application Router](https://github.com/acras-dev/cloud-cf-product-list-sample/tree/advanced/src/main/approuter/README.md)는 여러 가지 응용 프로그램 (microservices)로 구성된 비즈니스 애플리케이션에 대한 single entry point을 제공하는 데 사용됩니다. 백엔드 마이크로 서비스에 대한 요청을 디스패치하고 역방향 프록시 역할을 합니다. 어떤 요청을 _destinations_ 로 전달해야 하는지를 결정하는 규칙을 _routes_ 라고 합니다. application router는 사용자를 인증하고 사용자 정보를 전파하도록 구성 할 수 있으며 static content를 제공 할 수 있습니다.
 
-**Note** application router가 어떤 식 으로든 백엔드 microservices을 숨기지 않습니다. application router를 거치지 않고도 직접 접근할 수 있습니다. 따라서 백엔드 마이크로 서비스 는 JWT 토큰의 유효성을 검사하고 적절한 범위 검사를 구현하여 모든 엔드 포인트를 보호 해야 합니다.
+**Note** application router가 어떤 식 으로든 백엔드 microservices을 숨기지 않습니다. application router를 거치지 않고도 직접 접근할 수 있습니다. 따라서 백엔드 마이크로 서비스는 JWT 토큰의 유효성을 검사하고 적절한 범위 검사를 구현하여 모든 엔드 포인트를 보호 해야 합니다.
 
 * `product-list/src/main/approuter`에 application router를 다운로드하여 설치하십시오.
   * 새폴더 만들기: `mkdir product-list/src/main/approuter`
