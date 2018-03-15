@@ -2,7 +2,7 @@
 
 이 튜토리얼에서는 다음 작업을 수행하는 방법을 보여줍니다.
 * SAP Cloud Platform Cloud Foundry 환경 시험판에 액세스하십시오.
-* SAP Cloud Platform 콕핏 및 Cloud Foundry CLI를 사용하여 평가판 작업 수행
+* SAP Cloud Platform 조종석과 Cloud Foundry CLI를 사용하여 평가판 작업 수행
 * 응용 프로그램 보안 및 다양한 역할 구성
 * 백엔드 시스템에서 데이터를 얻기 위해 연결을 설정하고 사용
 * 응용 프로그램을 확장 및 업데이트
