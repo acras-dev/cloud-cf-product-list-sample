@@ -1,10 +1,10 @@
-# 연습문제 06: Blue-Green 배포
+# 연습과정 06: Blue-Green 배포
 
 ## 예상 시간
 
 :clock4: 10 분
 
-## 연습문제 설명
+## 연습과정 설명
 
 1. `manifest.yml` 파일을 열고 응용 프로그램 이름을 product-list에서 product-list-green로 변경하십시오. 호스트도 다음 `product-list-YOUR_BIRTH_DATE-green`으로 변경하십시오.
 
