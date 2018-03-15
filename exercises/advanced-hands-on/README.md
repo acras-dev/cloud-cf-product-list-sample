@@ -13,7 +13,7 @@
 
 이 연습에서는 응용 프로그램을 배포하고 실행하는 데 사용할 수있는 무료 SAP Cloud Platform Cloud Foundry Environment 평가판을 시작합니다. 또한 개발 환경과 도구를 설정합니다.
 
-:two: **[advanced branch부터 샘플 응용 프로그램 복제](../11_clonebranch)**
+:two: **[advanced branch 샘플 응용 프로그램 복제](../11_clonebranch)**
 
 **advanced** branch 지점의 product list 응용 프로그램 복제
 
