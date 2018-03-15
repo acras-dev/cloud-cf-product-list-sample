@@ -224,7 +224,7 @@ https://www.sap.com/developer/tutorials/hcp-cloud-connector-setup.html
 
 ```
 **getImageFromBackend** 메소드는 온-프레미스 시스템에 대한 요청을 처리합니다. 연결 서비스를 통해 서버에서 이미지를 가져 오는 작업이 수행됩니다. **getServiceCredentials** 메소드는 애플리케이션 환경 변수의 JSON 포맷된 인증 정보를 판독하는 데 사용됩니다. **getProxy**의 메소드는 프록시로 연결 서비스 endpoint를 구성합니다. **getAccessToken** 메소드는 xsuaa 서비스에서 JWT 액세스 토큰을 요청합니다. 토큰은 연결 프록시의 권한 부여에 사용됩니다. **getClientOAuthToken**는 클라이언트 JWT 토큰을 검색합니다. 응용 프로그램은 **SAP-Connectivity-Authentication** 헤더를 통해 이 토큰을 전달할 책임이 있습니다. 이는 클라우드 커넥터에서 구성이 이루어진 하위 계정에 대한 터널을 열기 위해 연결 서비스에서 필요합니다.
-* 이제 사내 시스템에 호출할 수있는 메소드를 추가하십시오. 이를 위해 모든 *images/\<file\>* 요청을 매핑하여 *\<file\>* 을 인수로 전달하여 *getImageFromBackend(String fileName)* 메소드를 수행하십시오. **Controller.java**의 내용을 다음과 같이 변경하십시오.
+* 이제 온-프레미스 시스템에 호출할 수있는 메소드를 추가하십시오. 이를 위해 모든 *images/\<file\>* 요청을 매핑하여 *\<file\>* 을 인수로 전달하여 *getImageFromBackend(String fileName)* 메소드를 수행하십시오. **Controller.java**의 내용을 다음과 같이 변경하십시오.
 
 ```java
 	package com.sap.cp.cf.demoapps;
@@ -266,37 +266,38 @@ https://www.sap.com/developer/tutorials/hcp-cloud-connector-setup.html
 	}
 ```		
 
-:bulb: **Note:** If you look at **Application.java**, you will see that the URLs for the icons match the pattern you mapped in the controller, for example *"images/HT-1000.jpg"*. This means that when the list items are loaded, the icons will be retrieved from the on-premise system.
+:bulb: **Note:** **Application.java**를 보면 아이콘의 URL이 컨트롤러에 매핑 한 패턴과 일치 함을 알 수 있습니다 (예 : *"images/HT-1000.jpg"*) . 즉, 목록 항목이로드 될 때 아이콘이 사내 구축 형 시스템에서 검색됩니다.
 
-## Create connectivity service instance and bind it to the application
-* Create connectivity service instance by executing the following command in the CLI:
+## 연결 서비스 인스턴스 만들기 및 응용 프로그램에 바인딩
+* LI에서 다음 명령을 실행하여 연결 서비스 인스턴스를 만듭니다.
 ```
  	cf create-service connectivity lite connInstance<Unique-ID>
 ```
-* Bind it to your application:
+* 응용 프로그램에 바인딩합니다.
 ```
 	cf bind-service product-list connInstance<Unique-ID>
 ```
 
-## Push the application
-* Modify the *manifest.yml* file to include the binding for your connectivity instance:
+## 응용 프로그램 올리기
+* *manifest.yml* 파일을 수정해 연결 인스턴스에 대한 바인딩을 포함시킵니다.
 ```
 	services:
 	    - ...
 	    - connInstance<Unique-ID>
 ```
-* In Eclipse, Right-click on the project -> Run As -> Maven install;
-* From the CLI, push the application:
+* Eclipse에서 project 오른쪽 클릭 -> Run As -> Maven install;
+* CLI에서 application을 올립니다.
 ```
 	cf push product-list
 ```
 
-## Test the application
-* Open the application and ensure that the static files are taken from on-premise system. You can monitor the calls to the on-premise systems using the CLI you used to start the python server:
+## 응용 프로그램 테스트
+* 응용 프로그램을 열고 온-프레미스 시스템에서 static 파일을 가져 왔는지 확인하십시오. Python 서버를 시작하는 데 사용한 CLI를 사용하여 온-프레미스 시스템에 대한 호출을 모니터링 할 수 있습니다.
 
 	![Console](/img/connectivity_onpremiseconsole.png?raw=true)
-* Disable the exposed backend system: In the Cloud Connector UI -> "Cloud To On-Premise" -> Access Control -> select the virtual mapping that you have created -> disable the */images* resource from Resources table below:
+* 노출 된 백엔드 시스템을 사용하지 않도록 설정합니다. 클라우드 커넥터 UI -> "Cloud To-Premise"-> 액세스 제어 -> 생성 한 가상 매핑을 선택하고 아래의 리소스 테이블에서 / images 리소스를 비활성화합니다 .
+노출 된 백엔드 시스템을 사용하지 않도록 설정합니다. 클라우드 커넥터 UI ->> "Cloud To On-Premise" -> Access Control -> 생성한 가상 매핑을 선택하고 아래의 리소스 테이블에서 */images* resource를 비활성화합니다 .
 
 	![Disable resource](/img/connectivity_disable.png?raw=true)
 
-	Ensure that the cloud application is not able to access the backend system now.  
+	이제 클라우드 애플리케이션이 백엔드 시스템에 액세스 할 수 없도록 하십시오.  
