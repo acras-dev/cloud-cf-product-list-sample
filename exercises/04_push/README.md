@@ -10,7 +10,7 @@
 # 연습과정 설명
 ## 대상 & 로그인
 
-:bulb: **Note** (Windows) 터미널을 실행하십시오.
+:bulb: **Note** 터미널을 실행하십시오.
 
 1. CF CLI에 사용할 Cloud Foundry를 알려줘야 합니다. 이렇게 하려면 Cloud Foundry 시험판을 만든 Cloud Foundry 지역의 Cloud Controller에 API endpoint를 설정해야 합니다.
 ```
@@ -25,7 +25,7 @@ cf api https://api.cf.us10.hana.ondemand.com
 ```
 cf api https://api.cf.eu10.hana.ondemand.com
 ```
-:bulb: **Note:** [SAP Cloud Platform Documentation](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/350356d1dc314d3199dca15bd2ab9b0e.html)문서에서 Cloud Foundry Environment를 사용할 수 있는 여러 지역에 대한 API 엔드 포인트를 찾을 수 있습니다.
+:bulb: **Note:** [SAP Cloud Platform Documentation](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/350356d1dc314d3199dca15bd2ab9b0e.html) 문서에서 Cloud Foundry Environment를 사용할 수 있는 여러 지역에 대한 API 엔드 포인트를 찾을 수 있습니다.
 
 2. 사용자 계정으로 로그인하십시오. 명령 프롬프트에서 다음을 입력하십시오.
 	```
