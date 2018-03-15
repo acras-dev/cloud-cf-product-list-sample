@@ -43,7 +43,7 @@ private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 <br><br>
 ![Application Log Analysis](/img/cockpit_open_log_analysis.png?raw=true)
 <br><br>
-* 브라우저에서 다음 URL을 열어야합니다 (EU10 지역에서 실행되는 응용 프로그램의 경우 URL은 us10 대신 eu10입니다). https://logs.cf.us10.hana.ondemand.com
+* 브라우저에서 응용 프로그램이 동작하는 지역의 Kibana URL이 열려야 합니다. https://logs.cf.us10.hana.ondemand.com (EU10 지역선택시 us10 대신 eu10 으로 변경)
 * 조종석에 사용하고 평가판 계정을 만든 전자 메일 및 암호로 로그인하십시오.
 * Kibana의 product-list 앱 선택
 <br><br>
