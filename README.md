@@ -93,7 +93,7 @@ XS UAA (User Account and Authentication) 서비스는 멀티 파운드 (multi-te
 - 서비스를 앱에 바인딩
 - 앱 로그 확인
 - 상태 확인 변경
-- 푸른 녹색 배치
+- Blue-Green 배치
 
 
 :two:**[기본 실습 (2 시간)](exercises/basic-hands-on)**
