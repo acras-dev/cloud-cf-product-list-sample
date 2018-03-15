@@ -29,7 +29,7 @@
 ![Select Trial Region](/img/go_to_space.png?raw=true)
 <br><br>
 
-:bulb: **Note:** Cloud Foundry 환경 평가판을 이미 시작한 경우 Cloud Foundry Trial 시작 버튼 이 표시되지 않습니다 . 이 경우 Cloud Foundry Trial으로 이동 버튼 을 클릭하기 만하면 됩니다.
+:bulb: **Note:** Cloud Foundry 환경 평가판을 이미 시작한 경우 Cloud Foundry Trial 시작 버튼 이 표시되지 않습니다 . 이 경우 Go to Cloud Foundry Trial 버튼 을 클릭하기 만하면 됩니다.
 <br><br>
 ![GO to trial](/img/go_to_trial_button.png?raw=true)
 <br><br>
