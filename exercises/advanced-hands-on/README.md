@@ -10,6 +10,7 @@
 # 연습과정
 
 :one: **[환경설정](../01_setup)**
+
 이 연습에서는 응용 프로그램을 배포하고 실행하는 데 사용할 수있는 무료 SAP Cloud Platform Cloud Foundry Environment 평가판을 시작합니다. 또한 개발 환경과 도구를 설정합니다.
 
 :two: **[샘플 응용 프로그램 복제](../11_clonebranch)**
@@ -17,6 +18,7 @@
 **advanced** branch 지점의 product list 응용 프로그램 복제
 
 :three: **[앱을 보호하고 클라우드로 올리기](../09_secure)**
+
 Product List 응용 프로그램에 보안을 설정하고 OAuth 2.0 클라이언트 자격 인증 (서비스 통신에 대한 서비스) 및 OAuth 2.0 인증 코드 부여 (휴먼에서 서비스로의 통신)
 
 :four: **[연결](../10_connectivity)**
