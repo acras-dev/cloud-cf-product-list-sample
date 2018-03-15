@@ -1,71 +1,70 @@
-# Connectivity
+# 연결
 
-## Estimated time
+## 예상 시간
 
-:clock4: 20 minutes
+:clock4: 20 분
 
-## Objective
+## 목표
 
-In this exercise you'll learn how to configure Cloud Connector, how to expose on-premise systems to be consumable by cloud applications and how to connect Cloud Connector to a subaccount on SAP Cloud Platform. After all configurations on Cloud Connector side are done you will learn how to extend a cloud application to consume the connectivity service and access on-premise systems exposed by Cloud Connector.
+이 과정에서는 Cloud Connector를 구성하는 방법, 클라우드 응용 프로그램에서 사용할 수있는 사내 시스템을 노출하는 방법 및 Cloud Connector를 SAP Cloud Platform의 하위 계정에 연결하는 방법에 대해 학습합니다. 클라우드 커넥터 측면의 모든 구성이 완료되면 클라우드 응용 프로그램을 확장하여 클라우드 커넥터가 제공하는 온-프레미스 시스템에 액세스하고 연결 서비스를 사용하는 방법을 배우게됩니다.
 
-In the context of the *product-list* application, you'll change how the icons of the products are retrieved. Rather than having them as a local resource for the cloud application, you will put them on an external server, inaccessible via the Internet. You will make use of the *connectivity* service and Cloud Connector to access this server and get the product icons.
+샘플 응용 프로그램의 컨텍스트에서 제품의 아이콘을 검색하는 방법을 변경합니다. 클라우드 애플리케이션의 로컬 리소스로 사용하지 않고 인터넷을 통해 액세스 할 수없는 외부 서버에 배치합니다. 연결 서비스 및 Cloud Connector를 사용하여 이 서버에 액세스하고 제품 아이콘을 가져옵니다.
 
-# Exercise description
+# 연습과정 설명
 
-In many cases cloud applications needs to access on-premise systems. In many cases these applications are not exposed in Internet for security reasons. For such scenario Cloud Connector can be used to expose some on-premise systems to some cloud applications. After Cloud Connector is configured and connected cloud applications can access them using connectivity service.
+대부분의 경우 클라우드 응용 프로그램은 온-프레미스 시스템에 액세스해야합니다. 대부분의 경우 이러한 응용 프로그램은 보안상의 이유로 인터넷에 노출되지 않습니다. 이러한 시나리오의 경우 Cloud Connector를 사용하여 일부 사내 시스템을 일부 클라우드 응용 프로그램에 표시 할 수 있습니다. 클라우드 커넥터가 구성되고 연결된 클라우드 응용 프로그램이 연결 서비스를 사용하여 액세스 할 수 있습니다.
 
-## Steps Overview
+## 단계 개요
 
-* Start a simple backend system on the local machine;
-* Start and connect Cloud Connector to your trial subaccount;
-* Configure Cloud Connector and expose the backend system from the first step;
-* Modify the application to consume the connectivity service;
-* Update it and bind it to a connectivity service instance;
-* Test the application. Ensure that on-premise systems are not accessible when they are disabled in Cloud Connector.
+* 로컬 시스템에서 간단한 백엔드 시스템을 시작하십시오.
+* 평가판 하위 계정에 Cloud Connector를 시작하고 연결하십시오.
+* 클라우드 커넥터를 구성하고 첫 번째 단계에서 백엔드 시스템을 공개하십시오.
+* 연결 서비스를 사용하도록 응용 프로그램을 수정하십시오.
+* 이를 업데이트하고 연결 서비스 인스턴스에 바인딩하십시오.
+* 응용 프로그램을 테스트하십시오. 클라우드 커넥터에서 사용하지 않는 경우 온-프레미스 시스템에 액세스 할 수 없도록하십시오.
 
 
-# Detailed steps
+# 세부 단계
 
-## Set up Python
+## Python 세팅
 
-As an on-premise system we will use a part of the file system, exposed via Python's built-in http server. To achieve this we will need to download and install Python.
-* Download Python from the [official web page](https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe);
-* Run the downloaded executable;
-* In the install wizard, select **Install Now**;
-* Wait for the installation to finish.
+온-프레미스 시스템으로서 우리는 Python의 내장 된 http 서버를 통해 노출 된 파일 시스템의 일부를 사용할 것입니다. 이를 위해 Python을 다운로드하여 설치해야합니다.
+* [공식 홈페이지](https://www.python.org/ftp/python/3.6.2/python-3.6.2.exe)에서 Python을 다운로드
+* 다운로드 한 실행 파일을 실행하십시오.
+* 설치 마법사에서 **Install Now**를 선택하십시오.
+* 설치가 완료 될 때까지 기다리십시오.
 
-## Prepare simple backend system
+## 백엔드 시스템 준비
 
-Simple local http server can be started using following steps:
-* Copy the folder, containing the example static files (src/main/resources/static/images) to an arbitrary folder on the local file system. It is possible also to use your own files;
-* Start a simple HTTP server:
-	* Open a separate CLI from the one you use for the Cloud Foundry commands;
-	* Navigate to the parent folder of */images* (the location to which you copied the folder from the first step);
-	* Execute the following command:
+간단한 로컬 http 서버는 다음 단계를 사용하여 시작할 수 있습니다.
+* 예제 파일 (src/main/resources/static/images)이 들어있는 폴더를 로컬 파일 시스템의 임의의 폴더에 복사합니다. 아무 파일이나 사용할 수 있습니다.
+* HTTP server 시작:
+	* Cloud Foundry 명령에 사용하는 CLI와는 별도의 CLI를 하나더 엽니다.
+	* */images*(첫 번째 단계에서 폴더를 복사 한 위치)의 상위 폴더로 이동합니다.
+	* 다음 명령을 실행하십시오.
 		```
 			C:\Users\student\AppData\Local\Programs\Python\Python36-32\python.exe -m http.server 10080
 		```
-	:warning: Do not close the CLI used to start the server.
-* Ensure that the started server is working by opening http://localhost:10080 from a browser.
+	:warning: 서버를 시작하는 데 사용되는 CLI를 닫지 마십시오.
+* 브라우저에서 http://localhost:10080 을 열어 시작한 서버가 작동하는지 확인하십시오.
 
 	![Open Backend From Browser](/img/connectivity_backend.png?raw=true)
 
 
-## Start and connect Cloud Connector
+## 클라우드 커넥터 시작 및 연결
 
-Cloud Connector is installed on the local machines so you need to simply start and configure it.
-* Open [Cloud Connector configuration UI](https://scc.fair.sap.corp:8443). Credentials are **Administrator** : **welcome**. 
-* Open [SAP Cloud Platform cockpit](https://account.hana.ondemand.com/cockpit) and navigate to the Cloud Foundry region via Home -> Cloud Foundry Environment -> US East (VA);
-* Go to your trial subaccount and click on the "refresh" icon on the bottom right corner. Copy the ID into the clip board:
+클라우드 커넥터를 로컬 시스템에 설치합니다. 아래 경로를 참조합니다.
+https://www.sap.com/developer/tutorials/hcp-cloud-connector-setup.html
 
+* [Cloud Connector configuration UI](https://scc.fair.sap.corp:8443) 엽니다. ID/PW: (**Administrator** : **welcome**) 
+* [SAP Cloud Platform cockpit](https://account.hana.ondemand.com/cockpit) 열고 Home -> Cloud Foundry Environment -> US East (VA) Cloud Foundry 지역으로 이동하십시오.
+* 평가판 하위 계정으로 이동하여 오른쪽 하단의 ""refresh"아이콘을 클릭하십시오. ID를 클립 보드에 복사하십시오.
 	![Get Subaccount ID](/img/connectivity_subaccountid.png?raw=true)
-* Go to Cloud Connector UI and click on "Add Subaccount" button:
-
+* 클라우드 커넥터 UI로 이동하여 "Add Subaccount" 버튼을 클릭하십시오.
 	![Add Subaccount](/img/connectivity_addsubaccount.png?raw=true)
-* Select region : cf.us10.hana.ondemand.com. Subaccount is the ID from previous step. Enter your email address used to create the trial subaccout and password. You can put some description and display name. Note: In this exercise Location ID will not be used so do not specify any.
-
+* Region Host: cf.us10.hana.ondemand.com. Subaccount Name: 위에서 클립보드에 복사한 ID. 평가판 하위 계정 및 비밀번호를 만드는 데 사용 된 이메일 주소를 입력. description과 display name을 입력 할 수 있습니다.
 	![Subaccount Information](/img/connectivity_subaccountinfo.png?raw=true)
-* If all configurations are successful Cloud Connector will report "Connected status".
+* 모든 구성이 성공적으로 완료되면 클라우드 커넥터가 "Connected status"를 출력합니다.
 
 ## Configure Cloud Connector and expose the test backend system
 
