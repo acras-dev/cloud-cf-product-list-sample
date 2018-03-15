@@ -15,7 +15,7 @@
 
 :bulb: **Note:** 아직 SAP Cloud Platform에 대한 평가판 계정이없는 경우 이 [문서](https://www.sap.com/developer/tutorials/hcp-create-trial-account.html)를 수행하여 얻으십시오.
 
-1. 그런 다음 [SAP Cloud Platform cockpit](https://account.hana.ondemand.com/#/home/welcome) 조종석에서 사용자 홈으로 이동하십시오. Start Cloud Foundry Trial 버튼이 표시 됩니다.
+1. 그런 다음 [SAP Cloud Platform cockpit](https://account.hana.ondemand.com/#/home/welcome) 조종석에서 사용자 홈으로 이동하십시오. *Start Cloud Foundry Trial 버튼이 표시 됩니다.
 <br><br>
 ![Start Cloud Foundry Trial](/img/start_cf_trial.png?raw=true)
 <br><br>
