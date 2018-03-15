@@ -10,7 +10,7 @@
 
 2. `cf push`를 사용해 응용 프로그램을 사용하여 올리기
 
-3. 모든 들어오는 요청이 새 응용 프로그램 버전 (green)으로 이동하도록 라우터를 전환하십시오. 명령을 사용하여 녹색 애플리케이션에 대한 원래 URL 경로를 입력하십시오.
+3. 모든 들어오는 요청이 새 응용 프로그램 버전 (green)으로 이동하도록 라우터를 전환하십시오. 명령을 사용하여 녹색 응용 프로그램에 대한 원래 URL 경로를 입력하십시오.
     ```
     cf map-route GREEN_APP_NAME DOMAIN -n BLUE_APP_HOSTNAME
     ```
@@ -20,7 +20,7 @@
     - `cfapps.us10.hana.ondemand.com` for Las Vegas
     - `cfapps.eu10.hana.ondemand.com` for Barcelona
     
-    **결과:** `cf map-route` 명령 후 Cloud Foundry 라우터는 임시 URL에 대한 트래픽을 Green 애플리케이션으로 계속 전송합니다. 몇 초 내에 Cloud Foundry 라우터는 Blue 및 Green 버전의 애플리케이션간에 원래의 생산 URL에 대한 트래픽의로드 밸런싱을 시작합니다.
+    **결과:** `cf map-route` 명령 후 Cloud Foundry 라우터는 임시 URL에 대한 트래픽을 Green 응용 프로그램으로 계속 전송합니다. 몇 초 내에 Cloud Foundry 라우터는 Blue 및 Green 버전의 응용 프로그램간에 원래의 생산 URL에 대한 트래픽의로드 밸런싱을 시작합니다.
 
 
 4. Green 버전이 예상대로 실행되는지 확인한 후 Blue 버전으로의 경로를 매핑 해제 하고 **cf unmap-route** 명령을 사용하여 Blue 버전으로의 라우팅 요청을 중지 합니다.
