@@ -10,9 +10,7 @@
 # 연습과정 설명
 ## 대상 & 로그인
 
-:bulb: **Note** (Windows) 터미널을 실행하십시오. Tips:
-	- 윈도우키 + 'R' 키 누르기
-	- 입력창에 ```cmd``` 입력후 엔터
+:bulb: **Note** (Windows) 터미널을 실행하십시오.
 
 1. CF CLI에 사용할 Cloud Foundry를 알려줘야 합니다. 이렇게 하려면 Cloud Foundry 시험판을 만든 Cloud Foundry 지역의 Cloud Controller에 API endpoint를 설정해야 합니다.
 ```
