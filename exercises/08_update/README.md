@@ -22,7 +22,7 @@ Blue-Green deploy는 Blue 및 Green이라는 두 개의 동일한 생산 환경�
 
 이 기술을 사용하면 응용 프로그램 deploy로 인한 가동 중지 시간을 줄이고 위험이 줄어 듭니다. 새 버전의 Green에서 예상치 못한 문제가 발생하면 트래픽을 Blue로 다시 라우팅하여 마지막 버전으로 즉시 롤백 할 수 있습니다.
 
-:bulb: **Note:** 응용 프로그램에서 관계형 데이터베이스를 사용하는 경우 청록색 deploy는 업데이트 도중 Green 데이터베이스와 Blue 데이터베이스간에 불일치가 발생할 수 있습니다. 데이터 무결성을 최대화하려면 역방향 및 정방향 호환성을 위해 단일 데이터베이스를 구성하십시오.
+:bulb: **Note:** 응용 프로그램에서 관계형 데이터베이스를 사용하는 경우 blue-green deployment는 업데이트 도중 Green 데이터베이스와 Blue 데이터베이스간에 불일치가 발생할 수 있습니다. 데이터 무결성을 최대화하려면 역방향 및 정방향 호환성을 위해 단일 데이터베이스를 구성하십시오.
 
 ### 실전
 
@@ -51,7 +51,7 @@ cf unmap-route Blue_APP_NAME DOMAIN -n HOSTNAME
 
 Green 버전의 임시 경로를 제거하려면 cf unmap-route를 사용할 수 있습니다. cf delete-route를 사용하여 경로를 삭제하거나 나중에 사용할 수 있도록 예약 할 수 있습니다. Blue을 폐기하거나 변경 사항을 롤백해야 할 경우를 대비하여 유지할 수도 있습니다.
 
-## MTA 및 자동화 Blue-Green deploy
+## MTA 및 자동화 Blue-Green deployment
 
 다음 연습을 계속 진행하려면 제한된 리소스가 있으므로 모든 응용 프로그램 및 서비스 인스턴스를 삭제하여 평가판 계정을 정리해야합니다.
 
@@ -120,7 +120,7 @@ MTAR을 deploy하려면 MTA CF CLI 플러그인이 필요합니다. MTA CF CLI �
 	```
 ```cf apps``` 명령어로 응용 프로그램이 실행되고 있는지 확인할 수 있습니다.
 
-### 자동화 Blue-Green deploy
+### 자동화 Blue-Green deployment
 응용 프로그램을 요청하십시오 - 이제 Green Products 제목 버전이 실행 중입니다.
 
 업데이트에 대한 변경 준비 - 업데이트로 새 버전의 응용 프로그램을 쉽게 알 수 있도록 index.html을 다시 변경해 보겠습니다. Eclipse 에서 **index.html** 파일을 열고 제품 목록 페이지가 작성된 원시를 찾고 제품에서 Green 제품으로 제목을 변경하십시오.
