@@ -24,16 +24,16 @@
 ![Select Trial Region](/img/select_trial_region.png?raw=true)
 <br><br>
 
-3. 절차가 끝날 때까지 기다리십시오. 선택한 지역에서 글로벌 계정, 서브 계정, 조직 및 SPACE를 받게됩니다. 생성이 완료되면 새로운 SPACE로 이동할 수 있습니다 (Go to Space 버튼 클릭)
+3. 절차가 끝날 때까지 기다리십시오. 선택한 지역에서 글로벌 계정, 서브 계정, 조직 및 Space를 받게됩니다. 생성이 완료되면 새로운 Space로 이동할 수 있습니다 (Go to Space 버튼 클릭)
 <br><br>
-![Select Trial Region](/img/go_to_space.png?raw=true)
+![Select Trial Region](/img/go_to_Space.png?raw=true)
 <br><br>
 
-:bulb: **Note:** Cloud Foundry 환경 평가판을 이미 시작한 경우 Cloud Foundry Trial 시작 버튼 이 표시되지 않습니다 . 이 경우 Go to Cloud Foundry Trial 버튼을 클릭하면 됩니다.
+:bulb: **Note:** Cloud Foundry 환경 평가판을 이미 시작한 경우 Start Cloud Foundry Trial 버튼 이 표시되지 않습니다 . 이 경우 Go to Cloud Foundry Trial 버튼을 클릭하면 됩니다.
 <br><br>
 ![GO to trial](/img/go_to_trial_button.png?raw=true)
 <br><br>
-이제 당신의 Cloud Foundry 평가판 SPACE가 생겼습니다.
+이제 당신의 Cloud Foundry 평가판 Space가 생겼습니다.
 
 ## 조종석
 이것은 Cloud Foundry Environment에 있는 도메인 모델의 단순화 된 그림입니다. 다른 엔티티에 대해 더 자세히 알고 싶으면 [문서](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/8ed4a705efa0431b910056c0acdbf377.html)를 확인하십시오.
