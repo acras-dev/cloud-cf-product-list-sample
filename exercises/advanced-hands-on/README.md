@@ -23,10 +23,10 @@ Product List 응용 프로그램에 보안을 설정하고 OAuth 2.0 클라이�
 
 클라우드 커넥터 및 연결 서비스를 사용하여 사내 구축 형 백엔드 시스템 연결 에서 데이터 검색합니다.
 
-:five: **(Optional) [스케일](../07_scale)**
+:five: **[(Optional) 스케일 조정](../07_scale)**
 
-SAP Cloud Platform Cloud Foundry Environment에서 제공되는 다양한 애플리케이션 확장 옵션을 살펴보십시오.
+SAP Cloud Platform Cloud Foundry Environment에서 제공되는 다양한 응용 프로그램 확장 옵션을 살펴보십시오.
 
-:six: **(Optional) [업데이트](../08_update)**
+:six: **[(Optional) 업데이트](../08_update)**
 
 응용 프로그램의 업데이트를 위해 CF-CLI 명령을 사용하여 수동으로 Blue-green 배포를 적용한 다음 MTA를 작성하고 MTA 플러그인 자동 Blue-Green 배포를 사용합니다.
