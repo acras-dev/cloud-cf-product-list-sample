@@ -300,7 +300,7 @@ applications:
     - xsuaa
 ```
 
-* `cf push` 명령어로 approuter를 추가한 응용프로그램 [올리기](https://github.com/SAP/cloud-cf-product-list-sample/tree/master/exercises/04_push)
+* `cf push` 명령어로 approuter를 추가한 응용프로그램 [올리기](../04_push)
 
 ### 6 단계 : Trust configuration
 
