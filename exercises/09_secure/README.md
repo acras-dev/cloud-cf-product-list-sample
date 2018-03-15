@@ -13,21 +13,21 @@ SAP Cloud Platform에 배포 된 마이크로 서비스는 제한없이 접근�
 ## Steps overview
 AP Cloud Platform에서 OAuth 2.O를 사용하여 샘플 응용 프로그램을 보호하려면 다음 단계가 필요합니다.
 
-* 1 단계 : 응용 프로그램 보안 설명자 정의
+* 1 단계 : Application Security Descriptor의 정의
 * 2 단계 : XS UAA 서비스 생성 및 구성
 * 3 단계 : 필수 보안 라이브러리 추가
 * 4 단계 : Spring Security 프레임 워크의 설정
-* 5 단계 : XS 고급 응용 프로그램 라우터 추가
-* 6 단계 : 신뢰 구성
+* 5 단계 : XS Advanced Application Router
+* 6 단계 : Trust configuration
 
 :warning: 아직 샘플 응용 프로그램이 준비되지 않았다면 아래 url을 참고해 Eclipse에 가져 오십시오.
 ```(https://github.com/SAP/cloud-cf-product-list-sample/tree/master/exercises/11_clonebranch)```
 
-### 1 단계 : 응용 프로그램 보안 설명자 정의
+### 1 단계 : Application Security Descriptor의 정의
 
 **이 단계는 master branch에서 작업하는 경우에만 필수입니다. advanced branch인 경우 원리만 이해하고 아무 것도 변경할 필요가 없습니다.**
 
-응용 프로그램 보안 설명자는 샘플 응용 프로그램에 액세스하는 데 사용할 인증 방법 및 권한 유형의 세부 정보를 정의합니다. 샘플 응용 프로그램은 이 정보를 사용하여 범위 검사를 수행합니다. 범위를 사용하면 세밀한 사용자 권한을 얻을 수 있습니다. Spring Security는 모든 HTTP 엔드포인트에서 각 HTTP 메소드의 범위를 확인할 수 있습니다. 범위는 [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) which in turn are issued by the [XS UAA Service](https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/1.0.12/en-US/17acf1ac0cf84487a3199c51b28feafd.html)에 의해 전달되며, 이 토큰은 차례로 XS UAA 서비스에서 발행됩니다.
+Application Security Descriptor는 샘플 응용 프로그램에 액세스하는 데 사용할 인증 방법 및 권한 유형의 세부 정보를 정의합니다. 샘플 응용 프로그램은 이 정보를 사용하여 범위 검사를 수행합니다. 범위를 사용하면 세밀한 사용자 권한을 얻을 수 있습니다. Spring Security는 모든 HTTP 엔드포인트에서 각 HTTP 메소드의 범위를 확인할 수 있습니다. 범위는 [JSON Web Tokens (JWTs)](https://tools.ietf.org/html/rfc7519) which in turn are issued by the [XS UAA Service](https://help.sap.com/viewer/4505d0bdaf4948449b7f7379d24d0f0d/1.0.12/en-US/17acf1ac0cf84487a3199c51b28feafd.html)에 의해 전달되며, 이 토큰은 차례로 XS UAA 서비스에서 발행됩니다.
 
 * `src/main/security/` 안에 `xs-security.json` 파일을 생성합니다.
 * 아래 JSON content를 복사/붙여넣기 합니다.
@@ -222,9 +222,9 @@ public class ConfigSecurity extends ResourceServerConfigurerAdapter {
 * `product-list` 오른쪽클릭하고 `Run As -> Spring Boot App`
 * http://localhost:8080/health 접근
 
-### 5 단계 : XS 고급 응용 프로그램 라우터 추가
+### 5 단계 : XS Advanced Application Router
 
-**master branch & advanced branch 모두 필수입니다. advanced branch 경우 'npm install'단계만 실행해야 합니다. 동작원리를 좀더 이해하고자 여전히 살펴볼 필요는 있습니다.**
+**master branch & advanced branch 모두 필수입니다. advanced branch 경우 'npm install'단계만 실행해야 합니다. 동작원리를 좀더 이해하고자 여전히 살펴볼 필요가 있습니다.**
 
 [XS Advanced Application Router](https://github.com/acras-dev/cloud-cf-product-list-sample/tree/advanced/src/main/approuter/README.md)는 여러 가지 응용 프로그램 (microservices)로 구성된 비즈니스 애플리케이션에 대한 single entry point을 제공하는 데 사용됩니다. 백엔드 마이크로 서비스에 대한 요청을 디스패치하고 역방향 프록시 역할을 합니다. 어떤 요청을 _destinations_로 전달해야 하는지를 결정하는 규칙을 _routes_ 라고 합니다. application router는 사용자를 인증하고 사용자 정보를 전파하도록 구성 할 수 있으며 static content를 제공 할 수 있습니다.
 
