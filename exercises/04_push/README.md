@@ -90,7 +90,7 @@ cf push
 <br><br>
 ![GO to trial](/img/go_to_trial_button.png?raw=true)
 <br><br>
-- Global Account -> subaccount(일반적으로 trial) -> 왼쪽 메뉴에서 Spaces 클릭 -> 만들어져 있는 Space 클릭(일반적으로 dev)
+- Global Account -> subaccount(일반적으로 trial) -> 왼쪽 메뉴에서 Space 클릭 -> 만들어져 있는 Space 클릭(일반적으로 dev)
 <br><br>
 ![GO to space](/img/cockpit_CF_space_org.png?raw=true)
 <br><br>
@@ -98,7 +98,7 @@ cf push
 <br><br>
 ![Running applications in cockpit](/img/running_app_cockpit.png?raw=true)
 <br><br>
-전용 애플리케이션 보기가 열리며 애플리케이션 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 애플리케이션을 볼 수 있습니다.
+전용 응용 프로그램 보기가 열리며 응용 프로그램 경로가 표시됩니다. URL을 클릭하면 브라우저에서 실행중인 응용 프로그램을 볼 수 있습니다.
 <br><br>
 ![Application Routes](/img/application_routes_cockpit.png?raw=true)
 <br><br>
