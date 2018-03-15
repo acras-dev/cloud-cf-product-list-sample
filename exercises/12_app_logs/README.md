@@ -57,6 +57,7 @@ private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 * 그런데 응용 프로그램 로그의 msg 필드가 이상하게 보입니다.
   
   * Correlation Id가 빈값으로 보입니다.
+  
   * 따라서 어떤 응용 프로그램 로그가 어떤 요청에 속해 있는지 알기가 어렵습니다. 
   <br><br>
   ![Kibana Message](/img/kibana_msg_no_correlationid.png?raw=tru)
