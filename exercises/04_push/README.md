@@ -1,4 +1,4 @@
-Space#연습과정 03: 응용 프로그램을 SAP Cloud Platform Cloud Foundry Environment로 올리기
+# 연습과정 03: 응용 프로그램을 SAP Cloud Platform Cloud Foundry Environment로 올리기
 
 ## 예상 시간
 
