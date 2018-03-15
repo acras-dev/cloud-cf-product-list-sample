@@ -1,68 +1,67 @@
-# Integrate with Application Logging service
+# 응용 프로그램 로깅 서비스와 통합
 
-## Estimated time
+## 예상 시간
 
-:clock4: 15 minutes
+:clock4: 15 분
 
-## Objective
+## 목표
 
-In this exercise you'll learn how the application integrates with the SAP Cloud Platform Application Logging service and how to visualize the application logs in Kibana dashboards together with the Cloud Foundry components logs.
-
-
-# Exercise description
+이 연습에서는 응용 프로그램이 SAP Cloud Platform 응용 프로그램 로깅 서비스와 통합되는 방법과 Kobana 대시 보드의 응용 프로그램 로그를 Cloud Foundry 구성 요소 로그와 함께 시각화하는 방법을 배우게됩니다.
 
 
-## Logging
-First we will have a look at the source code of the application. It already uses the SAP library - Logging Support for Cloud Foundry: https://github.com/SAP/cf-java-logging-support
-The pom.xml has the required dependencies declared, configuration (logback.xml) and implementation (ConfigLogging) is available.
+# 연습과정 설명
 
-* Open Eclipse and go to the class  `Controller.java` in my-product-list application"
-  - There us a `Logger` object inside the class:
+
+## 로깅
+먼저 응용 프로그램의 소스 코드를 살펴 보겠습니다. 이미 SAP 라이브러리(Cloud Foundry에 대한 로깅 지원 : https://github.com/SAP/cf-java-logging-support) 사용됩니다. pom.xml에는 필요한 종속성이 선언되고, 구성 (logback.xml) 및 구현 (ConfigLogging ) 사용할 수 있습니다.
+
+* 이클립스 실행후 my-product-list 응용 프로그램의 클래스 `Controller.java`를 엽니다.
+  - 클래스 내부에 `Logger` 가 있습니다.
 ```java
 private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 ```
 
-  - The method `getProductByName` writes the following log entries:
+  - 메소드 `getProductByName` 다음 로그 항목을 씁니다.
   ```java
   logger.info("***First - Retrieving details for '{}'.", name);
   logger.info("***Second - Retrieving details for '{}'.", name);
   ```
-* The application-logs service is already created and bound to the product-list.
-* Before generating logs change the logback.xml file.
-* In Eclipse open **logback.xml**. Change `<appender-ref ref="STDOUT-JSON" />` to `<appender-ref ref="STDOUT" />`
-* In Eclipse build the project - Right click on the project -> Run As... -> Maven Build
-* Go into the root folder of the application via command line and push it with `cf push product-list`
+* 응용 프로그램 로그 서비스는 이미 생성되어 product-list에 바인딩되어 있습니다.
+* 로그를 생성하기 전에 logback.xml 파일을 변경하십시오.
+* 이클립스에서 logback.xml을 열고 `<appender-ref ref="STDOUT-JSON" />`에서 `<appender-ref ref="STDOUT" />`로 변경하십시오.
+* 이클립스에서 - 해당 project 오른쪽 클릭 -> Run As... -> Maven Build
+* 터미널에서 응용 프로그램의 루트폴더로 이동한 다음 `cf push product-list` 입력
 <br><br>
 
-## Generate logs
-* To generate logs it is sufficient to request the application via the URL.
+## 로그 생성
+* 로그를 생성하려면 URL을 통해 응용 프로그램을 요청하는것으로 충분합니다.
 ![Application Routes](/img/application_routes_cockpit.png?raw=true)
 <br><br>
-* To generate application logs request in browser the relative path:
+* 브라우저에서 응용 프로그램 로그 요청을 생성할때는 아래 상대 경로를 참고하십시오.
 `YOUR_APPLICATION_URL/productsByParam?name=Notebook Basic 15`
-* In cockpit navigate to Logs for my-product-list application (click on Logs tab in the left hand navigation panel). Then click on **Open Log Analysis** link like shown below:
+* 조종실에서 내 product-list 응용 프로그램에 대한 로그를 탐색합니다 (왼쪽 탐색 패널의 Logs 탭 클릭). 다음 아래와 같이 **Open Log Analysis** 링크를 클릭하십시오.
 <br><br>
 ![Application Log Analysis](/img/cockpit_open_log_analysis.png?raw=true)
 <br><br>
-* This should lead to opening in the browser the following URL (for applications running on EU10 region, the URL is with eu10 instead of us10): https://logs.cf.us10.hana.ondemand.com
-* Login with the e-mail and password you used for cockpit and with which you created the trial account.
-* Select the product-list app in Kibana
+* 브라우저에서 다음 URL을 열어야합니다 (EU10 지역에서 실행되는 응용 프로그램의 경우 URL은 us10 대신 eu10입니다). https://logs.cf.us10.hana.ondemand.com
+* 조종석에 사용하고 평가판 계정을 만든 전자 메일 및 암호로 로그인하십시오.
+* Kibana의 product-list 앱 선택
 <br><br>
 ![Kibana select app](/img/kibana_product_list_app.png?raw=true)
 <br><br>
-* `<Press>` Requests and Logs
+* `<Press>` 요청 및 로그
 <br><br>
 ![Kibana requests and logs](/img/kibana_requests_logs.png?raw=true)
 <br><br>
-* Show Requests and Application Logs
-* The msg field in Application logs looks strange
-  * Show that they are unrelated - application logs do not have a Correlation Id
-  * That makes it hard to know which application log belongs to which request
+* 요청 및 응용 프로그램 로그 표시됩니다.
+* 응용 프로그램 로그의 msg 필드가 이상하게 보입니다.
+  * 관련이 없다는 것을 보여줍니다. 애플리케이션 로그에는 상관 ID가 없습니다.
+  * 따라서 어떤 응용 프로그램 로그가 어떤 요청에 속해 있는지 알기가 어렵습니다. 
   <br><br>
   ![Kibana Message](/img/kibana_msg_no_correlationid.png?raw=tru)
   <br><br>
 
-:bulb:**Note:** In case you don't see logs in Kibana it may be as by default you see the logs from the last 15 minutes. You can change this interval - on the right top corner:
+:bulb:**Note:** 경우에 따라 Kibana에 로그가 표시되지 않을 수있습니다. 기본적으로 지난 15 분간의 로그만 볼 수 있기 때문입니다. 오른쪽 상단 모서리에서이 간격을 변경할 수 있습니다. 
 <br><br>
 ![Kibana recent logs](/img/kibana_recent_logs.png?raw=true)
 <br><br>
