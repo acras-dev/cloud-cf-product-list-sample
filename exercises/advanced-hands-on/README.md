@@ -31,4 +31,4 @@ SAP Cloud Platform Cloud Foundry Environment에서 제공되는 다양한 응용
 
 :six: **[(Optional) 업데이트](../08_update)**
 
-응용 프로그램의 업데이트를 위해 CF-CLI 명령을 사용하여 수동으로 Blue-green deployment를 적용한 다음 MTA를 작성하고 MTA 플러그인 자동 Blue-Green 배포를 사용합니다.
+응용 프로그램의 업데이트를 위해 CF-CLI 명령을 사용하여 수동으로 Blue-green deployment를 적용한 다음 MTA를 작성하고 MTA 플러그인 자동 Blue-green deployment를 사용합니다.
