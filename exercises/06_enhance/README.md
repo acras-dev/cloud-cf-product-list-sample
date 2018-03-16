@@ -16,7 +16,7 @@
 이제 응용 프로그램 로그가 응용 프로그램 로깅에 통합되고 시각화하고 쿼리를 수행하는 데 사용할 수있는 키바나 대시 보드에 표시되도록 샘플 제품 목록 응용 프로그램을 약간 개선했습니다. 이 통합을 위해 응용 프로그램의 소스 코드를 조금 수정해야합니다.
 
 * Eclipse에서 `Controller.java` 클래스를 엽니다.
-  - 클래스안에 `Logger` object를 생성합니다.
+  - 클래스안에 `Logger` object를 생성합니다.
 ```java
 private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 ```
