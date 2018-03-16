@@ -4,7 +4,7 @@
 이 튜토리얼에서는 다음 작업을 수행하는 방법을 보여줍니다.
 * SAP Cloud Platform Cloud Foundry Environment 평가판 계정에 접근하는 방법
 * 백업 서비스와 같은 Cloud Foundry의 기본 개념을 사용하여 응용 프로그램을 처음부터 개발하고 추가 기능으로 향상시키는 방법
-* SAP Cloud Platform 조종석 및 CF Foundstone CLI (Cloud Foundry Command Line Interface)를 사용하여 Cloud Foundry 평가판 계정 및 응용 프로그램과 연동하는 방법
+* SAP Cloud Platform 조종석 및 Cloud Foundry Command Line Interface (CF CLI)를 사용하여 Cloud Foundry 평가판 계정 및 응용 프로그램과 연동하는 방법
 * Spring과 Spring Boot와 같은 응용 프로그램 프레임 워크를 사용하여 응용 프로그램을 효율적으로 개발하는 방법
 * 응용 프로그램을 모니터링, 확장 및 업데이트하는 방법
 
