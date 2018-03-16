@@ -1,22 +1,22 @@
-# Enhance the application - integrate with Application Logging service
+# 응용 프로그램 향상 - 응용 프로그램 로깅 서비스와 통합
 
-## Estimated time
+## 예상 시간
 
-:clock4: 15 minutes
+:clock4: 15 분
 
-## Objective
+## 목표
 
-In this exercise you'll learn how you can enhance the application integrating with the SAP Cloud Platform Application Logging service and visualize the application logs in Kibana dashboards together with the Cloud Foundry components logs.
+이 과정에서는 SAP Cloud Platform 응용 프로그램 로깅 서비스와 통합되는 응용 프로그램을 향상시키고 Kobana 대시 보드의 응용 프로그램 로그를 Cloud Foundry 구성 요소 로그와 함께 시각화하는 방법을 학습합니다.
 
 
-# Exercise description
+# 연습과정 설명
 
 
 ## Logging
-We will now enhance a bit the sample product list application so that the application logs are integrated in the Application Logging and visible in the Kibana dashboards you can use to visualize them, perform queries, etc. We will need to modify a bit the source code of the application for this integration.
+이제 응용 프로그램 로그가 응용 프로그램 로깅에 통합되고 시각화하고 쿼리를 수행하는 데 사용할 수있는 키바나 대시 보드에 표시되도록 샘플 제품 목록 응용 프로그램을 약간 개선했습니다. 이 통합을 위해 응용 프로그램의 소스 코드를 조금 수정해야합니다.
 
-* Open Eclipse andgo to the class  `Controller.java` in my-product-list application that we created together so far"
-  - Create `Logger` object inside the class:
+* Eclipse에서 `Controller.java` 클래스를 엽니다.
+  - 클래스안에 `Logger` object를 생성합니다.
 ```java
 private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 ```
