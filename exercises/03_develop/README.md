@@ -6,40 +6,42 @@
 
 ## 목표
 
-이 과정에서는 샘플 Product List 응용 프로그램을 개발하는 방법을 배웁니다.
+이 연습에서는 샘플 Product List 응용 프로그램을 개발하는 방법을 배웁니다.
 
 # 연습과정 설명
 
-이 문서는 샘플 응용 프로그램의 원본을 복제해 이클립스에서 가져 왔으며 연습 중에 예상대로 작동하지 않는 경우 참조 용도로 사용할 수 있습니다. 샘플 Product List 애플리케이션 개발을 시작하겠습니다. 초기 개발단계부터 SAP Cloud Platform Cloud Foundry Environment에서 평가판 계정으로 응용 프로그램을 밀어 넣고, 애플리케이션을 관찰하고, 개선 할 수있는 옵션을 탐색하고 다른 서비스를 사용해 향상시키고자 합니다.
+이 프로젝트에서 개발해야하는 샘플 Product List 응용 프로그램의 원본을 복제해 이클립스에서 가져 왔으며 연습 중에 예상대로 작동하지 않는 경우 참조 용으로 사용할 수 있습니다. 목표는 처음 개발을 시작해 SAP Cloud Platform Cloud Foundry Environment에서 평가판 계정으로 애플리케이션을 올리고 응용 프로그램을 관찰할 수 있는 옵션을 검토하고 다른 서비스를 사용해 향상 시키고자 합니다.
 
-## Spring Boot Starter Project 시작하기
+*번역이 오히려 실습에 방해되어 번역하지 않았습니다.*
+ 
+## Create a Spring Boot Starter Project
 
 - Eclipse -> File -> New -> Project -> Spring Boot -> Spring Starter Project
 <br><br>
 ![Create Spring Starter Project](/img/spring_project_eclipse.png?raw=true)
 <br><br>
-- **Next** 버튼을 클릭하십시오.
-- 다음 페이지에서 프로젝트 이름 (예 : my-product-list)을 입력하고 **Next** 버튼을 클릭하십시오.
+- Click **Next** button
+- On the next page fill in a name for the project e.g. my-product-list and click **Next** button
 <br><br>
 ![Spring Starter Project Menu](/img/spring_project_eclipse_name.png?raw=true)
 <br><br>
-- 이제 프로젝트 종속성을 선택해야합니다. 프로젝트의 선택된 종속성 목록에서 Actuator (Ops group), H2 (SQL group), JPA (SQL group), DevTools (Core group)를 선택합니다. 종속성 목록을 선택하면 아래 스크린 샷과 유사합니다. 마침 버튼을 클릭 하고 프로젝트가 생성 될 때까지 잠시 기다립니다.
+- Now you have to choose some Project Dependencies. In the search field type each dependency and select the check box in front of it to include it in the list of selected dependencies for the project: Actuator (Ops group), H2 (SQL group), JPA (SQL group), DevTools (Core group). You selected dependencies list should look like the screenshot below. Click **Finish** button and wait a minute until the project is created
 <br><br>
 ![Dependencies](/img/spring_project_eclipse_dependencies.png?raw=true)
 <br><br>
-- 이제 프로젝트 탐색기에서 볼 수 있습니다.
+- You should now see it in the Project Explorer.
 <br><br>
 ![Project Explorer my product list](/img/spring_project_explorer.png?raw=true)
 <br><br>
-- 프로젝트 빌드 - 프로젝트 탐색기에서 마우스 오른쪽 버튼을 클릭하고 Run As -> Maven Build...를 선택하고 Goal에 *clean install*를 입력합니다.
-
+- Build the project - right click in Project Explorer and select Run As -> Maven Build... and enter Goal *clean install*.
 <br><br>
 ![Project Explorer my product list](/img/run_maven_build.png?raw=true)
 <br><br>
+Now we can continue with the application development steps.
 
 ## Product
-- ```com.example.demo``` 패키지 마우스오른쪽 클릭 --> new Class -> ```package com.example.demo```안에 **class Product**를 생성합니다. 샘플 응용 프로그램 구현을 위해 이 패키지 만 사용합니다.
-- ```@Entity``` 주석을 달고(`Product.java` 마우스오른쪽 클릭 -> Source -> Organize imports -> `javax.persistence.Entity`) to indicate that this is a JPA Entity.  For lack of a @Table annotation, it is assumed that this entity will be mapped to a table named Product.
+- Right click on ```com.example.demo``` package --> new Class -> Create **class Product** in ```package com.example.demo```. We will use only this package for the sample application implementation.
+- Annotate the class with ```@Entity``` (Right click on `Product.java` -> Source -> Organize imports -> `javax.persistence.Entity`) to indicate that this is a JPA Entity.  For lack of a @Table annotation, it is assumed that this entity will be mapped to a table named Product.
 - Add the following **list of fields** for the Product. Annotate the id field with ```@Id and @GeneratedValue``` (Organize imports -> `javax.persistence.Id`, `javax.persistence.GeneratedValue`)
 @Id specifies the primary key so that JPA will recognize it as the object’s id. The id property is also annotated with @GeneratedValue to indicate that the id (primary key) should be generated automatically. The other properties are left unannotated. It is assumed that they’ll be mapped to columns that share the same name as the properties themselves.
   ```java
