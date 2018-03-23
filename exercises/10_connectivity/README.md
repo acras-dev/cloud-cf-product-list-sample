@@ -64,7 +64,7 @@ https://www.sap.com/developer/tutorials/hcp-cloud-connector-setup.html
 * 클라우드 커넥터 UI로 이동하여 "Add Subaccount" 버튼을 클릭하십시오.
 
 	![Add Subaccount](/img/connectivity_addsubaccount.png?raw=true)
-* Region Host: cf.us10.hana.ondemand.com. Subaccount Name: 위에서 클립보드에 복사한 ID. 평가판 하위 계정 및 비밀번호를 만드는 데 사용 된 이메일 주소를 입력. description과 display name을 당신 편한데로 입력 할 수 있습니다.
+* Region Host는 cf.us10.hana.ondemand.com이며 Subaccount Name은 위에서 클립보드에 복사한 ID입니다. 평가판 하위 계정 및 비밀번호를 만드는 데 사용 된 이메일 주소를 입력합니다. description과 display name은 당신이 편한데로 입력합니다.
 
 	![Subaccount Information](/img/connectivity_subaccountinfo.png?raw=true)
 * 모든 구성이 성공적으로 완료되면 클라우드 커넥터가 "Connected status" 메세지를 보여줍니다.
