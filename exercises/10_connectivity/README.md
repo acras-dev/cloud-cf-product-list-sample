@@ -75,7 +75,7 @@ https://www.sap.com/developer/tutorials/hcp-cloud-connector-setup.html
 * 클라우드 커넥터 UI에서, "Cloud To On-Premise" -> "Access Control" 이동해 add mapping 클릭
 
 	![Add Mapping](/img/connectivity_addaccess.png?raw=true)
-* backend type 선택 "Non SAP System" -> Protocol "HTTP" -> Internal host "localhost", Internal port "10080" -> Virtual host는 "**mybackend**"가 될 수 있고 port 10080 를 유지할 수 있음 -> Principal propagation type "None" -> Finish;
+* backend type "Non SAP System" -> Protocol "HTTP" -> Internal host "localhost", Internal port "10080" -> Virtual host can be "mybackend" and you can keep the port 10080 -> Principal propagation type "None" -> Finish;
 * */images* 폴더와 모든 컨텐츠를 노출하십시오.
 	* virtual mapping에 new resource를 추가합시오.
 
