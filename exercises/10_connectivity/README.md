@@ -266,7 +266,7 @@ https://www.sap.com/developer/tutorials/hcp-cloud-connector-setup.html
 	}
 ```		
 
-:bulb: **Note:** **Application.java**를 보면 아이콘의 URL이 컨트롤러에 매핑 한 패턴과 일치 함을 알 수 있습니다 (예 : *"images/HT-1000.jpg"*) . 즉, 목록 항목이로드 될 때 아이콘이 사내 구축 형 시스템에서 검색됩니다.
+:bulb: **Note:** **Application.java**를 보면 아이콘의 URL이 컨트롤러에 매핑 한 패턴과 일치 함을 알 수 있습니다 (예 : *"images/HT-1000.jpg"*) . 즉, 목록 항목이 로드 될 때 아이콘이 온-프레미스 시스템에서 검색됩니다.
 
 ## 연결 서비스 인스턴스 만들기 및 응용 프로그램에 바인딩
 * LI에서 다음 명령을 실행하여 연결 서비스 인스턴스를 만듭니다.
